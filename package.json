@@ -9,9 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/react": "^1.0.0-beta.9",
+    "formik": "^2.2.9",
+    "js-cookie": "^3.0.1",
     "next": "12.2.4",
+    "next-cookies": "^2.0.3",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-animated-slider": "^2.0.0",
+    "react-dom": "18.2.0",
+    "react-photo-album": "^1.16.1",
+    "styled-components": "^5.3.5",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "eslint": "8.21.0",
