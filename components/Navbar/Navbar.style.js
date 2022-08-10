@@ -22,11 +22,22 @@ const NavbarWrapper = styled.nav`
 `;
 
 export const LogoArea = styled.div`
+    display: flex;
+    align-items: center;
 
+    > a {
+        margin-right: 27px;
+    }
+
+    &>svg {
+        fill: red;
+        color: white;
+    }
 `;
 
 export const MenuArea = styled.div`
-
+    display: flex;
+    align-items: center;
 `;
 
 export const AvatarWrapper = styled.div`

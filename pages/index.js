@@ -28,7 +28,7 @@ export default function Home() {
         Ouvrir la modale
       </Button>
       <Spacer />
-      <Card isHoverable isPressable css={{ w: "100%", h: "400px" }}>
+      <Card isHoverable isPressable css={{ w: "50%", h: "400px" }}>
         <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
           <Col>
             <Text size={12} weight="bold" transform="uppercase" color="#9E9E9E">
