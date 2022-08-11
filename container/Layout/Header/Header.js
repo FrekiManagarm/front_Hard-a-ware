@@ -25,7 +25,7 @@ const Header = ({ isLoggedIn, user }) => {
     return (
         <Sticky>
         <Grid.Container>
-            <Grid xs={6} justify="space-around" css={{ padding: "$1" }}>
+            <Grid xs={6} justify="space-around" css={{ padding: "$7" }}>
                 <Link href="/">
                     <a>
                     <Image
