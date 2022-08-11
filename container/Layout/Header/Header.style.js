@@ -1,5 +1,27 @@
 import styled from "styled-components";
 
+export const Navbar = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    min-height: 62px;
+    padding: 1rem;
+`;
+
+export const NavbarLeftSide = styled.div`
+
+`;
+
+export const NavbarRightSide = styled.div`
+    display: flex;
+
+    .woLogIn {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+`;
+
 const HeaderWrapper = styled.div`
     width: 100%;
 
