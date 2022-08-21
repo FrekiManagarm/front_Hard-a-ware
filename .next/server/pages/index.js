@@ -19,37 +19,7 @@ exports.modules = {
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Home)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var next_themes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next-themes */ \"next-themes\");\n/* harmony import */ var next_themes__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_themes__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _nextui_org_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nextui-org/react */ \"@nextui-org/react\");\n/* harmony import */ var _nextui_org_react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nextui_org_react__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);\n\n\n\n\nfunction Home() {\n    const { setTheme  } = (0,next_themes__WEBPACK_IMPORTED_MODULE_1__.useTheme)();\n    const { isDark , type  } = (0,_nextui_org_react__WEBPACK_IMPORTED_MODULE_2__.useTheme)();\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {}, void 0, false);\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9pbmRleC5qcy5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7QUFBQTtBQUFzRDtBQUM0RDtBQUNqRjtBQUVsQixTQUFTYSxJQUFJLEdBQUc7SUFFN0IsTUFBTSxFQUFFQyxRQUFRLEdBQUUsR0FBR2IscURBQVksRUFBRTtJQUNuQyxNQUFNLEVBQUVjLE1BQU0sR0FBRUMsSUFBSSxHQUFFLEdBQUdoQiwyREFBUSxFQUFFO0lBRW5DLHFCQUNFLDZJQUVHLENBQ0o7Q0FDRiIsInNvdXJjZXMiOlsid2VicGFjazovL2hhcmRzaG9wLy4vcGFnZXMvaW5kZXguanM/YmVlNyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyB1c2VUaGVtZSBhcyB1c2VOZXh0VGhlbWUgfSBmcm9tIFwibmV4dC10aGVtZXNcIlxuaW1wb3J0IHsgQnV0dG9uLCBNb2RhbCwgU3dpdGNoLCB1c2VUaGVtZSwgVGV4dCwgSW5wdXQsIFJvdywgQ2hlY2tib3gsIENhcmQsIENvbCwgU3BhY2VyIH0gZnJvbSBcIkBuZXh0dWktb3JnL3JlYWN0XCJcbmltcG9ydCB7IHVzZVN0YXRlIH0gZnJvbSBcInJlYWN0XCI7XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIEhvbWUoKSB7XG5cbiAgY29uc3QgeyBzZXRUaGVtZSB9ID0gdXNlTmV4dFRoZW1lKCk7XG4gIGNvbnN0IHsgaXNEYXJrLCB0eXBlIH0gPSB1c2VUaGVtZSgpO1xuXG4gIHJldHVybiAoXG4gICAgPD5cbiAgICAgXG4gICAgPC8+XG4gIClcbn1cbiJdLCJuYW1lcyI6WyJ1c2VUaGVtZSIsInVzZU5leHRUaGVtZSIsIkJ1dHRvbiIsIk1vZGFsIiwiU3dpdGNoIiwiVGV4dCIsIklucHV0IiwiUm93IiwiQ2hlY2tib3giLCJDYXJkIiwiQ29sIiwiU3BhY2VyIiwidXNlU3RhdGUiLCJIb21lIiwic2V0VGhlbWUiLCJpc0RhcmsiLCJ0eXBlIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./pages/index.js\n");
-
-/***/ }),
-
-/***/ "@nextui-org/react":
-/*!************************************!*\
-  !*** external "@nextui-org/react" ***!
-  \************************************/
-/***/ ((module) => {
-
-module.exports = require("@nextui-org/react");
-
-/***/ }),
-
-/***/ "next-themes":
-/*!******************************!*\
-  !*** external "next-themes" ***!
-  \******************************/
-/***/ ((module) => {
-
-module.exports = require("next-themes");
-
-/***/ }),
-
-/***/ "react":
-/*!************************!*\
-  !*** external "react" ***!
-  \************************/
-/***/ ((module) => {
-
-module.exports = require("react");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Home)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n\nfunction Home() {\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {}, void 0, false);\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9pbmRleC5qcy5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7QUFFQTtBQUFlLFNBQVNBLElBQUksR0FBRztJQUM3QixxQkFDRSw2SUFFRyxDQUNKO0NBQ0YiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9mcm9udC8uL3BhZ2VzL2luZGV4LmpzP2JlZTciXSwic291cmNlc0NvbnRlbnQiOlsiXG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIEhvbWUoKSB7XG4gIHJldHVybiAoXG4gICAgPD5cblxuICAgIDwvPiAgXG4gIClcbn1cbiJdLCJuYW1lcyI6WyJIb21lIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./pages/index.js\n");
 
 /***/ }),
 

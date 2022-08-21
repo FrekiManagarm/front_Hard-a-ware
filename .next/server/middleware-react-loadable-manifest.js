@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST={"../container/Layout/Layout.js -> ./Footer/Footer":{"id":"../container/Layout/Layout.js -> ./Footer/Footer","files":["static/chunks/container_Layout_Footer_Footer_js.js"]},"../container/Layout/Layout.js -> ./Header/Header":{"id":"../container/Layout/Layout.js -> ./Header/Header","files":["static/chunks/container_Layout_Header_Header_js.js"]}}
+self.__REACT_LOADABLE_MANIFEST={}
