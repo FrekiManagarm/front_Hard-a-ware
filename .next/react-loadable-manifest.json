@@ -1,15 +1,14 @@
 {
   "../container/Layout/Layout.js -> ./Footer/Footer": {
-    "id": 1056,
+    "id": "../container/Layout/Layout.js -> ./Footer/Footer",
     "files": [
-      "static/chunks/56.98b16a0c5df9729c.js"
+      "static/chunks/container_Layout_Footer_Footer_js.js"
     ]
   },
   "../container/Layout/Layout.js -> ./Header/Header": {
-    "id": 6778,
+    "id": "../container/Layout/Layout.js -> ./Header/Header",
     "files": [
-      "static/chunks/127.3d00ac29395bee9b.js",
-      "static/chunks/778.a77ea67cb15319b7.js"
+      "static/chunks/container_Layout_Header_Header_js.js"
     ]
   }
 }
