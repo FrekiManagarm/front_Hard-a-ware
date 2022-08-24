@@ -3,7 +3,6 @@ import { MAIN_COLOR } from "../../../settings/constants";
 
 export const Navbar = styled.nav`
     z-index: 1;
-    position: relative;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -60,8 +59,9 @@ export const Avatar = styled.button`
 `;
 
 export const Button = styled.button`
-    padding: 10px;
+    padding: 0.5rem 1.5rem;
     margin: 0 0.5rem;
     border-radius: 2rem;
     border: none;
+    background-color: white;
 `;

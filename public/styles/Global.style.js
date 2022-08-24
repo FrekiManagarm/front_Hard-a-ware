@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Baloo Da 2', cursive;
     }
 
     .accueil {
@@ -25,12 +25,9 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .fond-curvy {
-        z-index: 0;
-        width: 100%;
         position: relative;
-        bottom: 5%;
-        display: block;
-    }
+        top: 42rem;
+    } 
 `;
 
 export default GlobalStyle;

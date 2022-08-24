@@ -107,7 +107,18 @@ eval("\nObject.defineProperty(exports, \"__esModule\", ({\n    value: true\n}));
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Home)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/image */ \"./node_modules/next/image.js\");\n/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_image__WEBPACK_IMPORTED_MODULE_1__);\n\n\nfunction Home() {\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {}, void 0, false);\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9pbmRleC5qcy5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7OztBQUFBO0FBQThCO0FBRWYsU0FBU0MsSUFBSSxHQUFHO0lBQzdCLHFCQUNFLDZJQUdHLENBQ0o7Q0FDRiIsInNvdXJjZXMiOlsid2VicGFjazovL2Zyb250Ly4vcGFnZXMvaW5kZXguanM/YmVlNyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgSW1hZ2UgZnJvbSBcIm5leHQvaW1hZ2VcIlxuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBIb21lKCkge1xuICByZXR1cm4gKFxuICAgIDw+XG4gICAgICAgIHsvKiA8SW1hZ2Ugc3JjPVwiL2Fzc2V0cy9zdmcvaG9tZV9waWN0dXJlLnN2Z1wiIGxheW91dD1cImZpbGxcIiBjbGFzc05hbWU9XCJmb25kLWN1cnZ5XCIgLz4gKi99XG4gICAgICAgIHsvKiA8SW1hZ2Ugc3JjPVwiaHR0cHM6Ly9pLmltZ3VyLmNvbS85Yk5PTjRCLmpwZ1wiIGxheW91dD1cImZpbGxcIiBjbGFzc05hbWU9XCJmb25kLWN1cnZ5XCIgLz4gKi99XG4gICAgPC8+ICBcbiAgKVxufVxuIl0sIm5hbWVzIjpbIkltYWdlIiwiSG9tZSJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./pages/index.js\n");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Home)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/image */ \"./node_modules/next/image.js\");\n/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_image__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _react_spring_parallax__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @react-spring/parallax */ \"@react-spring/parallax\");\n/* harmony import */ var _react_spring_parallax__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_react_spring_parallax__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _settings_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../settings/constants */ \"./settings/constants.js\");\n\n\n\n\nfunction Home() {\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {}, void 0, false);\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9pbmRleC5qcy5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7OztBQUFBO0FBQThCO0FBQ2tDO0FBQ2Q7QUFFbkMsU0FBU0ksSUFBSSxHQUFHO0lBQzdCLHFCQUNFLDZJQUVHLENBQ0o7Q0FDRiIsInNvdXJjZXMiOlsid2VicGFjazovL2Zyb250Ly4vcGFnZXMvaW5kZXguanM/YmVlNyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgSW1hZ2UgZnJvbSBcIm5leHQvaW1hZ2VcIlxuaW1wb3J0IHsgUGFyYWxsYXgsIFBhcmFsbGF4TGF5ZXIgfSBmcm9tICdAcmVhY3Qtc3ByaW5nL3BhcmFsbGF4J1xuaW1wb3J0IHsgTUFJTl9DT0xPUiB9IGZyb20gXCIuLi9zZXR0aW5ncy9jb25zdGFudHNcIlxuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBIb21lKCkge1xuICByZXR1cm4gKFxuICAgIDw+XG4gICAgICAgIFxuICAgIDwvPiAgXG4gIClcbn1cbiJdLCJuYW1lcyI6WyJJbWFnZSIsIlBhcmFsbGF4IiwiUGFyYWxsYXhMYXllciIsIk1BSU5fQ09MT1IiLCJIb21lIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./pages/index.js\n");
+
+/***/ }),
+
+/***/ "./settings/constants.js":
+/*!*******************************!*\
+  !*** ./settings/constants.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"MAIN_COLOR\": () => (/* binding */ MAIN_COLOR)\n/* harmony export */ });\nconst MAIN_COLOR = \"#5674AF\";\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zZXR0aW5ncy9jb25zdGFudHMuanMuanMiLCJtYXBwaW5ncyI6Ijs7OztBQUFPLE1BQU1BLFVBQVUsR0FBRyxTQUFTLENBQUMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9mcm9udC8uL3NldHRpbmdzL2NvbnN0YW50cy5qcz8zZTkxIl0sInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBjb25zdCBNQUlOX0NPTE9SID0gXCIjNTY3NEFGXCI7Il0sIm5hbWVzIjpbIk1BSU5fQ09MT1IiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./settings/constants.js\n");
 
 /***/ }),
 
@@ -118,6 +129,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 eval("module.exports = __webpack_require__(/*! ./dist/client/image */ \"./node_modules/next/dist/client/image.js\")\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9ub2RlX21vZHVsZXMvbmV4dC9pbWFnZS5qcy5qcyIsIm1hcHBpbmdzIjoiQUFBQSwyR0FBK0MiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9mcm9udC8uL25vZGVfbW9kdWxlcy9uZXh0L2ltYWdlLmpzPzA1MzUiXSwic291cmNlc0NvbnRlbnQiOlsibW9kdWxlLmV4cG9ydHMgPSByZXF1aXJlKCcuL2Rpc3QvY2xpZW50L2ltYWdlJylcbiJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./node_modules/next/image.js\n");
+
+/***/ }),
+
+/***/ "@react-spring/parallax":
+/*!*****************************************!*\
+  !*** external "@react-spring/parallax" ***!
+  \*****************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@react-spring/parallax");
 
 /***/ }),
 
