@@ -9,7 +9,7 @@ const nextConfig = {
       defaultLocale: 'fr'
   },
   images: {
-      domains: ['https://i.imgur.com', 'i.imgur.com', '*'],
+      domains: ['https://i.imgur.com', 'i.imgur.com', 'ir-fr.amazon-adsystem.com'],
   },
   swcMinify: true,
   poweredByHeader: false
