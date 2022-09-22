@@ -10,9 +10,9 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
     }
 
-    body {
+    /* body {
         font-family: 'Baloo Da 2', cursive;
-    }
+    } */
 
     .accueil {
         height: 65vh;
