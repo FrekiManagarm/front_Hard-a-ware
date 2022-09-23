@@ -13,7 +13,7 @@ const LayoutWrapper = ({ children, user, isLoggedIn }) => {
         {
             router.pathname === '/' ||
             router.pathname === '/configurator' ||
-            router.pathname === '/configurator/home' ||
+            router.pathname === '/configurator/[[...tab]]' ||
             router.pathname === '/components' ||
             router.pathname === "/components/cpu" ||
             router.pathname === "/components/cpu/[id]" ||
@@ -42,7 +42,10 @@ const LayoutWrapper = ({ children, user, isLoggedIn }) => {
                     {
                         // router.pathname === '/' ||
                         router.pathname === '/dashboard' ||
-                        router.pathname === '/configurator/home' ||
+                        router.pathname === '/configurator' ||
+                        router.pathname === '/configurator/case-step' ||
+                        router.pathname === '/configurator/cpu-step' ||
+                        router.pathname === '/configurator' ||
                         router.pathname === '/components' ||
                         router.pathname === "/components/cpu" ||
                         router.pathname === "/components/cpu/[id]" ||

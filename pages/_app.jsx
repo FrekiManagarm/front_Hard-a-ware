@@ -1,9 +1,11 @@
 import { useRouter } from "next/router";
 import AuthProvider from "../context/AuthProvider";
+import { TransitionProvider } from "../context/TransitionProvider";
 import GlobalStyle from "../public/styles/Global.style";
 import { withData } from '../helpers/restriction';
 import { DefaultSeo } from "next-seo";
 import LayoutWrapper from "../components/Layout/Layout";
+import TransitionLayout from "../components/Layout/TransitionLayout/TransitionLayout";
 
 function MyApp({ 
   Component,
@@ -19,28 +21,32 @@ function MyApp({
   const router = useRouter();
 
   return (
-    <AuthProvider>
-      <LayoutWrapper user={user} isLoggedIn={isLoggedIn}>
-        <DefaultSeo 
-          title="HARDSHOP"
-          titleTemplate="Hardshop | %s"
-          description="HARDSHOP website"
-          openGraph={{
-            type: "website",
-            locale: locale,
-            url: "https://www.Hardshop.com/",
-            site_name: "Hardshop",
-          }}
-          twitter={{
-            handle: "@handle",
-            site: "@site",
-            cardType: "summary_large_image",
-          }}
-        />
-        <GlobalStyle />
-        <Component {...pageProps} />
-      </LayoutWrapper>
-    </AuthProvider>
+    <TransitionProvider>
+      <TransitionLayout>
+        <AuthProvider>
+          <LayoutWrapper user={user} isLoggedIn={isLoggedIn}>
+            <DefaultSeo 
+              title="HARDSHOP"
+              titleTemplate="Hardshop | %s"
+              description="HARDSHOP website"
+              openGraph={{
+                type: "website",
+                locale: locale,
+                url: "https://www.Hardshop.com/",
+                site_name: "Hardshop",
+              }}
+              twitter={{
+                handle: "@handle",
+                site: "@site",
+                cardType: "summary_large_image",
+              }}
+            />
+            <GlobalStyle />
+            <Component {...pageProps} />
+          </LayoutWrapper>
+        </AuthProvider>
+      </TransitionLayout>
+    </TransitionProvider>
   )
 }
 
