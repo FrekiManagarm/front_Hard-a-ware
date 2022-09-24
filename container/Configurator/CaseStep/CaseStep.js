@@ -3,14 +3,17 @@ import { useRouter } from "next/router"
 import { CaseStepWrapper } from "./CaseStep.style"
 
 
-const CaseStep = () => {
+const CaseStep = ({ data }) => {
 
   const router = useRouter();
 
   return (
     <CaseStepWrapper>
         <button
-          onClick={() => router.push('/configurator/cpu-step')}
+          onClick={() => {
+            router.push('/configurator/cpu-step')
+
+          }}
         >
           Page suivante
         </button>
