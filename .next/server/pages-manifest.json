@@ -2,9 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/configurator/[[...tab]]": "pages/configurator/[[...tab]].js",
-  "/dashboard/[[...tab]]": "pages/dashboard/[[...tab]].js",
-  "/": "pages/index.js",
-  "/login": "pages/login.js",
-  "/registration": "pages/registration.js"
+  "/components/[[...tab]]": "pages/components/[[...tab]].js",
+  "/": "pages/index.js"
 }

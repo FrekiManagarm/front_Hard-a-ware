@@ -24,7 +24,7 @@ const Login = () => {
           <TextInput label="Email" placeholder='john.doe@gmail.com' size='md'/>
           <PasswordInput label='Mot de passe' placeholder='Votre mot de passe' mt="md" size='md'/>
           <Checkbox label="Se souvenir de moi" mt="xl" size='md' />
-          <Button fullWidth mt='xl' size='md'>
+          <Button fullWidth mt='xl' size='md' className={classes.button}>
             Connexion
           </Button>
         </Paper>
