@@ -3,9 +3,9 @@ import { PSUStepWrapper } from './PSUStep.style'
 
 const PSUStep = () => {
   return (
-    <PSUStepWrapper>
+    <>
         
-    </PSUStepWrapper>
+    </>
   )
 }
 

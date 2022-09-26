@@ -3,9 +3,9 @@ import { RAMStepWrapper } from './RAMStep.style'
 
 const RAMStep = () => {
   return (
-    <RAMStepWrapper>
+    <>
         
-    </RAMStepWrapper>
+    </>
   )
 }
 

@@ -1,10 +1,10 @@
-import { ComponentsUneWrapper } from './ComponentsUne.style'
+
 
 const ComponentsUne = () => {
   return (
-    <ComponentsUneWrapper>
+    <>
 
-    </ComponentsUneWrapper>
+    </>
   )
 }
 

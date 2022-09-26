@@ -1,11 +1,9 @@
 import { useRouter } from "next/router";
 import AuthProvider from "../context/AuthProvider";
-import { TransitionProvider } from "../context/TransitionProvider";
-import GlobalStyle from "../public/styles/Global.style";
 import { withData } from '../helpers/restriction';
 import { DefaultSeo } from "next-seo";
 import LayoutWrapper from "../components/Layout/Layout";
-import TransitionLayout from "../components/Layout/TransitionLayout/TransitionLayout";
+import { MantineProvider } from "@mantine/core";
 
 function MyApp({ 
   Component,
@@ -21,32 +19,35 @@ function MyApp({
   const router = useRouter();
 
   return (
-    <TransitionProvider>
-      <TransitionLayout>
-        <AuthProvider>
-          <LayoutWrapper user={user} isLoggedIn={isLoggedIn}>
-            <DefaultSeo 
-              title="HARDSHOP"
-              titleTemplate="Hardshop | %s"
-              description="HARDSHOP website"
-              openGraph={{
-                type: "website",
-                locale: locale,
-                url: "https://www.Hardshop.com/",
-                site_name: "Hardshop",
-              }}
-              twitter={{
-                handle: "@handle",
-                site: "@site",
-                cardType: "summary_large_image",
-              }}
-            />
-            <GlobalStyle />
-            <Component {...pageProps} />
-          </LayoutWrapper>
-        </AuthProvider>
-      </TransitionLayout>
-    </TransitionProvider>
+    <MantineProvider
+      withGlobalStyles
+      withNormalizeCSS
+      theme={{
+        colorScheme: 'light'
+      }}
+    >
+      <AuthProvider>
+        <LayoutWrapper user={user} isLoggedIn={isLoggedIn}>
+          <DefaultSeo 
+            title="HARDSHOP"
+            titleTemplate="Hardshop | %s"
+            description="HARDSHOP website"
+            openGraph={{
+              type: "website",
+              locale: locale,
+              url: "https://www.Hardshop.com/",
+              site_name: "Hardshop",
+            }}
+            twitter={{
+              handle: "@handle",
+              site: "@site",
+              cardType: "summary_large_image",
+            }}
+          />
+          <Component {...pageProps} />
+        </LayoutWrapper>
+      </AuthProvider>
+    </MantineProvider>
   )
 }
 

@@ -1,10 +1,10 @@
-import { HomeBannerWrapper } from './HomeBanner.style'
+
 
 const HomeBanner = () => {
   return (
-    <HomeBannerWrapper>
+    <>
         
-    </HomeBannerWrapper>
+    </>
   )
 }
 

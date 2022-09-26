@@ -8,16 +8,9 @@ const CaseStep = ({ data }) => {
   const router = useRouter();
 
   return (
-    <CaseStepWrapper>
-        <button
-          onClick={() => {
-            router.push('/configurator/cpu-step')
-
-          }}
-        >
-          Page suivante
-        </button>
-    </CaseStepWrapper>
+    <>
+      
+    </>
   )
 }
 

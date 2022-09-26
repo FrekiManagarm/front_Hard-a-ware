@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import Sticky from 'react-stickynode';
 import { useState } from 'react';
 import CaseStep from '../../container/Configurator/CaseStep/CaseStep';
-import { ConfiguratorWrapper } from '../../container/Configurator/Configurator.style';
 import CoolingStep from '../../container/Configurator/CoolingStep/CoolingStep';
 import CPUStep from "../../container/Configurator/CPUStep/CPUStep";
 import GPUStep from '../../container/Configurator/GPUStep/GPUStep';
@@ -15,24 +14,41 @@ import RAMStep from "../../container/Configurator/RAMStep/RAMStep";
 import SSDStep from '../../container/Configurator/SSDStep/SSDStep';
 import GetAPIData from '../../helpers/get_api_data';
 import { withData } from '../../helpers/restriction';
-import { Stepper } from 'react-form-stepper';
 
 const Configurator = ({ pageData, user, isLoggedIn }) => {
   const router = useRouter();
   const { query } = router;
-  const [activeStep, setActiveStep] = useState(1);
+  const [activeStep, setActiveStep] = useState(0);
+  const [configuration, setConfiguration] = useState({
+    cpu: null,
+    gpu: null,
+    hdd: null,
+    ssd: null,
+    mb: null,
+  });
   console.log(pageData, 'pageData')
 
   const data = {
     cpuData: pageData[0],
-    gpuData: pageData[1]
+    gpuData: pageData[1],
+    hddData: pageData[2],
+    ssdData: pageData[3],
+    coolingsData: pageData[4],
+    boitiesData: pageData[5],
+    psusData: pageData[6],
+    ramData: pageData[7],
+    mbData: pageData[8]
   }
+
+  console.log(data.cpuData)
 
   const displayCurrentStep = () => {
     console.log(query, 'pathname displayCurrentStep');
 
     if (activeStep) {
       switch (activeStep) {
+        case 0:
+          return <HomeConfigurator setActiveStep={setActiveStep} activeStep={activeStep} />
         case 1:
           return <MotherboardStep activeStep={activeStep} setActiveStep={setActiveStep} />;
         case 2:
@@ -54,47 +70,16 @@ const Configurator = ({ pageData, user, isLoggedIn }) => {
         default:
           return <Error statusCode={404} title="page non trouvé" />;
       }
-    }
-
-    if (!query.tab) {
-      return <HomeConfigurator setActiveStep={setActiveStep} activeStep={activeStep} />
+    } else {
+      return <Error statusCode={404} />
     }
   }
 
   return (
-    <ConfiguratorWrapper>
-      <div
-        style={{
-          paddingBottom: "5rem",
-          alignItems: "center",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <h1>Configurator</h1>
-        <Stepper 
-          steps={[
-            {label: "Votre utilisation"},
-            {label: "Processeur"},
-            {label: "Boitier"},
-            {label: "Carte Mère"},
-            {label: "Disque Dur"},
-            {label: "SSD"},
-            {label: "Alimentation"},
-            {label: "Mémoire Vive"}
-          ]}
-          activeStep={activeStep}
-        />
-        {displayCurrentStep()}
-      </div>
-      <div>
-        <Sticky>
-
-        </Sticky>
-      </div>
+    <>
        
         
-    </ConfiguratorWrapper>
+    </>
   )
 }
 
