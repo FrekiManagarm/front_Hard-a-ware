@@ -1,6 +1,4 @@
-import Error from 'next/error';
 import { useRouter } from 'next/router';
-import Sticky from 'react-stickynode';
 import { Stepper } from '@mantine/core';
 import { useState } from 'react';
 import CaseStep from '../../container/Configurator/CaseStep/CaseStep';
@@ -19,7 +17,7 @@ import { withData } from '../../helpers/restriction';
 const Configurator = ({ pageData, user, isLoggedIn }) => {
   const router = useRouter();
   const { query } = router;
-  const [activeStep, setActiveStep] = useState(1);
+  const [activeStep, setActiveStep] = useState(0);
   const [configuration, setConfiguration] = useState({
     cpu: null,
     gpu: null,
@@ -41,45 +39,11 @@ const Configurator = ({ pageData, user, isLoggedIn }) => {
     mbData: pageData[8]
   }
 
-  // console.log(data.cpuData)
-
-  // const displayCurrentStep = () => {
-  //   // console.log(query, 'pathname displayCurrentStep');
-
-  //   if (activeStep) {
-  //     switch (activeStep) {
-  //       case 1:
-  //         return <HomeConfigurator setActiveStep={setActiveStep} activeStep={activeStep} />
-  //       case 2:
-  //         return <MotherboardStep activeStep={activeStep} setActiveStep={setActiveStep} />;
-  //       case 3:
-  //         return <CaseStep activeStep={activeStep} setActiveStep={setActiveStep} />;
-  //       case 4:
-  //         return <GPUStep activeStep={activeStep} setActiveStep={setActiveStep} />;
-  //       case 5:
-  //         return <HDDStep activeStep={activeStep} setActiveStep={setActiveStep} />;
-  //       case 6:
-  //         return <SSDStep activeStep={activeStep} setActiveStep={setActiveStep} />;
-  //       case 7: 
-  //         return <CoolingStep activeStep={activeStep} setActiveStep={setActiveStep} />;
-  //       case 8:
-  //         return <PSUStep activeStep={activeStep} setActiveStep={setActiveStep} />;
-  //       case 9:
-  //         return <RAMStep activeStep={activeStep} setActiveStep={setActiveStep} />;
-  //       case 10:
-  //         return <CPUStep activeStep={activeStep} setActiveStep={setActiveStep} />;
-  //       default:
-  //         return <Error statusCode={404} title="page non trouvé" />;
-  //     }
-  //   } else {
-  //     return <Error statusCode={404} />
-  //   }
-  // }
-
   return (
     <div style={{
-      padding: "2rem"
+      padding: "2rem 6rem",
     }}>
+      <h1>Configurator</h1>
       <Stepper
         active={activeStep}
         iconSize={30}
@@ -87,38 +51,35 @@ const Configurator = ({ pageData, user, isLoggedIn }) => {
         breakpoint="sm"
         size="xs"
       >
-        <Stepper.Step label="Le processeur">
+        <Stepper.Step label="Utilisation">
           <HomeConfigurator activeStep={activeStep} setActiveStep={setActiveStep} />
         </Stepper.Step>
-        <Stepper.Step label="Etape 2">
-          <CPUStep activeStep={activeStep} setActiveStep={setActiveStep} />
+        <Stepper.Step label="Processeur">
+          <CPUStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.cpuData} />
         </Stepper.Step>
-        <Stepper.Step label="Etape 3">
-          <MotherboardStep activeStep={activeStep} setActiveStep={setActiveStep} />;
+        <Stepper.Step label="Carte Mère">
+          <MotherboardStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.mbData} />
         </Stepper.Step>
-        <Stepper.Step label="Quelle taille de boitier ?">
-          
+        <Stepper.Step label="Boitier" >
+          <CaseStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.boitiesData} />
         </Stepper.Step>
-        <Stepper.Step label="Etape 4" >
-          <CaseStep activeStep={activeStep} setActiveStep={setActiveStep} />;
+        <Stepper.Step label="Carte Graphique">
+          <GPUStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.gpuData} />
         </Stepper.Step>
-        <Stepper.Step label="Etape 5">
-
+        <Stepper.Step label="Disque Dur">
+          <HDDStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.hddData} />
         </Stepper.Step>
-        <Stepper.Step label="Etape 6">
-
+        <Stepper.Step label="SSD">
+          <SSDStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.ssdData} />
         </Stepper.Step>
-        <Stepper.Step label="Etape 7">
-
+        <Stepper.Step label="Le Refroidissement">
+          <CoolingStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.coolingsData} />
         </Stepper.Step>
-        <Stepper.Step label="Etape 8">
-
+        <Stepper.Step label="L'alimentation">
+          <PSUStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.psusData} />
         </Stepper.Step>
-        <Stepper.Step label="Etape 9">
-
-        </Stepper.Step>
-        <Stepper.Step label="Etape 10">
-
+        <Stepper.Step label="La mémoire Vive">
+         <RAMStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.ramData} />
         </Stepper.Step>
       </Stepper>  
     </div>

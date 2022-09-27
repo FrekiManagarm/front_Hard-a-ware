@@ -1,8 +1,12 @@
 import React from 'react'
+import useGPUTypeStepStyles from './GPUTypeStep.style'
 
 const GPUTypeStep = () => {
+
+  const { classes } = useGPUTypeStepStyles();
+
   return (
-    <div>
+    <div className={classes.wrapper}>
         
     </div>
   )

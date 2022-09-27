@@ -4,6 +4,7 @@ import { withData } from '../helpers/restriction';
 import { DefaultSeo } from "next-seo";
 import LayoutWrapper from "../components/Layout/Layout";
 import { MantineProvider } from "@mantine/core";
+import ConfigurationProvider from "../context/ConfigurationProvider";
 
 function MyApp({ 
   Component,
@@ -28,23 +29,25 @@ function MyApp({
     >
       <AuthProvider>
         <LayoutWrapper user={user} isLoggedIn={isLoggedIn}>
-          <DefaultSeo 
-            title="HARDSHOP"
-            titleTemplate="Hardshop | %s"
-            description="HARDSHOP website"
-            openGraph={{
-              type: "website",
-              locale: locale,
-              url: "https://www.Hardshop.com/",
-              site_name: "Hardshop",
-            }}
-            twitter={{
-              handle: "@handle",
-              site: "@site",
-              cardType: "summary_large_image",
-            }}
-          />
-          <Component {...pageProps} />
+          <ConfigurationProvider>
+            <DefaultSeo 
+              title="HARDSHOP"
+              titleTemplate="Hardshop | %s"
+              description="HARDSHOP website"
+              openGraph={{
+                type: "website",
+                locale: locale,
+                url: "https://www.Hardshop.com/",
+                site_name: "Hardshop",
+              }}
+              twitter={{
+                handle: "@handle",
+                site: "@site",
+                cardType: "summary_large_image",
+              }}
+            />
+            <Component {...pageProps} />
+          </ConfigurationProvider>
         </LayoutWrapper>
       </AuthProvider>
     </MantineProvider>

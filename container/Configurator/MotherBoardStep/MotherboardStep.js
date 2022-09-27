@@ -1,10 +1,16 @@
+import { Button } from "@mantine/core";
+import useMotherBoardStepStyles from "./MotherboardStep.style"
 
 
-const MotherboardStep = () => {
+const MotherboardStep = ({ activeStep, setActiveStep, data }) => {
+
+  const { classes } = useMotherBoardStepStyles();
+
   return (
-    <>
-        <h1>Etape de la Carte Mère</h1>
-    </>
+    <div className={classes.wrapper}>
+        <h3>Etape de la Carte Mère</h3>
+        <Button onClick={() => setActiveStep(activeStep + 1)}>Etape suivante</Button>
+    </div>
   )
 }
 
