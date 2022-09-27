@@ -1,15 +1,25 @@
-import { Button } from '@mantine/core';
+import { Button, SimpleGrid } from '@mantine/core';
 import React from 'react'
+import ProductCard from '../../../components/ProductCard/ProductCard';
 import useCPUStepStyles from './CPUStep.style'
 
 const CPUStep = ({ activeStep, setActiveStep, data }) => {
 
-  const { classes } = useCPUStepStyles();
+  const { classes, theme } = useCPUStepStyles();
+  console.log(data, 'data cpu')
 
   return (
     <div className={classes.wrapper}>
         <h3>Etape Processeur</h3>
-        <Button onClick={() => setActiveStep(activeStep + 1)}>Etape Suivante</Button>
+        <SimpleGrid cols={4}>
+          {data && data?.data.map((cpu) => (
+            <ProductCard title={cpu.nom} image={cpu.image} link={cpu.link} country="processeur" />
+          ))}
+        </SimpleGrid>
+        <div className={classes.buttonsWrapper}>
+          <Button className={classes.button} onClick={() => setActiveStep(activeStep - 1)} >Etape Précédente</Button>
+          <Button className={classes.button} onClick={() => setActiveStep(activeStep + 1)}>Etape Suivante</Button>
+        </div>
     </div>
   )
 }

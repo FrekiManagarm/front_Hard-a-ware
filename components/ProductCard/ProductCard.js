@@ -5,7 +5,7 @@ import {
 import { IconHeart } from '@tabler/icons'
 import useProductCardStyles from './ProductCard.style'
 
-const ProductCard = ({ image, title, description, country }) => {
+const ProductCard = ({ image, title, description, country, link }) => {
 
   const { classes, theme } = useProductCardStyles();
 
@@ -37,8 +37,8 @@ const ProductCard = ({ image, title, description, country }) => {
       </Card.Section>
 
       <Group mt="xs">
-        <Button radius="md" style={{ flex: 1 }}>
-          Show details
+        <Button component='a' href={link} radius="md" style={{ flex: 1 }}>
+          Voir plus
         </Button>
         <ActionIcon variant="default" radius="md" size={36}>
           <IconHeart size={18} className={classes.like} stroke={1.5} />

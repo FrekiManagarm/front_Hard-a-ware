@@ -39,7 +39,7 @@ const LayoutWrapper = ({ children, user, isLoggedIn }) => {
                 <>
                     <Header user={user} isLoggedIn={isLoggedIn} />
                     <Content>{children}</Content>
-                    {
+                    {/* {
                         // router.pathname === '/' ||
                         router.pathname === '/dashboard' ||
                         router.pathname === '/configurator' ||
@@ -67,7 +67,7 @@ const LayoutWrapper = ({ children, user, isLoggedIn }) => {
                         router.pathname === "/components/ssd/[id]" 
                         
                     ? (<Footer />)
-                    : null}
+                    : null} */}
                 </>
             ) : (
                 <>
