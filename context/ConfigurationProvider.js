@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 
+
 export const ConfigurationContext = createContext();
 
 const ConfigurationProvider = ({ children }) => {
@@ -12,9 +13,14 @@ const ConfigurationProvider = ({ children }) => {
         mb: null,
         case: null,
         ram: null,
-        cooling: null
+        cooling: null,
+        psu: null
     }
     const [configuration, setConfiguration] = useState(initialConfiguration);
+
+    const sendConfiguration = () => {
+
+    }
 
     return (
         <ConfigurationContext.Provider

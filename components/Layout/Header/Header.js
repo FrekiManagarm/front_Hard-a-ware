@@ -118,7 +118,7 @@ const Header = ({ user, isLoggedIn }) => {
 
               <HoverCard.Dropdown sx={{ overflow: "hidden" }}>
                 <Group position='apart' px="md">
-                  <Text weight={500}>Features</Text>
+                  <Text weight={500}>Composants</Text>
                   <Anchor href='#' size="xs">
                     Voir tout
                   </Anchor>
