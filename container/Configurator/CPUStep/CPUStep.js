@@ -17,8 +17,8 @@ const CPUStep = ({ activeStep, setActiveStep, data }) => {
           ))}
         </SimpleGrid>
         <div className={classes.buttonsWrapper}>
-          <Button className={classes.button} onClick={() => setActiveStep(activeStep - 1)} >Etape Précédente</Button>
-          <Button className={classes.button} onClick={() => setActiveStep(activeStep + 1)}>Etape Suivante</Button>
+          <Button className={classes.button} onClick={() => setActiveStep(activeStep - 1)} >Etape précédente</Button>
+          <Button className={classes.button} onClick={() => setActiveStep(activeStep + 1)}>Etape suivante</Button>
         </div>
     </div>
   )

@@ -9,12 +9,12 @@ const useCPUStepStyles = createStyles((theme) => ({
     },
 
     button : {
-        borderRadius: "2rem"
+        borderRadius: "2rem",
+        margin: "2rem"
     },
 
     buttonsWrapper : {
         marginTop: "1rem",
-        justifyContent: "space-around"
     }
 }))
 

@@ -1,4 +1,5 @@
-import { Button } from "@mantine/core";
+import { Button, SimpleGrid } from "@mantine/core";
+import ProductCard from "../../../components/ProductCard/ProductCard";
 import useCaseStepStyles from "./CaseStep.style"
 
 const CaseStep = ({ activeStep, setActiveStep, data }) => {
@@ -8,7 +9,15 @@ const CaseStep = ({ activeStep, setActiveStep, data }) => {
   return (
     <div className={classes.wrapper}>
       <h3>Etape du Boitier</h3>
-      <Button onClick={() => setActiveStep(activeStep + 1)}>Etape Suivante</Button>
+      <SimpleGrid cols={4}>
+        {data && data?.data.map((boitier) => (
+          <ProductCard title={boitier.nom} country="Boitier" image={boitier.image} link={boitier.link} />
+        ))}
+      </SimpleGrid>
+      <div className={classes.buttonsWrapper}>
+        <Button className={classes.button} onClick={() => setActiveStep(activeStep - 1)} >Etape précédente</Button>
+        <Button className={classes.button} onClick={() => setActiveStep(activeStep + 1)}>Etape suivante</Button>
+      </div>
     </div>
   )
 }

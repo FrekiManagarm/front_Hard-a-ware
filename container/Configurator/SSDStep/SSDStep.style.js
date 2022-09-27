@@ -6,6 +6,16 @@ const useSSDStepStyles = createStyles((theme) => ({
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center"
+    },
+
+    buttonsWrapper: {
+        display: "flex",
+        marginTop: "2rem"
+    },
+
+    button: {
+        borderRadius: "2rem",
+        margin: "2rem"
     }
 }))
 
