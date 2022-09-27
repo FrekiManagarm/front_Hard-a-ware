@@ -17,10 +17,13 @@ import {
   Burger,
   Drawer,
   Collapse,
-  ScrollArea
+  ScrollArea,
+  Switch,
+  useMantineColorScheme,
+  useMantineTheme
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { IconNotification, IconCode, IconBook, IconChartPie3, IconFingerprint, IconCoin, IconChevronDown } from '@tabler/icons';
+import { IconNotification, IconCode, IconBook, IconChartPie3, IconFingerprint, IconCoin, IconChevronDown, IconSun, IconMoonStars } from '@tabler/icons';
 import useHeaderStyles from './Header.style';
 
 const mockData = [
@@ -77,6 +80,8 @@ const Header = ({ user, isLoggedIn }) => {
   const router = useRouter();
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
+  // const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  // const theme = useMantineTheme();
 
   const { classes, theme } = useHeaderStyles();
 
@@ -149,10 +154,21 @@ const Header = ({ user, isLoggedIn }) => {
               Configurator
             </a>
           </Group>
-          <Group className={classes.hiddenMobile}>
+          { !isLoggedIn ? <Group className={classes.hiddenMobile}>
             <Button className={classes.button} variant='default' onClick={() => router.push('/login')}>Connexion</Button>
             <Button className={classes.button} onClick={() => router.push('/registration')} >Inscription</Button>
-          </Group>
+          </Group> : 
+          <Button onClick={() => router.push('/dashboard')}>Profil</Button>}
+
+          {/* <Group className={classes.hiddenMobile}>
+            <Switch 
+              checked={colorScheme === "dark"}
+              onChange={() => toggleColorScheme()}
+              size="lg"
+              onLabel={<IconSun color={theme.white} size={20} stroke={1.5} />}
+              offLabel={<IconMoonStars color={theme.colors.gray[6]} size={20} stroke={1.5} />}
+            />
+          </Group> */}
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} className={classes.hiddenDesktop} />
         </Group>

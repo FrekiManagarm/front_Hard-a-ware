@@ -4,6 +4,7 @@ import { withData } from '../helpers/restriction';
 import { DefaultSeo } from "next-seo";
 import LayoutWrapper from "../components/Layout/Layout";
 import { MantineProvider } from "@mantine/core";
+import GlobalStyles from "../public/styles/Global.style";
 
 function MyApp({ 
   Component,
@@ -44,6 +45,7 @@ function MyApp({
               cardType: "summary_large_image",
             }}
           />
+          <GlobalStyles />
           <Component {...pageProps} />
         </LayoutWrapper>
       </AuthProvider>
