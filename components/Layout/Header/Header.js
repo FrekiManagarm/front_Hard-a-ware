@@ -97,7 +97,7 @@ const Header = ({ user, isLoggedIn }) => {
 
   return (
     <Box>
-      <HeaderComponent height={70} px="md">
+      <HeaderComponent height={65} sx={{ backgroundColor: "orange" }} px="md">
         <Group position='apart' sx={{ height: "100%" }}>
           <Image src="https://i.imgur.com/9kR20Nx.png" height={35} width={35} alt="header-logo" />
 
@@ -145,7 +145,7 @@ const Header = ({ user, isLoggedIn }) => {
                 </div>
               </HoverCard.Dropdown>
             </HoverCard>
-            <a href='#' className={classes.link}>
+            <a href='/configurator' className={classes.link}>
               Configurator
             </a>
           </Group>

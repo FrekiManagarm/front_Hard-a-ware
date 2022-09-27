@@ -7,6 +7,7 @@ const useHeaderStyles = createStyles((theme) => ({
         height: '100%',
         paddingLeft: theme.spacing.md,
         paddingRight: theme.spacing.md,
+        borderRadius: 20,
         textDecoration: 'none',
         color: theme.colorScheme === 'dark' ? theme.white : theme.black,
         fontWeight: 500,
