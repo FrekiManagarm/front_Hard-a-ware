@@ -12,8 +12,9 @@ export default function Home() {
           padding: "10rem",
         }}
       >
-        
+        <ProductCard country="Processeur" title="Intel Core 12900K" image="https://i.imgur.com/Q7RfYcr.jpg" description="Processeur parfait pour le jeu et le multi-tâches" />
       </div>
     </>
   );
 }
+  

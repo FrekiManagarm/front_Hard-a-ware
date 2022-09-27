@@ -1,11 +1,12 @@
 import React from 'react'
+import Registration from '../container/Registration/Registration'
 
-const SignUp = () => {
+const RegistrationPage = () => {
   return (
     <>
-        
+        <Registration />
     </>
   )
 }
 
-export default SignUp
+export default RegistrationPage

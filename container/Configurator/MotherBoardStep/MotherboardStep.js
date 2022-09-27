@@ -1,11 +1,16 @@
-import React from 'react'
-import { MotherboardStepWrapper } from './MotherboardStep.style'
+import { Button } from "@mantine/core";
+import useMotherBoardStepStyles from "./MotherboardStep.style"
 
-const MotherboardStep = () => {
+
+const MotherboardStep = ({ activeStep, setActiveStep, data }) => {
+
+  const { classes } = useMotherBoardStepStyles();
+
   return (
-    <MotherboardStepWrapper>
-        <h1>Etape de la Carte Mère</h1>
-    </MotherboardStepWrapper>
+    <div className={classes.wrapper}>
+        <h3>Etape de la Carte Mère</h3>
+        <Button onClick={() => setActiveStep(activeStep + 1)}>Etape suivante</Button>
+    </div>
   )
 }
 
