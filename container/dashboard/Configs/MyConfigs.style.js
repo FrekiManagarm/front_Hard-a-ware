@@ -1,7 +1,9 @@
 import { createStyles } from "@mantine/core";
 
-const useMyConfigs = createStyles((theme) => ({
-
+const useMyConfigsStyles = createStyles((theme) => ({
+    wrapper : {
+        margin: "2rem"
+    }
 }))
 
-export default useMyConfigs
+export default useMyConfigsStyles

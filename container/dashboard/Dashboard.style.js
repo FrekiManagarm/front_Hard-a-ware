@@ -4,6 +4,11 @@ const useDashboardStyles = createStyles((theme, _params, getRef) => {
   const icon = getRef("icon");
 
   return {
+    wrapper: {
+      display: "flex",
+      flexDirection: "row"
+    },
+
     header: {
       paddingBottom: theme.spacing.md,
       marginBottom: theme.spacing.md * 1.5,
@@ -64,14 +69,14 @@ const useDashboardStyles = createStyles((theme, _params, getRef) => {
       "&, &:hover": {
         backgroundColor: theme.fn.variant({
           variant: "light",
-          color: theme.primaryColor,
+          color: theme.black,
         }).background,
-        color: theme.fn.variant({ variant: "light", color: theme.primaryColor })
+        color: theme.fn.variant({ variant: "light", color: theme.black })
           .color,
         [`& .${icon}`]: {
           color: theme.fn.variant({
             variant: "light",
-            color: theme.primaryColor,
+            color: theme.black,
           }).color,
         },
       },

@@ -67,7 +67,7 @@ const LayoutWrapper = ({ children, user, isLoggedIn }) => {
             ) : (
                 <>
                     <Content>{children}</Content>
-                    {router.pathname.split("/")[1] == "dashboard" ? <Footer /> : null}
+                    {router.pathname.split("/")[1] !== "dashboard" ? <Footer /> : null}
                 </>
             )
         }
