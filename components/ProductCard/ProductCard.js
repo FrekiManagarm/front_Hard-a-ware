@@ -37,7 +37,7 @@ const ProductCard = ({ image, title, description, country, link }) => {
       </Card.Section>
 
       <Group mt="xs">
-        <Button component='a' href={link} radius="md" style={{ flex: 1 }}>
+        <Button component='a' href={link} target='_blank' radius="md" style={{ flex: 1 }}>
           Voir plus
         </Button>
         <ActionIcon variant="default" radius="md" size={36}>

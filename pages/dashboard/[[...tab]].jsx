@@ -29,7 +29,7 @@ const mockData = [
   }
 ];
 
-const DashBoard = () => {
+const DashBoard = ({ isLoggedIn, user }) => {
 
   const { classes, cx } = useDashboardStyles();
   const router = useRouter();
@@ -101,6 +101,8 @@ const DashBoard = () => {
 
 DashBoard.getInitialProps = async (ctx) => {
     const { isLoggedIn, user } = await withData(ctx)
+
+    return { isLoggedIn, user }
 }
 
 export default DashBoard
