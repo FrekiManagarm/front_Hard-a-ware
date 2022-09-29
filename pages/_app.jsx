@@ -37,7 +37,7 @@ function MyApp({
               openGraph={{
                 type: "website",
                 locale: locale,
-                url: "https://www.Hardshop.com/",
+                url: "https://www.hardshop.com/",
                 site_name: "Hardshop",
               }}
               twitter={{
@@ -57,7 +57,7 @@ function MyApp({
 MyApp.getInitialProps = async ({ Component, ctx }) => {
   let pageProps = {}
   const { query, pathname, asPath, locale, res, req } = ctx;
-  const { user, isLoggedIn, token, } = await withData(ctx);
+  const { user, isLoggedIn, token } = await withData(ctx);
   const tokenCookie = token;
 
   if (Component.getInitialProps) {
@@ -65,7 +65,7 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
   }
 
   let isProtectedRoute = [
-    // `/dashboard/[[...tab]]`,
+    `/dashboard/[[...tab]]`,
     // `/configurator`
   ].includes(pathname);
 

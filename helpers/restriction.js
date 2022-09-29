@@ -28,12 +28,13 @@ export const getUserByToken = async (token) => {
   const apiUrl = [
     {
       name: 'user',
-      endpoint: `${process.env.SERVER_API}/api/get-user-by-token`,
+      endpoint: `${process.env.SERVER_API}/api/get-user`,
     },
   ];
   const response = await GetAPIData(apiUrl, locale, token);
+  console.log(response, 'response get user')
   if (response) {
-      return await response[0].data.data;
+      return response[0].data.user;
   }
 
 }

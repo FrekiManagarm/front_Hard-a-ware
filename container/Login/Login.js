@@ -10,12 +10,27 @@ import {
   Group,
   Button,
 } from '@mantine/core';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../context/AuthProvider';
 
 import useLoginStyles from './Login.style'
 
 const Login = () => {
 
   const { classes } = useLoginStyles();
+  const { signIn } = useContext(AuthContext)
+  const [input, setInput] = useState({
+    email: "",
+    password: ""
+  });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event;
+    setInput({ ...input, [name]: value })
+  }
+
+  console.log(input)
+
 
   return (
     <div className={classes.wrapper}>
@@ -36,17 +51,19 @@ const Login = () => {
       </Text>
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-        <TextInput radius={10} label="Email" placeholder="john@doe.com" required />
-        <PasswordInput radius={10} label="Password" placeholder="Your password" required mt="md" />
-        <Group position="apart" mt="md">
-          <Checkbox label="Se souvenir de moi" />
-          <Anchor component='a' onClick={(event) => event.preventDefault()} href="#" size="sm">
-            Mot de passe oublié ?
-          </Anchor>
-        </Group>
-        <Button fullWidth radius={10} mt="xl">
-          Se connecter
-        </Button>
+        <form onChange={handleInputChange}>
+          <TextInput radius={10} label="Email" name="email" placeholder="john@doe.com" required />
+          <PasswordInput radius={10} name="password" label="Password" placeholder="Your password" required mt="md" />
+          <Group position="apart" mt="md">
+            <Checkbox label="Se souvenir de moi" />
+            <Anchor component='a' onClick={(event) => event.preventDefault()} href="#" size="sm">
+              Mot de passe oublié ?
+            </Anchor>
+          </Group>
+          <Button onClick={() => signIn({ email: "mathchambaud2000@gmail.com", password: "M@thieu2020!" }, {})} fullWidth radius={10} mt="xl">
+            Se connecter
+          </Button>
+        </form>
       </Paper>
     </Container>
     </div>

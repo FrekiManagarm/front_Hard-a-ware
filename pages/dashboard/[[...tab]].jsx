@@ -1,5 +1,5 @@
-import { Navbar, Group, Code } from '@mantine/core'
-import React from 'react'
+import { Navbar, Group, Code, Anchor } from '@mantine/core'
+import React, { useContext } from 'react'
 import Error from 'next/error'
 import useDashboardStyles from '../../container/dashboard/Dashboard.style'
 import Image from 'next/image'
@@ -11,8 +11,9 @@ import MyConfigs from '../../container/dashboard/Configs/MyConfigs'
 import HomeDashboard from '../../container/dashboard/HomeDashboard'
 import { withData } from '../../helpers/restriction'
 import CRUDComponents from '../../container/dashboard/CRUDComponents/CRUDComponents'
+import { AuthContext } from '../../context/AuthProvider'
 
-const mockData = [
+const mockDataAdmin = [
   {
     label: "Accueil",
     link: "/dashboard",
@@ -40,12 +41,36 @@ const mockData = [
   }
 ];
 
+const mockDataNotAdmin = [
+  {
+    label: "Accueil",
+    link: "/dashboard",
+    icon: IconHome
+  },
+  {
+    label: "Mes informations perso",
+    link: "/dashboard/personnal-informations",
+    icon: IconNotification
+  },
+  {
+    label: "Mes Configurations",
+    link: "/dashboard/my-configs",
+    icon: IconAffiliate
+  },
+  {
+    label: "Mes Préférences",
+    link: "/dashboard/preferences",
+    icon: IconSettings
+  },
+]
+
 const DashBoard = ({ isLoggedIn, user }) => {
 
   const { classes, cx } = useDashboardStyles();
   const router = useRouter();
   const { query } = router;
-  console.log(query, 'query dashboard')
+  const { logOut } = useContext(AuthContext)
+  // console.log(query, 'query dashboard')
 
   const displayComponent = () => {
     
@@ -58,7 +83,7 @@ const DashBoard = ({ isLoggedIn, user }) => {
         case "my-configs":
           return <MyConfigs />
         case "components-list":
-          return <CRUDComponents />
+          return <CRUDComponents user={user} />
         default:
           return <Error statusCode={404} title="Page Non Trouvé" />
       }
@@ -66,6 +91,8 @@ const DashBoard = ({ isLoggedIn, user }) => {
       return <HomeDashboard />
     }
   }
+
+  const mockData = user?.is_Admin ? mockDataAdmin : mockDataNotAdmin
 
   const links = mockData.map((item) => (
     <a
@@ -86,7 +113,6 @@ const DashBoard = ({ isLoggedIn, user }) => {
       <Navbar height="100vh" style={{
         backgroundColor: "orange",
         borderRadius: "1.5rem",
-        marginLeft: "0.5rem"
       }} width={{ sm: 300 }} p="md">
         <Navbar.Section grow>
             <a href='/'>
@@ -99,7 +125,7 @@ const DashBoard = ({ isLoggedIn, user }) => {
 
           <Navbar.Section className={classes.footer}>
 
-            <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
+            <a className={classes.link} onClick={() => logOut()}>
               <IconLogout className={classes.linkIcon} stroke={1.5} />
               <span>Logout</span>
             </a>

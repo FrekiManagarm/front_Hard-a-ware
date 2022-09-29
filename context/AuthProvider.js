@@ -161,7 +161,7 @@ const AuthProvider = props => {
   const logOut = () => {
 
     fetch(`${process.env.SERVER_API}/api/logout`, {
-        method: 'GET',
+        method: 'POST',
         headers: {
           'Authorization': `Bearer ${getCookie(TOKEN_COOKIE)}`,
           'Accept': 'application/json',
