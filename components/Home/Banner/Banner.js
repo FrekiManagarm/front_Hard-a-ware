@@ -84,6 +84,9 @@ export default function CardsCarousel() {
       slideSize="50%"
       breakpoints={[{ maxWidth: 'sm', slideSize: '100%', slideGap: 2 }]}
       slideGap="xl"
+      style={{
+        padding: "1rem"
+      }}
       align="start"
       slidesToScroll={mobile ? 1 : 2}
     >

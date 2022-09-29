@@ -139,13 +139,13 @@ const Header = ({ user, isLoggedIn }) => {
                   <Group position="apart">
                     <div>
                       <Text weight={500} size="sm">
-                        Get started
+                        Commencer une configuration
                       </Text>
                       <Text size="xs" color="dimmed">
                         Their food sources have decreased, and their numbers
                       </Text>
                     </div>
-                    <Button variant="default">Get started</Button>
+                    <Button onClick={() => router.push('/configurator')} variant="default">Get started</Button>
                   </Group>
                 </div>
               </HoverCard.Dropdown>
@@ -156,7 +156,6 @@ const Header = ({ user, isLoggedIn }) => {
           </Group>
           { !isLoggedIn ? <Group className={classes.hiddenMobile}>
             <Button className={classes.button} variant='default' onClick={() => router.push('/login')}>Connexion</Button>
-            <Button className={classes.button} onClick={() => router.push('/registration')} >Inscription</Button>
           </Group> : 
           <Button onClick={() => router.push('/dashboard')}>Profil</Button>}
 

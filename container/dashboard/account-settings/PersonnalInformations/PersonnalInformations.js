@@ -7,7 +7,7 @@ const PersonnalInformations = () => {
 
   return (
     <div className={classes.wrapper}>
-        <h3>Mes Infos Personnelles</h3>
+        <h2>Mes Infos Personnelles</h2>
     </div>
   )
 }

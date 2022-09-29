@@ -7,7 +7,7 @@ const Preferences = () => {
 
   return (
     <div className={classes.wrapper}>
-        <h3>Mes Preferences</h3>
+        <h2>Mes Preferences</h2>
     </div>
   )
 }

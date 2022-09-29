@@ -1,4 +1,5 @@
-import React from 'react'
+import { SegmentedControl } from '@mantine/core';
+import React, { useState } from 'react'
 import useMyConfigsStyles from './MyConfigs.style'
 
 const MyConfigs = () => {
@@ -7,7 +8,7 @@ const MyConfigs = () => {
 
   return (
     <div className={classes.wrapper}>
-        <h3>Mes configurations</h3>
+        <h2>Mes Configurations</h2>
     </div>
   )
 }

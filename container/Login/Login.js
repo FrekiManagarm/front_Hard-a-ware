@@ -1,13 +1,16 @@
 import {
-  Paper,
   TextInput,
   PasswordInput,
   Checkbox,
-  Button,
+  Anchor,
+  Paper,
   Title,
   Text,
-  Anchor
-} from '@mantine/core'
+  Container,
+  Group,
+  Button,
+} from '@mantine/core';
+
 import useLoginStyles from './Login.style'
 
 const Login = () => {
@@ -16,18 +19,36 @@ const Login = () => {
 
   return (
     <div className={classes.wrapper}>
-        <Paper className={classes.form} radius={0} mt="md" mb={50}>
-          <Title order={2} className={classes.title} align="center" mt="md" mb={50} >
-            Bon retour sur le site du HardShop ! Référence numéro 1 en Hardware
-          </Title>
+    <Container style={{
+      paddingTop: "2rem"
+    }} size={450}>
+      <Title
+        align="center"
+        sx={(theme) => ({ fontFamily: `Greycliff CF, ${theme.fontFamily}`, fontWeight: 900 })}
+      >
+        Ravi de vous revoir !
+      </Title>
+      <Text color="dimmed" size="sm" align="center" mt={5}> 
+        Vous n'avez pas encore de compte ?{' '}
+        <Anchor component='a' href="/registration" size="sm" onClick={(event) => event.preventDefault()}>
+          Créer un compte
+        </Anchor>
+      </Text>
 
-          <TextInput label="Email" placeholder='john.doe@gmail.com' size='md'/>
-          <PasswordInput label='Mot de passe' placeholder='Votre mot de passe' mt="md" size='md'/>
-          <Checkbox label="Se souvenir de moi" mt="xl" size='md' />
-          <Button fullWidth mt='xl' size='md' className={classes.button}>
-            Connexion
-          </Button>
-        </Paper>
+      <Paper withBorder shadow="md" p={30} mt={30} radius="md">
+        <TextInput radius={10} label="Email" placeholder="john@doe.com" required />
+        <PasswordInput radius={10} label="Password" placeholder="Your password" required mt="md" />
+        <Group position="apart" mt="md">
+          <Checkbox label="Se souvenir de moi" />
+          <Anchor component='a' onClick={(event) => event.preventDefault()} href="#" size="sm">
+            Mot de passe oublié ?
+          </Anchor>
+        </Group>
+        <Button fullWidth radius={10} mt="xl">
+          Se connecter
+        </Button>
+      </Paper>
+    </Container>
     </div>
   )
 }

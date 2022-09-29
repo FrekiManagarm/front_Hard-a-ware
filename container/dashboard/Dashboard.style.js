@@ -6,7 +6,7 @@ const useDashboardStyles = createStyles((theme, _params, getRef) => {
   return {
     wrapper: {
       display: "flex",
-      flexDirection: "row"
+      flexDirection: "row",
     },
 
     header: {
@@ -17,6 +17,10 @@ const useDashboardStyles = createStyles((theme, _params, getRef) => {
           ? theme.colors.dark[4]
           : theme.colors.gray[2]
       }`,
+    },
+
+    linksWrapper: {
+      paddingTop: "5rem"
     },
 
     footer: {
@@ -38,9 +42,9 @@ const useDashboardStyles = createStyles((theme, _params, getRef) => {
       color:
         theme.colorScheme === "dark"
           ? theme.colors.dark[1]
-          : theme.colors.gray[7],
+          : theme.white,
       padding: `${theme.spacing.xs}px ${theme.spacing.sm}px`,
-      borderRadius: theme.radius.sm,
+      borderRadius: theme.radius.lg,
       fontWeight: 500,
 
       "&:hover": {
@@ -61,7 +65,7 @@ const useDashboardStyles = createStyles((theme, _params, getRef) => {
       color:
         theme.colorScheme === "dark"
           ? theme.colors.dark[2]
-          : theme.colors.gray[6],
+          : theme.white,
       marginRight: theme.spacing.sm,
     },
 
