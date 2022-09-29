@@ -17,6 +17,8 @@ Icon
 .Spotlight-V100
 .TemporaryItems
 .Trashes
+node_modules/
+.env
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
 
