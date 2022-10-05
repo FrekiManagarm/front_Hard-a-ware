@@ -63,7 +63,7 @@ const Login = () => {
               Mot de passe oublié ?
             </Anchor>
           </Group>
-          <Button onClick={() => signIn({ email: "mathchambaud2000@gmail.com", password: "M@thieu2020!" }, {})} fullWidth radius={10} mt="xl">
+          <Button fullWidth radius={10} mt="xl">
             Se connecter
           </Button>
         </form>
