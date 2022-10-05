@@ -104,17 +104,17 @@ const Header = ({ user, isLoggedIn }) => {
     <Box>
       <HeaderComponent height={65} sx={{ backgroundColor: "orange" }} px="md">
         <Group position='apart' sx={{ height: "100%" }}>
-          <Image src="https://i.imgur.com/9kR20Nx.png" height={35} width={35} alt="header-logo" />
+          <Image src="https://i.imgur.com/9kR20Nx.png" onClick={() => router.push('/')} style={{ cursor: 'pointer' }} height={45} width={45} alt="header-logo" />
 
           <Group sx={{ height: "100%" }} spacing={0} className={classes.hiddenMobile}>
-            <a href='/' className={classes.link}>
+            <a href='/' className={classes.link} style={{ fontSize: "20px" }}>
               Accueil
             </a>
             <HoverCard width={600} position='bottom' radius="md" shadow="md" withinPortal>
               <HoverCard.Target>
                 <a href='/components' className={classes.link}>
                   <Center inline>
-                    <Box component='span' mr={5}>
+                    <Box component='span' mr={5} sx={{ fontSize: "20px" }}>
                       Composants
                     </Box>
                   </Center>
@@ -150,7 +150,7 @@ const Header = ({ user, isLoggedIn }) => {
                 </div>
               </HoverCard.Dropdown>
             </HoverCard>
-            <a href='/configurator' className={classes.link}>
+            <a href='/configurator' className={classes.link} style={{ fontSize: "20px" }}>
               Configurator
             </a>
           </Group>
@@ -182,33 +182,29 @@ const Header = ({ user, isLoggedIn }) => {
         className={classes.hiddenDesktop}
         zIndex={1000000}
       >
-        <ScrollArea sx={{ height: 'calc(100vh - 60px)' }} mx="-md">
+        <ScrollArea sx={{ height: '100vh' }}>
           <Divider my="sm" color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'} />
 
-          <a href="#" className={classes.link}>
-            Home
+          <a href="/" className={classes.link}>
+            Accueil
           </a>
           <UnstyledButton className={classes.link} onClick={toggleLinks}>
             <Center inline>
               <Box component="span" mr={5}>
-                Features
+                Composants
               </Box>
               <IconChevronDown size={16} color={theme.fn.primaryColor()} />
             </Center>
           </UnstyledButton>
           <Collapse in={linksOpened}>{links}</Collapse>
-          <a href="#" className={classes.link}>
-            Learn
-          </a>
-          <a href="#" className={classes.link}>
-            Academy
+          <a href="/configurator" className={classes.link}>
+            Configurateur
           </a>
 
           <Divider my="sm" color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'} />
 
           <Group position="center" grow pb="xl" px="md">
-            <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
+            <Button radius="xl" >Connexion</Button>
           </Group>
         </ScrollArea>
       </Drawer>
