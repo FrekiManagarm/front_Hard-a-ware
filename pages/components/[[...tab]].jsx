@@ -24,7 +24,7 @@ const ComponentsPage = () => {
         case "cpu":
           return <CPU />;
         case "gpu":
-          return  <GPU />;
+          return <GPU />;
         case "case":
           return <Case />;
         case "psu":

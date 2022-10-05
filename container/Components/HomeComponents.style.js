@@ -16,20 +16,21 @@ const useHomeComponentsStyles = createStyles((theme) => ({
   },
 
   title: {
+    paddingTop: "15px",
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: "bold",
-    fontSize: "20px"
+    fontSize: "25px"
   },
 
   image: {
-    borderRadius: "1rem",
+    borderRadius: "75%",
   },
 
   item: {
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-evenly",
     textAlign: "center",
     borderRadius: theme.radius.lg,
     height: 300,
@@ -41,7 +42,7 @@ const useHomeComponentsStyles = createStyles((theme) => ({
     },
 
     backgroundColor:
-      theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.colors.gray[5],
+      theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.colors.gray[2],
     transition: "box-shadow 150ms ease, transform 100ms ease",
 
     "&:hover": {

@@ -57,6 +57,7 @@ const GPUList = () => {
         <tbody>
           {rows}
         </tbody>
+        <Button color="green">Ajouter</Button>
       </Table>
     </ScrollArea>
   )

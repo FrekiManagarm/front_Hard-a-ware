@@ -68,6 +68,7 @@ const AuthProvider = props => {
           if(!response.ok) {
             response.json()
             .then(json => {
+              console.log(json.message, 'return api signin')
               setApiErrorMessage(json.message);
             })
           }

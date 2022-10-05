@@ -2,6 +2,7 @@ import { SimpleGrid, UnstyledButton, Text } from '@mantine/core';
 import React from 'react'
 import Image from 'next/image';
 import useHomeComponentsStyles from './HomeComponents.style'
+import { useRouter } from 'next/router';
 
 const mockData = [
     {
@@ -54,10 +55,11 @@ const mockData = [
 const HomeComponents = () => {
 
     const { classes, theme } = useHomeComponentsStyles();
+    const router = useRouter();
 
     const items = mockData.map((item) => (
-        <UnstyledButton key={item.label} className={classes.item}>
-            <Image src={item.image} className={classes.image} width={300} height={200} />
+        <UnstyledButton onClick={() => router.push(item.link)} key={item.label} className={classes.item}>
+            <Image src={item.image} className={classes.image} width={275} height={275} />
             <Text className={classes.title}>
                 {item.label}
             </Text>

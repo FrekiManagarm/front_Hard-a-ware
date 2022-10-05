@@ -12,27 +12,43 @@ import {
 } from '@mantine/core';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
-import { Formik } from 'formik';
+import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import useLoginStyles from './Login.style'
 import { useRouter } from 'next/router';
 
 const Login = () => {
 
+  const initialCredentialsState = {
+    email: "",
+    password: ""
+  }
+
   const { classes } = useLoginStyles();
   const { signIn } = useContext(AuthContext)
   const router = useRouter();
-  const [input, setInput] = useState({
-    email: "",
-    password: ""
-  });
+  const [credentials, setCredentials] = useState(initialCredentialsState);
 
   const handleInputChange = (event) => {
+    event.preventDefault()
     const { name, value } = event;
-    setInput({ ...input, [name]: value })
+    setCredentials({ ...credentials, [name]: value })
   }
 
-  console.log(input)
+  const initialValues = {
+    email: credentials.email ?? "",
+    password: credentials.password ?? ""
+  }
+
+  const LegalSchema = Yup.object().shape({
+    email: Yup.string()
+      .email('Saisissez un email valide')
+      .required("Votre email est requis"),
+    password: Yup.string()
+      .required('Votre mot de passe est requis pour continuer')
+  })
+
+  console.log({ initialValues, credentials, initialCredentialsState })
 
 
   return (
@@ -54,19 +70,27 @@ const Login = () => {
       </Text>
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-        <form onChange={handleInputChange}>
-          <TextInput radius={10} label="Email" name="email" placeholder="john@doe.com" required />
-          <PasswordInput radius={10} name="password" label="Password" placeholder="Your password" required mt="md" />
-          <Group position="apart" mt="md">
-            <Checkbox label="Se souvenir de moi" />
-            <Anchor component='a' onClick={(event) => event.preventDefault()} href="#" size="sm">
-              Mot de passe oublié ?
-            </Anchor>
-          </Group>
-          <Button onClick={() => signIn({ email: "mathchambaud2000@gmail.com", password: "M@thieu2020!" }, {})} fullWidth radius={10} mt="xl">
-            Se connecter
-          </Button>
-        </form>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={LegalSchema}
+          onSubmit={async () => signIn(credentials, {})}
+        >
+          {({ errors, touched, handleSubmit, handleChange }) => (
+            <form onSubmit={handleSubmit} >
+              <TextInput name="email" type="text" placeholder="john@doe.com" />
+              <PasswordInput name="password" type="password" placeholder="Your password" />
+              <Group position="apart" mt="md">
+                <Checkbox label="Se souvenir de moi" />
+                <Anchor component='a' onClick={(event) => event.preventDefault()} href="#" size="sm">
+                  Mot de passe oublié ?
+                </Anchor>
+              </Group>
+              <Button onClick={() => signIn({ email: "mathchambaud2000@gmail.com", password: "M@thieu2020!" }, {})} fullWidth radius={10} mt="xl">
+                Se connecter
+              </Button>
+            </form>
+          )}
+        </Formik>
       </Paper>
     </Container>
     </div>

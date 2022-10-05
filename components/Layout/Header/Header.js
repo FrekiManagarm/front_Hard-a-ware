@@ -35,7 +35,7 @@ const mockData = [
   {
     icon: IconCoin,
     title: "Carte Graphique",
-    link: "/components/graphics-card"
+    link: "/components/gpu"
   },
   {
     icon: IconBook,
@@ -45,12 +45,12 @@ const mockData = [
   {
     icon: IconFingerprint,
     title: "Refroidissement",
-    link: "/components/coolings"
+    link: "/components/cooling"
   },
   {
     icon: IconChartPie3,
     title: "Boitiers",
-    link: "/components/cases"
+    link: "/components/case"
   },
   {
     icon: IconNotification,
@@ -124,7 +124,7 @@ const Header = ({ user, isLoggedIn }) => {
               <HoverCard.Dropdown sx={{ overflow: "hidden" }}>
                 <Group position='apart' px="md">
                   <Text weight={500}>Composants</Text>
-                  <Anchor href='#' size="xs">
+                  <Anchor href='/components' size="xs">
                     Voir tout
                   </Anchor>
                 </Group>
