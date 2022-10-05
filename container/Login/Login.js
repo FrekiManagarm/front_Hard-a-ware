@@ -12,13 +12,16 @@ import {
 } from '@mantine/core';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
-
+import { Formik } from 'formik';
+import * as Yup from 'yup';
 import useLoginStyles from './Login.style'
+import { useRouter } from 'next/router';
 
 const Login = () => {
 
   const { classes } = useLoginStyles();
   const { signIn } = useContext(AuthContext)
+  const router = useRouter();
   const [input, setInput] = useState({
     email: "",
     password: ""
