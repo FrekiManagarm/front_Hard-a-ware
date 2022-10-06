@@ -19,7 +19,7 @@ const HeroBanner = () => {
             }}
         />
         <Container className={classes.container}>
-            <Title className={classes.title}>Bienvenue sur le site du HardShop</Title>
+            <Title className={classes.title}>Bienvenue sur Hardaware</Title>
             <Text className={classes.description} size="xl" mt="xl">
                Une référence en la matière de Hardware et PC profitez également de notre Configurateur sur-mesure
             </Text>

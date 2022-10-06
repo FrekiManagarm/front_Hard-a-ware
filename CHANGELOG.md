@@ -1,3 +1,12 @@
+# CHANGELOG
+
+## [v0.2]
+
+- Finalisation de la page d'accueil
+- Apparition du dashboard
+- CRUD Composants informatiques
+- Implémentation du formulaire de login
+
 ## [v0.1]
 
 - Initialisation du projet

@@ -6,7 +6,7 @@ import LayoutWrapper from "../components/Layout/Layout";
 import { MantineProvider } from "@mantine/core";
 import ConfigurationProvider from "../context/ConfigurationProvider";
 
-function MyApp({ 
+function MyApp({
   Component,
   pageProps,
   query,

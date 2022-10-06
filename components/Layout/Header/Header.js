@@ -20,7 +20,8 @@ import {
   ScrollArea,
   Switch,
   useMantineColorScheme,
-  useMantineTheme
+  useMantineTheme,
+  Avatar
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconNotification, IconCode, IconBook, IconChartPie3, IconFingerprint, IconCoin, IconChevronDown, IconSun, IconMoonStars } from '@tabler/icons';
@@ -80,6 +81,7 @@ const Header = ({ user, isLoggedIn }) => {
   const router = useRouter();
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
+  console.log(user, 'user dans le header')
   // const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   // const theme = useMantineTheme();
 
@@ -107,14 +109,14 @@ const Header = ({ user, isLoggedIn }) => {
           <Image src="https://i.imgur.com/9kR20Nx.png" onClick={() => router.push('/')} style={{ cursor: 'pointer' }} height={45} width={45} alt="header-logo" />
 
           <Group sx={{ height: "100%" }} spacing={0} className={classes.hiddenMobile}>
-            <a href='/' className={classes.link} style={{ fontSize: "20px" }}>
+            <a href='/' className={classes.link} style={{ fontSize: "20px", color: "white", fontWeight: 800 }}>
               Accueil
             </a>
             <HoverCard width={600} position='bottom' radius="md" shadow="md" withinPortal>
               <HoverCard.Target>
                 <a href='/components' className={classes.link}>
                   <Center inline>
-                    <Box component='span' mr={5} sx={{ fontSize: "20px" }}>
+                    <Box component='span' classNames={classes.box} mr={5} sx={{ color: "white", fontSize: "20px", fontWeight: 800 }}>
                       Composants
                     </Box>
                   </Center>
@@ -142,22 +144,22 @@ const Header = ({ user, isLoggedIn }) => {
                         Commencer une configuration
                       </Text>
                       <Text size="xs" color="dimmed">
-                        Their food sources have decreased, and their numbers
+                        Profitez de notre configurateur dès maintenant
                       </Text>
                     </div>
-                    <Button onClick={() => router.push('/configurator')} variant="default">Get started</Button>
+                    <Button onClick={() => router.push('/configurator')} variant="default">Commencer</Button>
                   </Group>
                 </div>
               </HoverCard.Dropdown>
             </HoverCard>
-            <a href='/configurator' className={classes.link} style={{ fontSize: "20px" }}>
+            <a href='/configurator' className={classes.link} style={{ fontSize: "20px", fontWeight: 800, color: "white" }}>
               Configurator
             </a>
           </Group>
           { !isLoggedIn ? <Group className={classes.hiddenMobile}>
-            <Button className={classes.button} variant='default' onClick={() => router.push('/login')}>Connexion</Button>
+            <Button className={classes.button} onClick={() => router.push('/login')}>Connexion</Button>
           </Group> : 
-          <Button onClick={() => router.push('/dashboard')}>Profil</Button>}
+          <Avatar radius="xl" size="md" src={isLoggedIn && user ? user.avatar_url : null} />}
 
           {/* <Group className={classes.hiddenMobile}>
             <Switch 

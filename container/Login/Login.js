@@ -12,27 +12,18 @@ import {
 } from '@mantine/core';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
-import { Formik } from 'formik';
-import * as Yup from 'yup';
 import useLoginStyles from './Login.style'
 import { useRouter } from 'next/router';
 
 const Login = () => {
 
   const { classes } = useLoginStyles();
-  const { signIn } = useContext(AuthContext)
+  const { signIn, apiErrorMessage } = useContext(AuthContext)
   const router = useRouter();
   const [input, setInput] = useState({
     email: "",
     password: ""
   });
-
-  const handleInputChange = (event) => {
-    const { name, value } = event;
-    setInput({ ...input, [name]: value })
-  }
-
-  console.log(input)
 
 
   return (
@@ -48,22 +39,28 @@ const Login = () => {
       </Title>
       <Text color="dimmed" size="sm" align="center" mt={5}> 
         Vous n'avez pas encore de compte ?{' '}
-        <Anchor component='a' href="/registration" size="sm" onClick={(event) => event.preventDefault()}>
+        <Anchor component='a' href="/registration" size="sm">
           Créer un compte
         </Anchor>
       </Text>
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-        <form onChange={handleInputChange}>
-          <TextInput radius={10} label="Email" name="email" placeholder="john@doe.com" required />
-          <PasswordInput radius={10} name="password" label="Password" placeholder="Your password" required mt="md" />
+        <form>
+          <TextInput radius={10} label="Email" name="email" onChange={(event) => {
+            event.preventDefault()
+            setInput({ ...input, email: event.target.value })
+          }} placeholder="john@doe.com" required />
+          <PasswordInput radius={10} name="password" label="Password" placeholder="Your password" required mt="md" onChange={(event) => {
+            event.preventDefault()
+            setInput({ ...input, password: event.target.value })
+          }} />
           <Group position="apart" mt="md">
             <Checkbox label="Se souvenir de moi" />
             <Anchor component='a' onClick={(event) => event.preventDefault()} href="#" size="sm">
               Mot de passe oublié ?
             </Anchor>
           </Group>
-          <Button fullWidth radius={10} mt="xl">
+          <Button onClick={() => signIn(input, {})} fullWidth radius={10} mt="xl">
             Se connecter
           </Button>
         </form>
