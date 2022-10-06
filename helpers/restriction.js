@@ -32,7 +32,7 @@ export const getUserByToken = async (token) => {
     },
   ];
   const response = await GetAPIData(apiUrl, locale, token);
-  console.log(response, 'response get user')
+  // console.log(response, 'response get user')
   if (response) {
       return response[0].data.user;
   }

@@ -12,8 +12,6 @@ import {
 } from '@mantine/core';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
-import { Formik, Field } from 'formik';
-import * as Yup from 'yup';
 import useLoginStyles from './Login.style'
 import { useRouter } from 'next/router';
 
@@ -25,30 +23,9 @@ const Login = () => {
   }
 
   const { classes } = useLoginStyles();
-  const { signIn } = useContext(AuthContext)
+  const { signIn, apiErrorMessage } = useContext(AuthContext)
   const router = useRouter();
   const [credentials, setCredentials] = useState(initialCredentialsState);
-
-  const handleInputChange = (event) => {
-    event.preventDefault()
-    const { name, value } = event;
-    setCredentials({ ...credentials, [name]: value })
-  }
-
-  const initialValues = {
-    email: credentials.email ?? "",
-    password: credentials.password ?? ""
-  }
-
-  const LegalSchema = Yup.object().shape({
-    email: Yup.string()
-      .email('Saisissez un email valide')
-      .required("Votre email est requis"),
-    password: Yup.string()
-      .required('Votre mot de passe est requis pour continuer')
-  })
-
-  console.log({ initialValues, credentials, initialCredentialsState })
 
 
   return (
@@ -64,33 +41,31 @@ const Login = () => {
       </Title>
       <Text color="dimmed" size="sm" align="center" mt={5}> 
         Vous n'avez pas encore de compte ?{' '}
-        <Anchor component='a' href="/registration" size="sm" onClick={(event) => event.preventDefault()}>
+        <Anchor component='a' href="/registration" size="sm">
           Créer un compte
         </Anchor>
       </Text>
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-        <Formik
-          initialValues={initialValues}
-          validationSchema={LegalSchema}
-          onSubmit={async () => signIn(credentials, {})}
-        >
-          {({ errors, touched, handleSubmit, handleChange }) => (
-            <form onSubmit={handleSubmit} >
-              <TextInput name="email" type="text" placeholder="john@doe.com" />
-              <PasswordInput name="password" type="password" placeholder="Your password" />
-              <Group position="apart" mt="md">
-                <Checkbox label="Se souvenir de moi" />
-                <Anchor component='a' onClick={(event) => event.preventDefault()} href="#" size="sm">
-                  Mot de passe oublié ?
-                </Anchor>
-              </Group>
-              <Button onClick={() => signIn({ email: "mathchambaud2000@gmail.com", password: "M@thieu2020!" }, {})} fullWidth radius={10} mt="xl">
-                Se connecter
-              </Button>
-            </form>
-          )}
-        </Formik>
+        <form>
+          <TextInput radius={10} label="Email" name="email" onChange={(event) => {
+            event.preventDefault()
+            setInput({ ...input, email: event.target.value })
+          }} placeholder="john@doe.com" required />
+          <PasswordInput radius={10} name="password" label="Password" placeholder="Your password" required mt="md" onChange={(event) => {
+            event.preventDefault()
+            setInput({ ...input, password: event.target.value })
+          }} />
+          <Group position="apart" mt="md">
+            <Checkbox label="Se souvenir de moi" />
+            <Anchor component='a' onClick={(event) => event.preventDefault()} href="#" size="sm">
+              Mot de passe oublié ?
+            </Anchor>
+          </Group>
+          <Button onClick={() => signIn(input, {})} fullWidth radius={10} mt="xl">
+            Se connecter
+          </Button>
+        </form>
       </Paper>
     </Container>
     </div>
