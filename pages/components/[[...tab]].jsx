@@ -11,8 +11,6 @@ import Cooling from '../../container/Components/Cooling/Cooling';
 import SSD from '../../container/Components/SSD/SSD';
 import HDD from '../../container/Components/HDD/HDD';
 
-const mockData = [];
-
 const ComponentsPage = () => {
 
   const router = useRouter()

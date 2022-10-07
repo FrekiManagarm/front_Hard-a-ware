@@ -4,7 +4,7 @@ import Error from 'next/error'
 import useDashboardStyles from '../../container/dashboard/Dashboard.style'
 import Image from 'next/image'
 import { IconLogout, IconSettings, IconNotification, IconAffiliate, IconHome, IconList } from '@tabler/icons'
-import { useRouter } from 'next/router'
+import { useRouter, withRouter } from 'next/router'
 import PersonnalInformations from "../../container/dashboard/account-settings/PersonnalInformations/PersonnalInformations"
 import Preferences from "../../container/dashboard/account-settings/Preferences/Preferences"
 import MyConfigs from '../../container/dashboard/Configs/MyConfigs'
@@ -70,7 +70,7 @@ const DashBoard = ({ isLoggedIn, user }) => {
   const router = useRouter();
   const { query } = router;
   const { logOut } = useContext(AuthContext)
-  // console.log(query, 'query dashboard')
+  console.log(query, 'query dashboard')
 
   const displayComponent = () => {
     

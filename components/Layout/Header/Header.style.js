@@ -36,6 +36,14 @@ const useHeaderStyles = createStyles((theme) => ({
     
         '&:active': theme.activeStyles,
       },
+
+      box: {
+        color: "black"
+      },
+
+      navbar: {
+        
+      },
     
       dropdownFooter: {
         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],

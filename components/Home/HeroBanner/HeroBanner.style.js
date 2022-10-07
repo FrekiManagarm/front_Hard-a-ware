@@ -2,9 +2,9 @@ import { createStyles } from "@mantine/core";
 
 const useHeroBannerStyles = createStyles((theme) => ({
   hero: {
-    borderRadius: "1rem",
+    // borderRadius: "1rem",
     position: "relative",
-    margin: "0.5rem",
+    // margin: "0.5rem",
     backgroundImage:
       "url(https://i.imgur.com/9bNON4B.jpg)",
     backgroundSize: "cover",
@@ -12,7 +12,7 @@ const useHeroBannerStyles = createStyles((theme) => ({
   },
 
   container: {
-    height: 700,
+    height: "100vh",
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-end",

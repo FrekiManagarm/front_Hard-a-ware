@@ -50,11 +50,11 @@ const Login = () => {
         <form>
           <TextInput radius={10} label="Email" name="email" onChange={(event) => {
             event.preventDefault()
-            setInput({ ...input, email: event.target.value })
+            setCredentials({ ...credentials, email: event.target.value })
           }} placeholder="john@doe.com" required />
           <PasswordInput radius={10} name="password" label="Password" placeholder="Your password" required mt="md" onChange={(event) => {
             event.preventDefault()
-            setInput({ ...input, password: event.target.value })
+            setCredentials({ ...credentials, password: event.target.value })
           }} />
           <Group position="apart" mt="md">
             <Checkbox label="Se souvenir de moi" />
@@ -62,7 +62,7 @@ const Login = () => {
               Mot de passe oublié ?
             </Anchor>
           </Group>
-          <Button onClick={() => signIn(input, {})} fullWidth radius={10} mt="xl">
+          <Button onClick={() => signIn(credentials, {})} fullWidth radius={10} mt="xl">
             Se connecter
           </Button>
         </form>

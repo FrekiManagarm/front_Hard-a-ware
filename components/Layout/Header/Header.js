@@ -23,9 +23,11 @@ import {
   useMantineTheme,
   Avatar
 } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
+import { useDisclosure, useWindowEvent, useWindowScroll } from '@mantine/hooks';
 import { IconNotification, IconCode, IconBook, IconChartPie3, IconFingerprint, IconCoin, IconChevronDown, IconSun, IconMoonStars } from '@tabler/icons';
 import useHeaderStyles from './Header.style';
+import { useEffect, useState } from 'react';
+import Sticky from 'react-stickynode';
 
 const mockData = [
   {
@@ -81,11 +83,11 @@ const Header = ({ user, isLoggedIn }) => {
   const router = useRouter();
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
-  console.log(user, 'user dans le header')
-  // const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-  // const theme = useMantineTheme();
+  const [ scroll, scrollTo ] = useWindowScroll();
 
   const { classes, theme } = useHeaderStyles();
+
+
 
   const links = mockData.map((item) => (
     <UnstyledButton className={classes.subLink} key={item.title} onClick={() => router.push(item.link)} >
@@ -104,19 +106,19 @@ const Header = ({ user, isLoggedIn }) => {
 
   return (
     <Box>
-      <HeaderComponent height={65} sx={{ backgroundColor: "orange" }} px="md">
+      <HeaderComponent height={65} sx={{ backgroundColor: scroll.y > 0 && router.pathname == "/" ? "orange" : "transparent", border: "none", position: "fixed"}} px="sm" >
         <Group position='apart' sx={{ height: "100%" }}>
           <Image src="https://i.imgur.com/9kR20Nx.png" onClick={() => router.push('/')} style={{ cursor: 'pointer' }} height={45} width={45} alt="header-logo" />
 
           <Group sx={{ height: "100%" }} spacing={0} className={classes.hiddenMobile}>
-            <a href='/' className={classes.link} style={{ fontSize: "20px", color: "white", fontWeight: 800 }}>
+            <a href='/' className={classes.link} style={{ fontSize: "20px", color: scroll.y > 0 ? "black" : "white", fontWeight: 800 }}>
               Accueil
             </a>
             <HoverCard width={600} position='bottom' radius="md" shadow="md" withinPortal>
               <HoverCard.Target>
                 <a href='/components' className={classes.link}>
                   <Center inline>
-                    <Box component='span' classNames={classes.box} mr={5} sx={{ color: "white", fontSize: "20px", fontWeight: 800 }}>
+                    <Box component='span' mr={5} sx={{ color: scroll.y > 0 ? "black" : "white", fontSize: "20px", fontWeight: 800 }}>
                       Composants
                     </Box>
                   </Center>
@@ -152,14 +154,17 @@ const Header = ({ user, isLoggedIn }) => {
                 </div>
               </HoverCard.Dropdown>
             </HoverCard>
-            <a href='/configurator' className={classes.link} style={{ fontSize: "20px", fontWeight: 800, color: "white" }}>
+            <a href='/configurator' className={classes.link} style={{ fontSize: "20px", fontWeight: 800, color: scroll.y > 0 ? "black" : "white" }}>
               Configurator
             </a>
           </Group>
           { !isLoggedIn ? <Group className={classes.hiddenMobile}>
             <Button className={classes.button} onClick={() => router.push('/login')}>Connexion</Button>
           </Group> : 
-          <Avatar radius="xl" size="md" src={isLoggedIn && user ? user.avatar_url : null} />}
+          <Group className={classes.hiddenMobile} >
+            <Avatar radius="xl" size="md" src={isLoggedIn && user ? user.avatar_url : null} />
+            {/* <IconChevronDown /> */}
+          </Group>}
 
           {/* <Group className={classes.hiddenMobile}>
             <Switch 
