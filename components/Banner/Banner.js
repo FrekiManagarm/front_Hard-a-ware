@@ -23,10 +23,7 @@ const Banner = ({ title, description, bgImage }) => {
 
         <div className={classes.controls}>
           <Button className={classes.control} variant="white" size="lg">
-            Get started
-          </Button>
-          <Button className={cx(classes.control, classes.secondaryControl)} size="lg">
-            Live demo
+            Commencer
           </Button>
         </div>
       </div>

@@ -69,7 +69,7 @@ const HomeComponents = () => {
 
   return (
     <div className={classes.wrapper}>
-        <Banner title="Composants" bgImage="https://i.imgur.com/ZOzrb6c.jpg" description="" />
+        <Banner title="Composants" bgImage="https://i.imgur.com/ZOzrb6c.jpg" description="Retrouvez ici tout les composants pour vous monter un pc par vous même, de la mémoire vive en passant par la carte graphique pour finir sur le boitier de votre choix. Vous pouvez également profiter de notre configurateur personnalisé en cliquant sur le bouton ci-dessous" />
         <SimpleGrid spacing={35} cols={3} mt="md" breakpoints={[ 
             { maxWidth: "xs", cols: 1 },
             { minWidth: 'sm', cols: 2 },
