@@ -9,6 +9,10 @@ const useHeroBannerStyles = createStyles((theme) => ({
       "url(https://i.imgur.com/9bNON4B.jpg)",
     backgroundSize: "cover",
     backgroundPosition: "center",
+
+    [theme.fn.smallerThan("sm")]: {
+      height: "80vh"
+    },
   },
 
   container: {
@@ -23,7 +27,7 @@ const useHeroBannerStyles = createStyles((theme) => ({
 
     [theme.fn.smallerThan("sm")]: {
       height: 500,
-      paddingBottom: theme.spacing.xl * 3,
+      paddingBottom: theme.spacing.xs * 3,
     },
   },
 

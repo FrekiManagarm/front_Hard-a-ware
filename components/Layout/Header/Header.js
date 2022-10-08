@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext, useState} from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import {
@@ -10,6 +10,7 @@ import {
   Text,
   SimpleGrid,
   ThemeIcon,
+  Paper,
   Anchor,
   Divider,
   Center,
@@ -18,16 +19,16 @@ import {
   Drawer,
   Collapse,
   ScrollArea,
+  Transition,
   Switch,
   useMantineColorScheme,
   useMantineTheme,
   Avatar
 } from '@mantine/core';
-import { useDisclosure, useWindowEvent, useWindowScroll } from '@mantine/hooks';
+import { useDisclosure, useClickOutside, useWindowScroll } from '@mantine/hooks';
 import { IconNotification, IconCode, IconBook, IconChartPie3, IconFingerprint, IconCoin, IconChevronDown, IconSun, IconMoonStars } from '@tabler/icons';
 import useHeaderStyles from './Header.style';
-import { useEffect, useState } from 'react';
-import Sticky from 'react-stickynode';
+import { AuthContext } from '../../../context/AuthProvider';
 
 const mockData = [
   {
@@ -84,10 +85,20 @@ const Header = ({ user, isLoggedIn }) => {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const [ scroll, scrollTo ] = useWindowScroll();
+  const [open, setOpen] = useState(false);
+  const clickOutsideRef = useClickOutside(() => setOpen(false));
+  const { logOut } = useContext(AuthContext)
 
   const { classes, theme } = useHeaderStyles();
+  
+  const scaleY = {
+    in: { opacity: 1, transform: 'scaleY(1)' },
+    out: { opacity: 0, transform: 'scaleY(0)' },
+    common: { transformOrigin: 'top' },
+    transitionProperty: 'transform, opacity',
+  }
 
-
+  const bgNavbar = scroll.y > 10 && router.pathname == "/" ? "orange" : scroll.y < 10 && router.pathname == "/" ? "transparent" : "orange"
 
   const links = mockData.map((item) => (
     <UnstyledButton className={classes.subLink} key={item.title} onClick={() => router.push(item.link)} >
@@ -106,19 +117,16 @@ const Header = ({ user, isLoggedIn }) => {
 
   return (
     <Box>
-      <HeaderComponent height={65} sx={{ backgroundColor: scroll.y > 0 && router.pathname == "/" ? "orange" : "transparent", border: "none", position: "fixed"}} px="sm" >
+      <HeaderComponent height={65} sx={{ backgroundColor: bgNavbar, border: "none", position: "fixed"}} px="sm" >
         <Group position='apart' sx={{ height: "100%" }}>
           <Image src="https://i.imgur.com/9kR20Nx.png" onClick={() => router.push('/')} style={{ cursor: 'pointer' }} height={45} width={45} alt="header-logo" />
 
           <Group sx={{ height: "100%" }} spacing={0} className={classes.hiddenMobile}>
-            <a href='/' className={classes.link} style={{ fontSize: "20px", color: scroll.y > 0 ? "black" : "white", fontWeight: 800 }}>
-              Accueil
-            </a>
             <HoverCard width={600} position='bottom' radius="md" shadow="md" withinPortal>
               <HoverCard.Target>
                 <a href='/components' className={classes.link}>
                   <Center inline>
-                    <Box component='span' mr={5} sx={{ color: scroll.y > 0 ? "black" : "white", fontSize: "20px", fontWeight: 800 }}>
+                    <Box component='span' mr={5} sx={{ color: "white", fontSize: "20px", fontWeight: 800 }}>
                       Composants
                     </Box>
                   </Center>
@@ -154,17 +162,38 @@ const Header = ({ user, isLoggedIn }) => {
                 </div>
               </HoverCard.Dropdown>
             </HoverCard>
-            <a href='/configurator' className={classes.link} style={{ fontSize: "20px", fontWeight: 800, color: scroll.y > 0 ? "black" : "white" }}>
+            <a href='/configurator' className={classes.link} style={{ fontSize: "20px", fontWeight: 800, color: "white" }}>
               Configurator
             </a>
           </Group>
           { !isLoggedIn ? <Group className={classes.hiddenMobile}>
             <Button className={classes.button} onClick={() => router.push('/login')}>Connexion</Button>
           </Group> : 
-          <Group className={classes.hiddenMobile} >
-            <Avatar radius="xl" size="md" src={isLoggedIn && user ? user.avatar_url : null} />
-            {/* <IconChevronDown /> */}
-          </Group>}
+          <>
+            <Button className={classes.hiddenMobile} sx={{ height: "3rem", backgroundColor: "transparent" }} size="sm" radius="xl" px="xs" onClick={() => setOpen(!open)}>
+              <Avatar radius="xl" size="md" src={isLoggedIn && user ? user.avatar_url : null} sx={{ border: "2px solid white" }} />
+              <IconChevronDown />
+            </Button>
+            <Transition mounted={open} transition={scaleY} duration={200} timingFunction="ease">
+              {(styles) => (
+                <Paper
+                  shadow="md"
+                  style={{ ...styles, display: "flex", flexDirection: "column", position: 'absolute', width: "12rem", height: "15rem", top: "4rem", right: "2.5rem", padding: "1rem"}}
+                  ref={clickOutsideRef}
+                >
+                  <span onClick={() => router.push('/dashboard')} className={classes.anchor}>
+                    Mon Tableau de Bord
+                  </span>
+                  <span onClick={() => {
+                    logOut()
+                  }} className={classes.anchor2} style={{ backgroundColor: theme.colors.red, color: "white" }} >
+                    Déconnexion
+                  </span>
+                </Paper>
+              )}
+            </Transition>
+          </>
+          }
 
           {/* <Group className={classes.hiddenMobile}>
             <Switch 
@@ -176,7 +205,7 @@ const Header = ({ user, isLoggedIn }) => {
             />
           </Group> */}
 
-          <Burger opened={drawerOpened} onClick={toggleDrawer} className={classes.hiddenDesktop} />
+          <Burger className={classes.hiddenDesktop} color="white" opened={drawerOpened} onClick={toggleDrawer} />
         </Group>
       </HeaderComponent>
 

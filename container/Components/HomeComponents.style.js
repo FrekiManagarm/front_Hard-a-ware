@@ -2,7 +2,9 @@ import { createStyles } from "@mantine/core";
 
 const useHomeComponentsStyles = createStyles((theme) => ({
   wrapper: {
+    padding: "4.5rem",
     display: "flex",
+    flexDirection: "column",
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
@@ -32,13 +34,23 @@ const useHomeComponentsStyles = createStyles((theme) => ({
     alignItems: "center",
     justifyContent: "space-evenly",
     textAlign: "center",
-    borderRadius: theme.radius.lg,
+    borderRadius: theme.radius.xl,
     height: 300,
-    width: 500,
+    width: 450,
+
+    [theme.fn.smallerThan('lg')]: {
+      height: 250,
+      width: 425
+    },
 
     [theme.fn.smallerThan('sm')]: {
-        height: 250,
-        width: 425
+        height: 225,
+        width: 400
+    },
+
+    [theme.fn.smallerThan('xs')]: {
+      height: 225,
+      width: 350
     },
 
     backgroundColor:

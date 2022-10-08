@@ -24,14 +24,13 @@ const Login = () => {
 
   const { classes } = useLoginStyles();
   const { signIn, apiErrorMessage } = useContext(AuthContext)
-  const router = useRouter();
   const [credentials, setCredentials] = useState(initialCredentialsState);
 
 
   return (
     <div className={classes.wrapper}>
     <Container style={{
-      paddingTop: "2rem"
+      paddingTop: "10rem"
     }} size={450}>
       <Title
         align="center"
