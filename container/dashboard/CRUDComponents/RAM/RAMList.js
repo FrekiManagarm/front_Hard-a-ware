@@ -2,7 +2,7 @@ import { Anchor, ScrollArea, Table, Button, Drawer, Title, Divider, TextInput, T
 import Image from 'next/image';
 import React, {useState, useEffect} from 'react'
 import { Formik, Form } from 'formik';
-import * as Yup from 'yup'
+
 import { useFetchSwr } from '../../../../hooks/useFetchSwr'
 import PostAPIData from '../../../../helpers/post_api_data'
 import { getCookie } from '../../../../helpers/session';
@@ -12,39 +12,10 @@ const RAMList = () => {
 
   const [mounted, setMounted] = useState(false);
   const [addOpen, setAddOpen] = useState(false);
-  const [credentials, setCredentials] = useState({
-    capacité: "",
-    description: "",
-    image: "",
-    interface: "",
-    latence: "",
-    link: "",
-    nom: "",
-    quantité: 0
-  });
-
+  
   useEffect(() => {
    setMounted(true)
   }, []);
-
-  const LegalSchema = Yup.object().shape({
-    capacité: Yup.string()
-      .required('Ce champ est requis pour continuer'),
-    description: Yup.string()
-      .required('Ce champ est requis pour continuer'),
-    image: Yup.string()
-      .required('Ce champ est requis pour continuer'),
-    interface: Yup.string()
-      .required('Ce champ est requis pour continuer'),
-    latence: Yup.string()
-      .required('Ce champ est requis pour continuer'),
-    link: Yup.string()
-      .required('Ce champ est requis pour continuer'),
-    nom: Yup.string()
-      .required('Ce champ est requis pour continuer'),
-    quantité: Yup.number()
-      .required('Ce champ est requis pour continuer')
-  })
 
   // const handleSubmit = () => {
   //   const response = fetch(`${process.env.SERVER_API}/api/RAM`, {
@@ -62,7 +33,6 @@ const RAMList = () => {
   // }
 
   const { data } = useFetchSwr('/api/RAMs', mounted)
-  console.log(credentials, 'data RAM')
 
   const rows = data?.map((item) => (
     <tr>
@@ -122,65 +92,7 @@ const RAMList = () => {
       >
         <Title sx={{ padding: "1rem" }}>Ajouter un composant</Title>
         <Divider/>
-        <Formik 
-          initialValues={credentials}
-          validationSchema={LegalSchema}
-          onSubmit={async (values) => {
-            console.log(values, 'values on submit')
-
-            const endpoint = '/api/RAM';
-
-            const response = await PostAPIData(endpoint, values).then((response) => {
-              console.log(response, 'response api')
-            })
-          }}
-        >
-          <TextInput label="Nom" type="text" required sx={{ padding: "1rem" }} onChange={(event) => {
-            event.preventDefault()
-            setCredentials({ ...credentials, nom: event.target.value })
-          }} />
-          <TextInput label="Image" type="text" required sx={{ padding: "1rem" }} 
-            onChange={(event) => {
-              event.preventDefault()
-              setCredentials({ ...credentials, image: event.target.value })
-            }}
-          />
-          <TextInput label="Link" type="text" required sx={{ padding: "1rem" }} 
-            onChange={(event) => {
-              event.preventDefault()
-              setCredentials({ ...credentials, link: event.target.value })
-            }}
-          />
-          <TextInput label="Interface" type="text" required sx={{ padding: "1rem" }} 
-            onChange={(event) => {
-              event.preventDefault()
-              setCredentials({ ...credentials, interface: event.target.value })
-            }}
-          />
-          <TextInput label="Latence" type="text" required sx={{ padding: "1rem" }} 
-            onChange={(event) => {
-              event.preventDefault()
-              setCredentials({ ...credentials, latence: event.target.value })
-            }}
-          />
-          <TextInput label="Capacité" type="text" required sx={{ padding: "1rem" }} 
-            onChange={(event) => {
-              event.preventDefault()
-              setCredentials({ ...credentials, capacité: event.target.value })
-            }}
-          />
-          <TextInput type="number" sx={{ padding: "1rem" }} label="Quantité" onChange={(event) => {
-            event.preventDefault()
-            setCredentials({ ...credentials, quantité: event.target.value })
-          }}  />
-          <Textarea rows={15} label="Description" type="text" required sx={{ padding: "1rem" }} 
-            onChange={(event) => {
-              event.preventDefault()
-              setCredentials({ ...credentials, description: event.target.value })
-            }}
-          />
-          <Button color="green" type="submit" sx={{ margin: "1rem" }}>Ajouter</Button>
-        </Formik>
+        
       </Drawer>
     </>
   )
