@@ -27,6 +27,9 @@ const useProductCardStyles = createStyles((theme) => ({
 
   modalWrapper: {
     display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "space-around"
   },
 }));
 

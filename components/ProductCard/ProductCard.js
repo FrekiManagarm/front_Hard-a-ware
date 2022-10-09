@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {
-  Card, Image, Text, Group, Badge, Button, ActionIcon, Modal, Title,
+  Card, Image, Text, Group, Badge, Button, ActionIcon, Modal, Title, Divider,
 } from '@mantine/core'
 import { IconHeart } from '@tabler/icons'
 import useProductCardStyles from './ProductCard.style'
@@ -56,8 +56,10 @@ const ProductCard = ({ image, title, description, country, link }) => {
         size="70%"
       >
         <div className={classes.modalWrapper}>
-          <Image src={image} width={300} height={300} />
-          <div>
+          <Image src={image} width={600} height={500} />
+          <Divider size="xl" />
+          <div style={{ padding: "2rem" }}>
+            <Text>Nom :</Text>
             <Title>{title}</Title>
             <Text>
 

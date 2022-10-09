@@ -48,9 +48,9 @@ const CRUDComponents = () => {
     <div className={classes.wrapper}>
         <h3>Liste des composants</h3>
         <SegmentedControl 
+          color="blue"
           value={value}
           radius="xl"
-          className={classes.styleTab}
           onChange={setValue}
           data={[
             {label: "CPU", value: 1},
