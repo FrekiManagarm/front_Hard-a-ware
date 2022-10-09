@@ -1,28 +1,36 @@
 import { createStyles } from "@mantine/core";
 
 const useProductCardStyles = createStyles((theme) => ({
-    card: {
-        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
-      },
-    
-      section: {
-        borderBottom: `1px solid ${
-          theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]
-        }`,
-        paddingLeft: theme.spacing.md,
-        paddingRight: theme.spacing.md,
-        paddingBottom: theme.spacing.md,
-      },
-    
-      like: {
-        color: theme.colors.red[6],
-      },
-    
-      label: {
-        textTransform: 'uppercase',
-        fontSize: theme.fontSizes.xs,
-        fontWeight: 700,
-      },
-}))
+  card: {
+    backgroundColor:
+      theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
+  },
 
-export default useProductCardStyles
+  section: {
+    borderBottom: `1px solid ${
+      theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[3]
+    }`,
+    paddingLeft: theme.spacing.md,
+    paddingRight: theme.spacing.md,
+    paddingBottom: theme.spacing.md,
+  },
+
+  like: {
+    color: theme.colors.red[6],
+  },
+
+  label: {
+    textTransform: "uppercase",
+    fontSize: theme.fontSizes.xs,
+    fontWeight: 700,
+  },
+
+  modalWrapper: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "space-around"
+  },
+}));
+
+export default useProductCardStyles;

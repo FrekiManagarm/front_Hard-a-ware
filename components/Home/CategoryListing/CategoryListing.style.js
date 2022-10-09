@@ -1,5 +1,15 @@
-import styled from "styled-components";
+import { createStyles } from "@mantine/core";
 
-export const CategoryListingWrapper = styled.div`
-    
-`;
+const useCategoryListingStyles = createStyles((theme) => ({
+    item: {
+        display: "flex",
+
+    },
+
+    wrapper: {
+        display: "flex",
+        flexDirection: "row",
+    }
+}))
+
+export default useCategoryListingStyles

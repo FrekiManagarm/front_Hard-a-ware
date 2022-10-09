@@ -4,7 +4,7 @@ const useHeaderStyles = createStyles((theme) => ({
     link: {
         display: 'flex',
         alignItems: 'center',
-        height: '100%',
+        height: '75%',
         paddingLeft: theme.spacing.md,
         paddingRight: theme.spacing.md,
         borderRadius: 20,
@@ -12,6 +12,7 @@ const useHeaderStyles = createStyles((theme) => ({
         color: theme.colorScheme === 'dark' ? theme.white : theme.black,
         fontWeight: 500,
         fontSize: theme.fontSizes.sm,
+        transition: "background-color 0.5s ease",
     
         [theme.fn.smallerThan('sm')]: {
           height: 42,
@@ -21,7 +22,7 @@ const useHeaderStyles = createStyles((theme) => ({
         },
     
         ...theme.fn.hover({
-          backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
+          backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.blue[6],
         }),
       },
     
@@ -41,8 +42,30 @@ const useHeaderStyles = createStyles((theme) => ({
         color: "black"
       },
 
-      navbar: {
-        
+      anchor: {
+        textDecoration: "none",
+        textAlign: "left",
+        color: "black",
+        fontWeight: 800,
+        borderRadius: "1rem",
+        margin: "0.5rem 0",
+        padding: "1rem",
+        cursor: "pointer",
+        transition: "background-color 0.5s ease",
+
+        "&:hover": {
+          backgroundColor: theme.colors.gray[3],
+        }
+      },
+
+      anchor2: {
+        backgroundColor: theme.colors.red,
+        fontWeight: 800,
+        borderRadius: "1rem",
+        margin: "0.5rem 0",
+        padding: "1rem",
+        cursor: "pointer",
+        transition: "background-color 0.5s ease",
       },
     
       dropdownFooter: {

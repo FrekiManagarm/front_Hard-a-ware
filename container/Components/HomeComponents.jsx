@@ -3,6 +3,7 @@ import React from 'react'
 import Image from 'next/image';
 import useHomeComponentsStyles from './HomeComponents.style'
 import { useRouter } from 'next/router';
+import Banner from '../../components/Banner/Banner';
 
 const mockData = [
     {
@@ -59,7 +60,7 @@ const HomeComponents = () => {
 
     const items = mockData.map((item) => (
         <UnstyledButton onClick={() => router.push(item.link)} key={item.label} className={classes.item}>
-            <Image src={item.image} className={classes.image} width={275} height={275} />
+            <Image src={item.image} className={classes.image} width={theme.fn.smallerThan('lg') ? 210 : 275} height={theme.fn.smallerThan('lg') ? 210 : 275} />
             <Text className={classes.title}>
                 {item.label}
             </Text>
@@ -68,7 +69,8 @@ const HomeComponents = () => {
 
   return (
     <div className={classes.wrapper}>
-        <SimpleGrid spacing="xl" cols={3} mt="md" breakpoints={[ 
+        <Banner title="Composants" bgImage="https://i.imgur.com/ZOzrb6c.jpg" description="Retrouvez ici tout les composants pour vous monter un pc par vous même, de la mémoire vive en passant par la carte graphique pour finir sur le boitier de votre choix. Vous pouvez également profiter de notre configurateur personnalisé en cliquant sur le bouton ci-dessous" />
+        <SimpleGrid spacing={35} cols={3} mt="md" breakpoints={[ 
             { maxWidth: "xs", cols: 1 },
             { minWidth: 'sm', cols: 2 },
             { minWidth: 'md', cols: 2 },

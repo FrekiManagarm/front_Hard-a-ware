@@ -20,6 +20,7 @@ const Registration = () => {
   const { classes } = useRegistrationStyles();
   const { signUp } = useContext(AuthContext);
   const router = useRouter();
+  const { locale } = router;
   const [credentials, setCredentials] = useState({
     firstname: "",
     lastname: "",
@@ -31,7 +32,7 @@ const Registration = () => {
   return (
     <div className={classes.wrapper}>
         <Container style={{ 
-          paddingTop: "2rem"
+          paddingTop: "10rem"
         }} size={450}>
           <Title
             align="center" sx={(theme) => ({ fontFamily: `Greycliff CF, ${theme.fontFamily}`, fontWeight: 900 })}
@@ -45,11 +46,43 @@ const Registration = () => {
 
           <Paper withBorder shadow="md" p={30} mt={30} radius="md">
             <form>
-              <TextInput label="Prénom" required />
-              <TextInput label="" />
-              <TextInput />
-              <PasswordInput required />
-              <PasswordInput />
+              <TextInput name="firstname" label="Prénom" required placeholder='John' onChange={(event) => {
+                event.preventDefault()
+                setCredentials({ ...credentials, firstname: event.target.value })
+              }} />
+              <TextInput name="lastname" label="Nom" required placeholder='Doe'
+                onChange={(event) => {
+                  event.preventDefault()
+                  setCredentials({ ...credentials, lastname: event.target.value })
+                }} 
+              />
+              <TextInput name="email" label="Email" required placeholder='john.doe@appleseed.com' 
+                onChange={(event) => {
+                  event.preventDefault()
+                  setCredentials({ ...credentials, email: event.target.value })
+                }}
+              />
+              <PasswordInput name="password" label="Mot de passe" required placeholder='johnDoe123' 
+                onChange={(event) => {
+                  event.preventDefault()
+                  setCredentials({ ...credentials, password: event.target.value })
+                }}
+              />
+              <PasswordInput name="confirm_password" label="Confirmation du mot de passe" required placeholder='johnDoe123' 
+                onChange={(event) => {
+                  event.preventDefault()
+                  setCredentials({ ...credentials, confirm_password: event.target.value })
+                }}
+              />
+              <Group position="apart" mt="md">
+                <Checkbox label="Se souvenir de moi" />
+                <Anchor component='a' onClick={(event) => event.preventDefault()} href="#" size="sm">
+                  Mot de passe oublié ?
+                </Anchor>
+              </Group>
+              <Button onClick={() => signUp(credentials, '/', locale)} fullWidth radius={10} mt="xl">
+                Se connecter
+              </Button>
             </form>
           </Paper>
         </Container>

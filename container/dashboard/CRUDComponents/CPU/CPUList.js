@@ -38,7 +38,7 @@ const CPUList = () => {
         </Anchor>
       </td>
       <td>
-        <Button color="orange" sx={{ margin: "1rem" }} >Modifier</Button>
+        <Button color="orange" sx={{ margin: "1rem" }}>Modifier</Button>
         <Button color="red">Supprimer</Button>
       </td>
     </tr>
