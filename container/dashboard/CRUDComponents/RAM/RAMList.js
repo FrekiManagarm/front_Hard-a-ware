@@ -110,7 +110,7 @@ const RAMList = () => {
       >
         <Title sx={{ padding: "1rem" }}>Modifier un composant</Title>
         <Divider/>
-        <RAMModifyForm onClose={onCloseModify} item={ data[index] ?? null} setNotification={setNotification} />
+        <RAMModifyForm onClose={onCloseModify} item={ data ? data[index] : null} setNotification={setNotification} />
       </Drawer>
       {notification == "success" ? (
         <Notification 
