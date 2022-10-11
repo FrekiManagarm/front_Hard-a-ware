@@ -5,7 +5,7 @@ const useBannerStyles = createStyles((theme) => ({
     position: "relative",
     width: "95vw",
     height: "50vh",
-    paddingTop: 350,
+    paddingTop: 250,
     paddingBottom: 100,
     backgroundSize: "cover",
     backgroundPosition: "center",

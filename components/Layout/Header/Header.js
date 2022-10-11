@@ -226,7 +226,7 @@ const Header = ({ user, isLoggedIn }) => {
           </a>
           <UnstyledButton className={classes.link} onClick={toggleLinks}>
             <Center inline>
-              <Box component="span" mr={5}>
+              <Box component="a" href='/components' mr={5}>
                 Composants
               </Box>
               <IconChevronDown size={16} color={theme.fn.primaryColor()} />
@@ -240,7 +240,7 @@ const Header = ({ user, isLoggedIn }) => {
           <Divider my="sm" color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'} />
 
           <Group position="center" grow pb="xl" px="md">
-            <Button radius="xl" >Connexion</Button>
+            <Button onClick={() => router.push('/login')} radius="xl" >Connexion</Button>
           </Group>
         </ScrollArea>
       </Drawer>

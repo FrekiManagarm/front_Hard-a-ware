@@ -1,8 +1,13 @@
 import { Formik } from "formik";
 import React, { useState } from "react";
 import * as Yup from "yup";
+import { TextInput, Textarea, Button } from "@mantine/core";
+import axios from 'axios';
+import { getCookie } from "../../../../helpers/session";
+import PostAPIData from "../../../../helpers/post_api_data";
+import PatchAPIData from "../../../../helpers/patch_api_data";
 
-const RAMAddForm = () => {
+const RAMForm = ({ item, onClose, setNotification }) => {
   const [credentials, setCredentials] = useState({
     capacité: "",
     description: "",
@@ -14,36 +19,21 @@ const RAMAddForm = () => {
     quantité: 0,
   });
 
-  const LegalSchema = Yup.object().shape({
-    capacité: Yup.string().required("Ce champ est requis pour continuer"),
-    description: Yup.string().required("Ce champ est requis pour continuer"),
-    image: Yup.string().required("Ce champ est requis pour continuer"),
-    interface: Yup.string().required("Ce champ est requis pour continuer"),
-    latence: Yup.string().required("Ce champ est requis pour continuer"),
-    link: Yup.string().required("Ce champ est requis pour continuer"),
-    nom: Yup.string().required("Ce champ est requis pour continuer"),
-    quantité: Yup.number().required("Ce champ est requis pour continuer"),
-  });
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+      const response = await PostAPIData('/api/RAM', credentials).then((response) => {
+        setNotification(true)
+        onClose()
+      })
+      console.log(response, 'api response')
+  }
 
   return (
-    <Formik
-      initialValues={credentials}
-      validationSchema={LegalSchema}
-      onSubmit={async (values) => {
-        console.log(values, "values on submit");
-
-        const endpoint = "/api/RAM";
-
-        const response = await PostAPIData(endpoint, values).then(
-          (response) => {
-            console.log(response, "response api");
-          },
-        );
-      }}
-    >
+    <form onSubmit={handleSubmit}>
       <TextInput
         label="Nom"
         type="text"
+        value={credentials.nom}
         required
         sx={{ padding: "1rem" }}
         onChange={(event) => {
@@ -55,6 +45,7 @@ const RAMAddForm = () => {
         label="Image"
         type="text"
         required
+        value={credentials.image}
         sx={{ padding: "1rem" }}
         onChange={(event) => {
           event.preventDefault();
@@ -64,6 +55,7 @@ const RAMAddForm = () => {
       <TextInput
         label="Link"
         type="text"
+        value={credentials.link}
         required
         sx={{ padding: "1rem" }}
         onChange={(event) => {
@@ -75,6 +67,7 @@ const RAMAddForm = () => {
         label="Interface"
         type="text"
         required
+        value={credentials.interface}
         sx={{ padding: "1rem" }}
         onChange={(event) => {
           event.preventDefault();
@@ -85,6 +78,7 @@ const RAMAddForm = () => {
         label="Latence"
         type="text"
         required
+        value={credentials.latence}
         sx={{ padding: "1rem" }}
         onChange={(event) => {
           event.preventDefault();
@@ -96,6 +90,7 @@ const RAMAddForm = () => {
         type="text"
         required
         sx={{ padding: "1rem" }}
+        value={credentials.capacité}
         onChange={(event) => {
           event.preventDefault();
           setCredentials({ ...credentials, capacité: event.target.value });
@@ -105,6 +100,7 @@ const RAMAddForm = () => {
         type="number"
         sx={{ padding: "1rem" }}
         label="Quantité"
+        value={credentials.quantité}
         onChange={(event) => {
           event.preventDefault();
           setCredentials({ ...credentials, quantité: event.target.value });
@@ -115,6 +111,7 @@ const RAMAddForm = () => {
         label="Description"
         type="text"
         required
+        value={credentials.description}
         sx={{ padding: "1rem" }}
         onChange={(event) => {
           event.preventDefault();
@@ -124,8 +121,8 @@ const RAMAddForm = () => {
       <Button color="green" type="submit" sx={{ margin: "1rem" }}>
         Ajouter
       </Button>
-    </Formik>
+    </form>
   );
 };
 
-export default RAMAddForm;
+export default RAMForm;
