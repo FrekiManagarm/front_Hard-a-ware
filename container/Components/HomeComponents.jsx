@@ -64,6 +64,7 @@ const HomeComponents = () => {
             <Text className={classes.title}>
                 {item.label}
             </Text>
+            <Text className='seeMore'>Voir plus</Text>
         </UnstyledButton>
     ))
 

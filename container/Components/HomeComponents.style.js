@@ -29,11 +29,9 @@ const useHomeComponentsStyles = createStyles((theme) => ({
   },
 
   item: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-evenly",
+    display: "inline-block",
     textAlign: "center",
+    position: "relative",
     borderRadius: theme.radius.xl,
     height: 300,
     width: 450,
@@ -53,14 +51,36 @@ const useHomeComponentsStyles = createStyles((theme) => ({
       width: 350
     },
 
+    ".seeMore": {
+      color: "#FFF",
+      width: 450,
+      height: 300,
+      borderRadius: theme.radius.xl,
+      fontSize: "20px",
+      fontWeight: "bold",
+      background: "rgba(0, 0, 0, 0.5)",
+      backdropFilter: "blur(5px)",
+      margin: "0 auto",
+      padding: "8rem",
+      top: 0,
+      opacity: 0,
+      display: "block",
+      position: "absolute",
+      transition: "opacity .5s ease-in-out, background .5s ease-in-out",
+    },
+
     backgroundColor:
       theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.colors.gray[2],
-    transition: "box-shadow 150ms ease, transform 100ms ease",
+    transition: "box-shadow 150ms ease, filter 150ms ease",
 
     "&:hover": {
       boxShadow: `${theme.shadows.xl} !important`,
-      transform: "scale(1.05)",
+      backdropFilter: "blur(5px)"
     },
+
+    "&:hover .seeMore": {
+      opacity: 1,
+    }
   },
 }));
 
