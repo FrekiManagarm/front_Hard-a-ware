@@ -15,6 +15,7 @@ function MyApp({
   locale,
   pathname,
   tokenCookie,
+  ctx
 }) {
 
   const router = useRouter();

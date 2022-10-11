@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import {
-  Card, Image, Text, Group, Badge, Button, ActionIcon, Modal, Title, Divider,
+  Card, Text, Group, Badge, Button, ActionIcon, Modal, Title, Divider,
 } from '@mantine/core'
 import { IconHeart } from '@tabler/icons'
+import Image from 'next/image'
 import useProductCardStyles from './ProductCard.style'
 
 const ProductCard = ({ image, title, description, country, link }) => {
@@ -14,7 +15,7 @@ const ProductCard = ({ image, title, description, country, link }) => {
     <>
       <Card withBorder radius="lg" p="md" className={classes.card}>
         <Card.Section>
-          <Image src={image} alt={title} height="100%" width="100%" />
+          <Image src={image} alt={title} objectFit="scale-down" width={500} height={300} />
         </Card.Section>
 
         <Card.Section className={classes.section} mt="md">
@@ -33,9 +34,6 @@ const ProductCard = ({ image, title, description, country, link }) => {
           <Text mt="md" className={classes.label} color="dimmed">
             Perfect for you, if you enjoy
           </Text>
-          {/* <Group spacing={7} mt={5}>
-            {features}
-          </Group> */}
         </Card.Section>
 
         <Group mt="xs">
@@ -56,7 +54,7 @@ const ProductCard = ({ image, title, description, country, link }) => {
         size="70%"
       >
         <div className={classes.modalWrapper}>
-          <Image src={image} width={600} height={500} />
+          <Image src={image} width={500} objectFit="scale-down" height={300} fit="scale-down" />
           <Divider size="xl" />
           <div style={{ padding: "2rem" }}>
             <Text>Nom :</Text>
