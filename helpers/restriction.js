@@ -34,7 +34,7 @@ export const getUserByToken = async (token) => {
   const response = await GetAPIData(apiUrl, locale, token);
   // console.log(response, 'response get user')
   if (response) {
-      return response[0].data.user;
+      return await response[0].data.user;
   }
 
 }
@@ -79,7 +79,7 @@ export function isLoggedInOrLogThenRedirect(resourceOwnerId = null, locale = 'fr
     if (typeof window !== 'undefined') {
       // Redirection a tester ??
       const nextLocation = window.location.pathname ?? '/';
-      Router.replace(`${process.env.LOCAL_FRONT_SERVER}/login?next=${nextLocation}`);
+      Router.replace(`${process.env.SERVER_FRONT}/login?next=${nextLocation}`);
     }
   } else {
     if (resourceOwnerId == userObj?.id) {

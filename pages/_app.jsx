@@ -14,7 +14,8 @@ function MyApp({
   isLoggedIn,
   locale,
   pathname,
-  tokenCookie
+  tokenCookie,
+  ctx
 }) {
 
   const router = useRouter();

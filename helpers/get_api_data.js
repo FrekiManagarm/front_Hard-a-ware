@@ -20,7 +20,7 @@ const FetchAPIData = (url, locale, token) => {
 
   const settings = {
     method: "GET",
-    mode: "no-cors",
+    // mode: "no-cors",
     headers: {
       Authorization: "Bearer " + token,
       Accept: "application/json",
