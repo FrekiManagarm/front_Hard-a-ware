@@ -44,10 +44,10 @@ const AuthProvider = props => {
     return user;
   }
 
-  useEffect(() => {
-    setLoggedIn(isValidToken());
-    getAuthUser();
-  } , []);
+  // useEffect(() => {
+  //   setLoggedIn(isValidToken());
+  //   getAuthUser();
+  // } , []);
   
 
   

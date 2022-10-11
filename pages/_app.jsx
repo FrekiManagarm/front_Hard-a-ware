@@ -14,8 +14,7 @@ function MyApp({
   isLoggedIn,
   locale,
   pathname,
-  tokenCookie,
-  ctx
+  tokenCookie
 }) {
 
   const router = useRouter();
@@ -32,14 +31,14 @@ function MyApp({
         <LayoutWrapper user={user} isLoggedIn={isLoggedIn}>
           <ConfigurationProvider>
             <DefaultSeo 
-              title="HARDSHOP"
-              titleTemplate="Hardshop | %s"
-              description="HARDSHOP website"
+              title="HARD-A-WARE"
+              titleTemplate="Hard-a-ware | %s"
+              description="HARD-A-WARE website"
               openGraph={{
                 type: "website",
                 locale: locale,
-                url: "https://www.hardshop.com/",
-                site_name: "Hardshop",
+                url: "https://www.hardaware.net/",
+                site_name: "Hard-a-ware",
               }}
               twitter={{
                 handle: "@handle",
