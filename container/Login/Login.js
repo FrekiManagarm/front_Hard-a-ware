@@ -26,6 +26,11 @@ const Login = () => {
   const { signIn, apiErrorMessage } = useContext(AuthContext)
   const [credentials, setCredentials] = useState(initialCredentialsState);
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    signIn(credentials, {})
+  }
+
 
   return (
     <div className={classes.wrapper}>
@@ -46,7 +51,7 @@ const Login = () => {
       </Text>
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-        <form>
+        <form onSubmit={handleSubmit}>
           <TextInput radius={10} label="Email" name="email" onChange={(event) => {
             event.preventDefault()
             setCredentials({ ...credentials, email: event.target.value })
@@ -61,7 +66,7 @@ const Login = () => {
               Mot de passe oublié ?
             </Anchor>
           </Group>
-          <Button onClick={() => signIn(credentials, {})} fullWidth radius={10} mt="xl">
+          <Button type="submit" fullWidth radius={10} mt="xl">
             Se connecter
           </Button>
         </form>
