@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## [v0.3]
+
+- résolution du bug d'envoi des données sur l'API
+- les pages qui affichent les différents composants sont terminés
+
 ## [v0.2]
 
 - Finalisation de la page d'accueil
