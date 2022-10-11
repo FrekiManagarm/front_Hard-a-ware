@@ -1,5 +1,6 @@
 import { SimpleGrid } from '@mantine/core';
 import React, {useState, useEffect} from 'react'
+import Banner from '../../../components/Banner/Banner';
 import ProductCard from '../../../components/ProductCard/ProductCard';
 import { useFetchSwr } from '../../../hooks/useFetchSwr';
 import useCaseStyles from './Case.style'
@@ -17,7 +18,8 @@ const Case = () => {
 
   return (
     <div className={classes.wrapper}>
-      <SimpleGrid cols={4}>
+      <Banner bgImage="https://i.imgur.com/DZPyoxi.jpg" title="Boitiers" description="Bienvenue dans la partie Boitiers" />
+      <SimpleGrid cols={4} className={classes.cardSection}>
         {data && data?.map((item) => (
           <ProductCard title={item.nom} image={item.image} link={item.link} country="Boitier" />
         ))}

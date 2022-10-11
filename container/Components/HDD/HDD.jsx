@@ -3,6 +3,7 @@ import { SimpleGrid } from '@mantine/core';
 import { useFetchSwr } from '../../../hooks/useFetchSwr';
 import useHDDStyles from './HDD.style';
 import ProductCard from '../../../components/ProductCard/ProductCard';
+import Banner from '../../../components/Banner/Banner';
 
 const HDD = () => {
 
@@ -16,7 +17,8 @@ const HDD = () => {
 
   return (
     <div className={classes.wrapper}>
-      <SimpleGrid cols={4}>
+      <Banner title="Disque Dur" bgImage="https://i.imgur.com/f8BxASB.jpg" description="Bienvenue dans la partie Disque Dur" />
+      <SimpleGrid cols={4} className={classes.cardSection}>
         {data && data?.map((item) => (
           <ProductCard title={item.nom} country="disque dur" image={item.image} link={item.link} description={item.description} />
         ))}

@@ -2,7 +2,14 @@ import { createStyles } from "@mantine/core";
 
 const useSSDStyles = createStyles((theme) => ({
     wrapper: {
-        padding: "8rem 4rem"
+        padding: "5rem",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+    },
+
+    cardSection: {
+        paddingTop: "4rem"
     }
 }))
 

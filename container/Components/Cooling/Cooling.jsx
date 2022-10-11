@@ -3,6 +3,7 @@ import { useFetchSwr } from '../../../hooks/useFetchSwr'
 import { SimpleGrid } from '@mantine/core'
 import ProductCard from '../../../components/ProductCard/ProductCard'
 import useCoolingStyles from './Cooling.style'
+import Banner from '../../../components/Banner/Banner'
 
 const Cooling = () => {
 
@@ -15,7 +16,8 @@ const Cooling = () => {
 
   return (
     <div className={classes.wrapper}>
-      <SimpleGrid cols={4}>
+      <Banner bgImage="https://i.imgur.com/wchTTvi.jpg" title="Refroidissement" description="Bienvenue dans la partie Refroidissement" />
+      <SimpleGrid cols={4} className={classes.cardSection}>
         {data && data?.map((item) => (
           <ProductCard image={item.image} title={item.nom} link={item.link} country="Refroidissement" description={item.description} />
         ))}

@@ -2,7 +2,14 @@ import { createStyles } from "@mantine/core";
 
 const useCPUStyles = createStyles((theme) => ({
    wrapper: {
-    padding: "10rem 4rem",
+      display: "flex",
+      flexDirection: "column",
+      padding: "5rem",
+      alignItems: "center"
+   },
+
+   cardSection: {
+      paddingTop: "4rem",
    }
 }))
 

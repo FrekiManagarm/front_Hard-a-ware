@@ -1,10 +1,6 @@
-import { Formik } from "formik";
 import React, { useState } from "react";
-import * as Yup from "yup";
 import { TextInput, Textarea, Button } from "@mantine/core";
-import { getCookie } from "../../../../helpers/session";
 import PostAPIData from "../../../../helpers/post_api_data";
-import PatchAPIData from "../../../../helpers/patch_api_data";
 
 const RAMForm = ({ item, onClose, setNotification }) => {
   const [credentials, setCredentials] = useState({

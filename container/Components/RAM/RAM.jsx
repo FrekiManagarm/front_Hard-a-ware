@@ -1,5 +1,6 @@
 import { SimpleGrid } from '@mantine/core';
 import {useState, useEffect} from 'react'
+import Banner from '../../../components/Banner/Banner';
 import ProductCard from '../../../components/ProductCard/ProductCard';
 import { useFetchSwr } from '../../../hooks/useFetchSwr';
 import useRAMStyles from './RAM.style'
@@ -18,7 +19,8 @@ const RAM = () => {
 
   return (
     <div className={classes.wrapper}>
-      <SimpleGrid cols={4}>
+      <Banner title="Mémoire vive" description="Bienvenue dans la partie Mémoire vive" bgImage="https://i.imgur.com/P05hTez.jpg" />
+      <SimpleGrid cols={4} className={classes.cardSection}>
         {data && data?.map((item) => (
           <ProductCard title={item.nom} image={item.image} link={item.link} description={item.description} country="mémoire vive" />
         ))}
