@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TextInput, Textarea, Button } from "@mantine/core";
+import { TextInput, Textarea, Button, Checkbox } from "@mantine/core";
 import PostAPIData from "../../../../helpers/post_api_data";
 
 const CPUForm = ({ onClose, setNotification }) => {
@@ -71,8 +71,6 @@ const CPUForm = ({ onClose, setNotification }) => {
                         setCredentials({ ...credentials, cache: event.target.value })
                     }}
                 />
-            </div>
-            <div>
                 <TextInput 
                     sx={{ padding: "1rem" }}
                     type="text"
@@ -100,6 +98,9 @@ const CPUForm = ({ onClose, setNotification }) => {
                         setCredentials({ ...credentials, frequence: event.target.value })
                     }}
                 />
+            </div>
+            <div>
+                
                 <TextInput 
                     sx={{ padding: "1rem" }}
                     type="text"
@@ -118,8 +119,6 @@ const CPUForm = ({ onClose, setNotification }) => {
                         setCredentials({ ...credentials, nb_coeur: event.target.value })
                     }}
                 />
-            </div>
-            <div>
                 <TextInput 
                     type="number"
                     label="Nombre de threads"
@@ -129,7 +128,7 @@ const CPUForm = ({ onClose, setNotification }) => {
                         setCredentials({ ...credentials, nb_threads: event.target.value })
                     }}
                 />
-                <TextInput 
+                <Checkbox 
                     type="checkbox"
                     label="Overclocking"
                     sx={{ padding: "1rem" }}
@@ -138,6 +137,9 @@ const CPUForm = ({ onClose, setNotification }) => {
                         setCredentials({ ...credentials, overclocking: event.target.value })
                     }}
                 />
+            </div>
+            <div>
+                
                 <TextInput 
                     sx={{ padding: "1rem" }}
                     type="text"
@@ -156,8 +158,6 @@ const CPUForm = ({ onClose, setNotification }) => {
                         setCredentials({ ...credentials, type: event.target.value })
                     }}
                 />
-            </div>
-            <div>
                 <TextInput 
                     type="url"
                     label="Link"
@@ -176,9 +176,10 @@ const CPUForm = ({ onClose, setNotification }) => {
                         setCredentials({ ...credentials, description: event.target.value })
                     }}
                 />
+                <Button color="green" sx={{ margin: "1rem" }} type="submit">Ajouter</Button>
             </div>
 
-            <Button color="green" sx={{ margin: "1rem" }} type="submit">Ajouter</Button>
+            
         </form>
     )
 }
