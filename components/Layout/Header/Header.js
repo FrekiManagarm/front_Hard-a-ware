@@ -178,11 +178,17 @@ const Header = ({ user, isLoggedIn }) => {
               {(styles) => (
                 <Paper
                   shadow="md"
-                  style={{ ...styles, display: "flex", flexDirection: "column", position: 'absolute', width: "15rem", height: "20rem", top: "4rem", right: "2rem", padding: "1rem"}}
+                  style={{ ...styles, display: "flex", flexDirection: "column", position: 'absolute', width: "15rem", height: "20rem", top: "3.5rem", right: "2rem", padding: "1rem"}}
                   ref={clickOutsideRef}
                 >
                   <span onClick={() => router.push('/dashboard')} className={classes.anchor}>
                     Mon Tableau de Bord
+                  </span>
+                  <span onClick={() => router.push('/dashboard/my-configs')} className={classes.anchor}>
+                    Mes configurations
+                  </span>
+                  <span onClick={() => router.push('/dashboard/preferences')} className={classes.anchor}>
+                    Mes Préférences
                   </span>
                   <span onClick={() => {
                     logOut()

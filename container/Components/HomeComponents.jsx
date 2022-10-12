@@ -64,13 +64,14 @@ const HomeComponents = () => {
             <Text className={classes.title}>
                 {item.label}
             </Text>
+            <Text className='seeMore'>Voir plus</Text>
         </UnstyledButton>
     ))
 
   return (
     <div className={classes.wrapper}>
         <Banner title="Composants" bgImage="https://i.imgur.com/ZOzrb6c.jpg" description="Retrouvez ici tout les composants pour vous monter un pc par vous même, de la mémoire vive en passant par la carte graphique pour finir sur le boitier de votre choix. Vous pouvez également profiter de notre configurateur personnalisé en cliquant sur le bouton ci-dessous" />
-        <SimpleGrid spacing={35} cols={3} mt="md" breakpoints={[ 
+        <SimpleGrid spacing={35} cols={3} mt="xl" breakpoints={[ 
             { maxWidth: "xs", cols: 1 },
             { minWidth: 'sm', cols: 2 },
             { minWidth: 'md', cols: 2 },

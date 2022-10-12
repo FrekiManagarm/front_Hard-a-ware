@@ -2,7 +2,14 @@ import { createStyles } from "@mantine/core";
 
 const useGPUStyles = createStyles((theme) => ({
     wrapper: {
-        padding: "8rem 4rem",
+        display: "flex",
+        flexDirection: "column",
+        padding: "5rem",
+        alignItems: "center"
+    },
+
+    cardSection: {
+        paddingTop: "4rem",
     }
 }))
 

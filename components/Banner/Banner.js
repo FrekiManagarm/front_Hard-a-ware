@@ -1,10 +1,12 @@
 import React from 'react'
 import { Container, Overlay, Title, Text, Button } from '@mantine/core';
 import useBannerStyles from './Banner.style';
+import { useRouter } from 'next/router';
 
 const Banner = ({ title, description, bgImage }) => {
 
   const { classes, cx } = useBannerStyles();
+  const router = useRouter();
 
   return (
     <div className={classes.wrapper} style={{ backgroundImage: `url(${bgImage})` }}>
@@ -22,7 +24,7 @@ const Banner = ({ title, description, bgImage }) => {
         </Container>
 
         <div className={classes.controls}>
-          <Button className={classes.control} variant="white" size="lg">
+          <Button onClick={() => router.push('/configurator')} className={classes.control} variant="white" size="lg">
             Commencer
           </Button>
         </div>
