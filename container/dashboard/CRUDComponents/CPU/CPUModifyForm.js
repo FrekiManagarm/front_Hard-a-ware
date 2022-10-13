@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TextInput, Textarea, Button } from "@mantine/core";
+import { TextInput, Textarea, Button, Checkbox } from "@mantine/core";
 import PatchAPIData from "../../../../helpers/patch_api_data";
 
 const CPUModifyForm = ({ item, onClose, setNotification }) => {
@@ -21,7 +21,8 @@ const CPUModifyForm = ({ item, onClose, setNotification }) => {
     link: item ? item.link : "",
   });
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     const response = await PatchAPIData(`/api/RAM/${item?.id}`).then(
       (response) => {
         setNotification(true);
@@ -38,6 +39,7 @@ const CPUModifyForm = ({ item, onClose, setNotification }) => {
           label="Nom"
           type="text"
           required
+          value={credentials.nom}
           sx={{ padding: "1rem" }}
           onChange={(event) => {
             event.preventDefault();
@@ -47,6 +49,8 @@ const CPUModifyForm = ({ item, onClose, setNotification }) => {
         <TextInput
           label="Image"
           type="text"
+          required
+          value={credentials.image}
           sx={{ padding: "1rem" }}
           onChange={(event) => {
             event.preventDefault();
@@ -56,6 +60,8 @@ const CPUModifyForm = ({ item, onClose, setNotification }) => {
         <TextInput
           type="text"
           label="Architecture"
+          required
+          value={credentials.architecture}
           sx={{ padding: "1rem" }}
           onChange={(event) => {
             event.preventDefault();
@@ -68,18 +74,20 @@ const CPUModifyForm = ({ item, onClose, setNotification }) => {
         <TextInput
           type="text"
           label="Cache"
+          required
+          value={credentials.cache}
           sx={{ padding: "1rem" }}
           onChange={(event) => {
             event.preventDefault();
             setCredentials({ ...credentials, cache: event.target.value });
           }}
         />
-      </div>
-      <div>
         <TextInput
           sx={{ padding: "1rem" }}
           type="text"
           label="Chipset"
+          required
+          value={credentials.chipset}
           onChange={(event) => {
             event.preventDefault();
             setCredentials({ ...credentials, chipset: event.target.value });
@@ -89,6 +97,8 @@ const CPUModifyForm = ({ item, onClose, setNotification }) => {
           sx={{ padding: "1rem" }}
           type="text"
           label="Chipset Graphique"
+          required
+          value={credentials.chipset_graphique}
           onChange={(event) => {
             event.preventDefault();
             setCredentials({
@@ -101,15 +111,21 @@ const CPUModifyForm = ({ item, onClose, setNotification }) => {
           sx={{ padding: "1rem" }}
           type="text"
           label="Fréquence"
+          required
+          value={credentials.frequence}
           onChange={(event) => {
             event.preventDefault();
             setCredentials({ ...credentials, frequence: event.target.value });
           }}
         />
+      </div>
+      <div>
         <TextInput
           sx={{ padding: "1rem" }}
           type="text"
           label="Fréquence Boost"
+          required
+          value={credentials.frequence_boost}
           onChange={(event) => {
             event.preventDefault();
             setCredentials({
@@ -121,27 +137,31 @@ const CPUModifyForm = ({ item, onClose, setNotification }) => {
         <TextInput
           type="number"
           label="Nombre de coeur"
+          required
+          value={credentials.nb_coeur}
           sx={{ padding: "1rem" }}
           onChange={(event) => {
             event.preventDefault();
             setCredentials({ ...credentials, nb_coeur: event.target.value });
           }}
         />
-      </div>
-      <div>
         <TextInput
           type="number"
           label="Nombre de threads"
+          required
           sx={{ padding: "1rem" }}
+          value={credentials.nb_threads}
           onChange={(event) => {
             event.preventDefault();
             setCredentials({ ...credentials, nb_threads: event.target.value });
           }}
         />
-        <TextInput
+        <Checkbox
           type="checkbox"
           label="Overclocking"
           sx={{ padding: "1rem" }}
+          required
+          value={credentials.overclocking}
           onChange={(event) => {
             event.preventDefault();
             setCredentials({
@@ -150,10 +170,14 @@ const CPUModifyForm = ({ item, onClose, setNotification }) => {
             });
           }}
         />
+      </div>
+      <div>
         <TextInput
           sx={{ padding: "1rem" }}
           type="text"
           label="Socket"
+          required
+          value={credentials.socket}
           onChange={(event) => {
             event.preventDefault();
             setCredentials({ ...credentials, socket: event.target.value });
@@ -163,16 +187,18 @@ const CPUModifyForm = ({ item, onClose, setNotification }) => {
           sx={{ padding: "1rem" }}
           type="text"
           label="Type"
+          required
+          value={credentials.type}
           onChange={(event) => {
             event.preventDefault();
             setCredentials({ ...credentials, type: event.target.value });
           }}
         />
-      </div>
-      <div>
         <TextInput
           type="url"
           label="Link"
+          required
+          value={credentials.link}
           sx={{ padding: "1rem" }}
           onChange={(event) => {
             event.preventDefault();
@@ -182,16 +208,18 @@ const CPUModifyForm = ({ item, onClose, setNotification }) => {
         <Textarea
           type="text"
           label="Description"
+          required
+          value={credentials.description}
           sx={{ padding: "1rem" }}
           onChange={(event) => {
             event.preventDefault();
             setCredentials({ ...credentials, description: event.target.value });
           }}
         />
+        <Button color="green" sx={{ margin: "1rem" }} type="submit">
+          Ajouter
+        </Button>
       </div>
-      <Button color="green" sx={{ margin: "1rem" }} type="submit">
-        Ajouter
-      </Button>
     </form>
   );
 };

@@ -20,7 +20,7 @@ const ProductCard = ({ image, title, description, country, link }) => {
 
         <Card.Section className={classes.section} mt="md">
           <Group position="apart">
-            <Text component='a' href={link} size="lg" weight={500}>
+            <Text component='a' href={link} size="lg" weight={900}>
               {title}
             </Text>
             <Badge size="sm">{country}</Badge>

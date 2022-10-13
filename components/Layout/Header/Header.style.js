@@ -79,6 +79,10 @@ const useHeaderStyles = createStyles((theme) => ({
         }`,
       },
 
+      header: {
+        
+      },
+
       button: {
         borderRadius: 25
       },

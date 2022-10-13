@@ -16,7 +16,7 @@ const CPUList = () => {
   const [notification, setNotification] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    setMounted(true)
   }, [])
   
   const { data } = useFetchSwr('/api/CPUs', mounted)
@@ -40,7 +40,7 @@ const CPUList = () => {
           <Image src={item.image} width={100} height={100} />
         </td>
         <td>
-          <Anchor component='a' href={`/components/cpu/${item.id}`} size="sm">
+          <Anchor component='a' href={item.link} target="_blank" size="sm">
             {item.nom}
           </Anchor>
         </td>
@@ -98,7 +98,7 @@ const CPUList = () => {
         opened={open}
         onClose={() => setOpen(!open)}
         position="right"
-        size={1000}
+        size={700}
         overlayOpacity={0.3}
       >
         <Title sx={{ padding: "1rem" }}>Ajouter un composant</Title>
@@ -107,9 +107,9 @@ const CPUList = () => {
       </Drawer>
       <Drawer
         opened={openModify}
-        onClose={() => onClose()}
+        onClose={() => setOpenModify(!openModify)}
         position="right"
-        size={1000}
+        size={700}
         overlayOpacity={0.3}
       >
         <Title sx={{ padding: "1rem" }}>Modifier un composant</Title>
