@@ -98,7 +98,8 @@ const Header = ({ user, isLoggedIn }) => {
     transitionProperty: 'transform, opacity',
   }
 
-  const bgNavbar = scroll.y > 10 && router.pathname == "/" ? "orange" : scroll.y < 10 && router.pathname == "/" ? "transparent" : "orange"
+  const bgNavbar = scroll.y > 10 && router.pathname == "/" ? `rgba(255, 146, 43, 0.90)` : scroll.y < 10 && router.pathname == "/" ? "transparent" : `rgba(255, 146, 43, 0.90)`;
+  const marginNavbar = router.pathname == "/" ? "0.5rem" : null
 
   const links = mockData.map((item) => (
     <UnstyledButton className={classes.subLink} key={item.title} onClick={() => router.push(item.link)} >
@@ -117,7 +118,7 @@ const Header = ({ user, isLoggedIn }) => {
 
   return (
     <Box>
-      <HeaderComponent height={65} sx={{ backgroundColor: bgNavbar, border: "none", position: "fixed"}} px="sm" >
+      <HeaderComponent height={65} sx={{ backgroundColor: bgNavbar, border: "none", position: "fixed", backdropFilter:"blur(10px)", borderRadius: "1rem" }} px="sm" mx="sm" my={marginNavbar}>
         <Group position='apart' sx={{ height: "100%" }}>
           <Image src="https://i.imgur.com/9kR20Nx.png" onClick={() => router.push('/')} style={{ cursor: 'pointer' }} height={45} width={45} alt="header-logo" />
 
