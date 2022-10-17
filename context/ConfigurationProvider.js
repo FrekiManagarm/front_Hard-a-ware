@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
 
-
 export const ConfigurationContext = createContext();
 
 const ConfigurationProvider = ({ children }) => {
@@ -16,9 +15,13 @@ const ConfigurationProvider = ({ children }) => {
         cooling: null,
         psu: null
     }
-    const [configuration, setConfiguration] = useState(initialConfiguration);
+    const [component, setComponent] = useState(initialConfiguration);
 
-    const sendConfiguration = () => {
+    const pushToDraft = (item, type) => {
+        
+    }
+
+    const saveCurrentStep = () => {
 
     }
 
@@ -27,8 +30,10 @@ const ConfigurationProvider = ({ children }) => {
             value={{
                 activeStep,
                 setActiveStep,
-                configuration,
-                setConfiguration
+                component,
+                setComponent,
+                pushToDraft,
+                saveCurrentStep
             }}
         >
             { children }

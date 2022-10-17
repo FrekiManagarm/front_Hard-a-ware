@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
-import { Stepper } from '@mantine/core';
-import { useState } from 'react';
+import { Divider, Modal, Stepper, Title, Text, Button } from '@mantine/core';
+import { useState, useEffect } from 'react';
 import CaseStep from '../../container/Configurator/CaseStep/CaseStep';
 import CoolingStep from '../../container/Configurator/CoolingStep/CoolingStep';
 import CPUStep from "../../container/Configurator/CPUStep/CPUStep";
@@ -13,19 +13,18 @@ import RAMStep from "../../container/Configurator/RAMStep/RAMStep";
 import SSDStep from '../../container/Configurator/SSDStep/SSDStep';
 import GetAPIData from '../../helpers/get_api_data';
 import { withData } from '../../helpers/restriction';
+import { NextSeo } from 'next-seo';
 
 const Configurator = ({ pageData, user, isLoggedIn }) => {
   const router = useRouter();
   const { query } = router;
-  const [activeStep, setActiveStep] = useState(0);
-  const [configuration, setConfiguration] = useState({
-    cpu: null,
-    gpu: null,
-    hdd: null,
-    ssd: null,
-    mb: null,
-  });
+  const [activeStep, setActiveStep] = useState(null);
+  const [openedModal, setOpenedModal] = useState(false);
   console.log(pageData, 'pageData')
+
+  useEffect(() => {
+    setOpenedModal(true)
+  }, []);
 
   const data = {
     cpuData: pageData[0],
@@ -40,49 +39,70 @@ const Configurator = ({ pageData, user, isLoggedIn }) => {
   }
 
   return (
-    <div style={{
-      padding: "2rem 6rem",
-    }}>
-      <h1>Configurator</h1>
-      <Stepper
-        active={activeStep}
-        iconSize={30}
-        color="orange"
-        breakpoint="sm"
-        size="xs"
-      >
-        <Stepper.Step label="Utilisation">
-          <HomeConfigurator activeStep={activeStep} setActiveStep={setActiveStep} />
-        </Stepper.Step>
-        <Stepper.Step label="Processeur">
-          <CPUStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.cpuData} />
-        </Stepper.Step>
-        <Stepper.Step label="Carte Mère">
-          <MotherboardStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.mbData} />
-        </Stepper.Step>
-        <Stepper.Step label="Boitier" >
-          <CaseStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.boitiesData} />
-        </Stepper.Step>
-        <Stepper.Step label="Carte Graphique">
-          <GPUStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.gpuData} />
-        </Stepper.Step>
-        <Stepper.Step label="Disque Dur">
-          <HDDStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.hddData} />
-        </Stepper.Step>
-        <Stepper.Step label="SSD">
-          <SSDStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.ssdData} />
-        </Stepper.Step>
-        <Stepper.Step label="Le Refroidissement">
-          <CoolingStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.coolingsData} />
-        </Stepper.Step>
-        <Stepper.Step label="L'alimentation">
-          <PSUStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.psusData} />
-        </Stepper.Step>
-        <Stepper.Step label="La mémoire Vive">
-         <RAMStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.ramData} />
-        </Stepper.Step>
-      </Stepper>  
-    </div>
+    <>
+      <NextSeo title='Configurator' description='Bienvenue dans notre configurateur PC made in France' />
+      <div style={{
+        padding: "4rem 5rem",
+      }}>
+        <Title sx={{ textAlign: "center", padding: "2rem" }} >Configurator</Title>
+        <Stepper
+          active={activeStep}
+          iconSize={30}
+          color="orange"
+          breakpoint="sm"
+          size="xs"
+        >
+          <Stepper.Step label="Utilisation">
+            <HomeConfigurator activeStep={activeStep} setActiveStep={setActiveStep} />
+          </Stepper.Step>
+          <Stepper.Step label="Processeur">
+            <CPUStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.cpuData} />
+          </Stepper.Step>
+          <Stepper.Step label="Carte Mère">
+            <MotherboardStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.mbData} />
+          </Stepper.Step>
+          <Stepper.Step label="Boitier" >
+            <CaseStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.boitiesData} />
+          </Stepper.Step>
+          <Stepper.Step label="Carte Graphique">
+            <GPUStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.gpuData} />
+          </Stepper.Step>
+          <Stepper.Step label="Disque Dur">
+            <HDDStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.hddData} />
+          </Stepper.Step>
+          <Stepper.Step label="SSD">
+            <SSDStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.ssdData} />
+          </Stepper.Step>
+          <Stepper.Step label="Le Refroidissement">
+            <CoolingStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.coolingsData} />
+          </Stepper.Step>
+          <Stepper.Step label="L'alimentation">
+            <PSUStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.psusData} />
+          </Stepper.Step>
+          <Stepper.Step label="La mémoire Vive">
+          <RAMStep activeStep={activeStep} setActiveStep={setActiveStep} data={data.ramData} />
+          </Stepper.Step>
+        </Stepper>
+        <Modal
+          opened={openedModal}
+          onClose={() => setOpenedModal(!openedModal)}
+          centered
+          closeOnClickOutside={false}
+          size={1000}
+          radius={12}
+        >
+          <Title sx={{ textAlign: "center" }} p={10}>Bienvenue dans le Configurator</Title>
+          <Text></Text>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-around", padding: "1rem" }}>
+            <Button onClick={() => router.back()} color="red">Retour</Button>
+            <Button onClick={() => {
+              setOpenedModal(false)
+              setActiveStep(0)
+            }} color="green" >Commencer</Button>
+          </div>
+        </Modal>  
+      </div>
+    </>
   )
 }
 
