@@ -98,6 +98,7 @@ const Header = ({ user, isLoggedIn }) => {
 
   const bgNavbar = scroll.y > 10 && router.pathname == "/" ? `rgba(255, 146, 43, 0.90)` : scroll.y < 10 && router.pathname == "/" ? "transparent" : `rgba(255, 146, 43, 0.90)`;
   const marginNavbar = router.pathname == "/" ? "0.5rem" : null
+  const blurNavbar = scroll.y > 10 ? 'blur(10px)' : null
 
   const links = mockData.map((item) => (
     <UnstyledButton className={classes.subLink} key={item.title} onClick={() => router.push(item.link)} >
@@ -116,7 +117,7 @@ const Header = ({ user, isLoggedIn }) => {
 
   return (
     <Box>
-      <HeaderComponent height={65} sx={{ backgroundColor: bgNavbar, border: "none", position: "fixed", backdropFilter:"blur(10px)", borderRadius: "1rem", transition: "background-color 300ms ease-in-out" }} px="sm" mx="sm" my={marginNavbar}>
+      <HeaderComponent height={65} sx={{ backgroundColor: bgNavbar, border: "none", position: "fixed", backdropFilter: blurNavbar, borderRadius: "1rem", transition: "background-color 300ms ease-in-out" }} px="sm" mx="sm" my={marginNavbar}>
         <Group position='apart' sx={{ height: "100%" }}>
           <Image src="/Hard-A-ware_logo.png" onClick={() => router.push('/')} style={{ cursor: 'pointer', borderRadius: "1rem" }} height={45} width={45} alt="header-logo" />
 

@@ -3,9 +3,9 @@ import { createStyles } from "@mantine/core";
 const useBannerStyles = createStyles((theme) => ({
   wrapper: {
     position: "relative",
-    width: "95vw",
+    width: "99vw",
     height: "50vh",
-    paddingTop: 250,
+    paddingTop: 150,
     paddingBottom: 100,
     backgroundSize: "cover",
     backgroundPosition: "center",

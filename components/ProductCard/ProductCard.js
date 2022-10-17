@@ -20,19 +20,16 @@ const ProductCard = ({ image, title, description, country, link }) => {
 
         <Card.Section className={classes.section} mt="md">
           <Group position="apart">
-            <Text component='a' href={link} size="lg" weight={900}>
+            <Text component='a' href={link} target="_blank" size="lg" weight={900}>
               {title}
             </Text>
             <Badge size="sm">{country}</Badge>
           </Group>
-          <Text size="sm" mt="xs">
-            {description}
-          </Text>
         </Card.Section>
 
         <Card.Section className={classes.section}>
           <Text mt="md" className={classes.label} color="dimmed">
-            Perfect for you, if you enjoy
+          {description}
           </Text>
         </Card.Section>
 

@@ -67,6 +67,21 @@ const useHomeComponentsStyles = createStyles((theme) => ({
       display: "block",
       position: "absolute",
       transition: "opacity .5s ease-in-out, background .5s ease-in-out",
+
+      [theme.fn.smallerThan('lg')]: {
+        height: 250,
+        width: 425
+      },
+  
+      [theme.fn.smallerThan('sm')]: {
+          height: 225,
+          width: 400
+      },
+
+      [theme.fn.smallerThan('xs')]: {
+        height: 225,
+        width: 350
+      },
     },
 
     backgroundColor:

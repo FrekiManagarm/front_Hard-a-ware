@@ -33,7 +33,7 @@ function MyApp({
           <ConfigurationProvider>
             <DefaultSeo 
               title="HARD-A-WARE"
-              titleTemplate="Hard-a-ware | %s"
+              titleTemplate="%s | Hard-a-ware"
               description="HARD-A-WARE website"
               openGraph={{
                 type: "website",

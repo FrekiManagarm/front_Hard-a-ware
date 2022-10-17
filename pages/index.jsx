@@ -1,4 +1,5 @@
 import { Carousel } from "@mantine/carousel";
+import { NextSeo } from "next-seo";
 import Image from "next/image";
 import CategoryListing from "../components/Home/CategoryListing/CategoryListing";
 import HeroBanner from "../components/Home/HeroBanner/HeroBanner";
