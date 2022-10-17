@@ -10,23 +10,22 @@ import {
   Text,
   SimpleGrid,
   ThemeIcon,
-  Paper,
   Anchor,
   Divider,
+  Menu,
   Center,
   Box,
   Burger,
   Drawer,
   Collapse,
   ScrollArea,
-  Transition,
   Switch,
   useMantineColorScheme,
   useMantineTheme,
   Avatar
 } from '@mantine/core';
 import { useDisclosure, useClickOutside, useWindowScroll } from '@mantine/hooks';
-import { IconNotification, IconCode, IconBook, IconChartPie3, IconFingerprint, IconCoin, IconChevronDown, IconSun, IconMoonStars } from '@tabler/icons';
+import { IconNotification, IconCode, IconBook, IconChartPie3, IconFingerprint, IconCoin, IconChevronDown, IconTrash, IconSettings, IconAffiliate, IconList } from '@tabler/icons';
 import useHeaderStyles from './Header.style';
 import { AuthContext } from '../../../context/AuthProvider';
 
@@ -86,7 +85,6 @@ const Header = ({ user, isLoggedIn }) => {
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const [ scroll, scrollTo ] = useWindowScroll();
   const [open, setOpen] = useState(false);
-  const clickOutsideRef = useClickOutside(() => setOpen(false));
   const { logOut } = useContext(AuthContext)
 
   const { classes, theme } = useHeaderStyles();
@@ -98,7 +96,9 @@ const Header = ({ user, isLoggedIn }) => {
     transitionProperty: 'transform, opacity',
   }
 
-  const bgNavbar = scroll.y > 10 && router.pathname == "/" ? "orange" : scroll.y < 10 && router.pathname == "/" ? "transparent" : "orange"
+  const bgNavbar = scroll.y > 10 && router.pathname == "/" ? `rgba(255, 146, 43, 0.90)` : scroll.y < 10 && router.pathname == "/" ? "transparent" : `rgba(255, 146, 43, 0.90)`;
+  const marginNavbar = router.pathname == "/" ? "0.5rem" : null
+  const blurNavbar = scroll.y > 10 ? 'blur(10px)' : null
 
   const links = mockData.map((item) => (
     <UnstyledButton className={classes.subLink} key={item.title} onClick={() => router.push(item.link)} >
@@ -117,9 +117,9 @@ const Header = ({ user, isLoggedIn }) => {
 
   return (
     <Box>
-      <HeaderComponent height={65} sx={{ backgroundColor: bgNavbar, border: "none", position: "fixed"}} px="sm" >
+      <HeaderComponent height={65} sx={{ backgroundColor: bgNavbar, border: "none", position: "fixed", backdropFilter: blurNavbar, borderRadius: "1rem", transition: "background-color 300ms ease-in-out" }} px="sm" mx="sm" my={marginNavbar}>
         <Group position='apart' sx={{ height: "100%" }}>
-          <Image src="https://i.imgur.com/9kR20Nx.png" onClick={() => router.push('/')} style={{ cursor: 'pointer' }} height={45} width={45} alt="header-logo" />
+          <Image src="/Hard-A-ware_logo.png" onClick={() => router.push('/')} style={{ cursor: 'pointer', borderRadius: "1rem" }} height={45} width={45} alt="header-logo" />
 
           <Group sx={{ height: "100%" }} spacing={0} className={classes.hiddenMobile}>
             <HoverCard width={600} position='bottom' radius="md" shadow="md" withinPortal>
@@ -169,36 +169,25 @@ const Header = ({ user, isLoggedIn }) => {
           { !isLoggedIn ? <Group className={classes.hiddenMobile}>
             <Button className={classes.button} onClick={() => router.push('/login')}>Connexion</Button>
           </Group> : 
-          <>
-            <Button className={classes.hiddenMobile} sx={{ height: "3rem", backgroundColor: "transparent" }} size="sm" radius="xl" px="xs" onClick={() => setOpen(!open)}>
-              <Avatar radius="xl" size="md" src={isLoggedIn && user ? user.avatar_url : null} sx={{ border: "2px solid white" }} />
-              <IconChevronDown />
-            </Button>
-            <Transition mounted={open} transition={scaleY} duration={200} timingFunction="ease">
-              {(styles) => (
-                <Paper
-                  shadow="md"
-                  style={{ ...styles, display: "flex", flexDirection: "column", position: 'absolute', width: "15rem", height: "20rem", top: "3.5rem", right: "2rem", padding: "1rem"}}
-                  ref={clickOutsideRef}
-                >
-                  <span onClick={() => router.push('/dashboard')} className={classes.anchor}>
-                    Mon Tableau de Bord
-                  </span>
-                  <span onClick={() => router.push('/dashboard/my-configs')} className={classes.anchor}>
-                    Mes configurations
-                  </span>
-                  <span onClick={() => router.push('/dashboard/preferences')} className={classes.anchor}>
-                    Mes Préférences
-                  </span>
-                  <span onClick={() => {
-                    logOut()
-                  }} className={classes.anchor2} style={{ backgroundColor: theme.colors.red, color: "white" }} >
-                    Déconnexion
-                  </span>
-                </Paper>
-              )}
-            </Transition>
-          </>
+          <Menu width={200} radius={20} position="bottom-end">
+            <Menu.Target>
+              <Button className={classes.hiddenMobile} sx={{ height: "3rem", backgroundColor: "transparent" }} size="sm" radius="xl" px="xs" onClick={() => setOpen(!open)}>
+                <Avatar radius="xl" size="md" src={isLoggedIn && user ? user.avatar_url : null} sx={{ border: "2px solid white" }} />
+                <IconChevronDown />
+              </Button>
+            </Menu.Target>
+            <Menu.Dropdown sx={{ padding: "1rem" }}>
+              <Menu.Label>Mon Profil</Menu.Label>
+              <Menu.Item onClick={() => router.push('/dashboard/personnal-informations')} icon={<IconSettings size={18} />}>Mes infos</Menu.Item>
+              <Menu.Item onClick={() => router.push('/dashboard/my-configs')} icon={<IconAffiliate size={18} />}>Mes Configs</Menu.Item>
+              <Menu.Item onClick={() => router.push('/dashboard/preferences')} icon={<IconSettings size={18} />}>Préférences</Menu.Item>
+              {isLoggedIn && user?.is_Admin ? <Menu.Item onClick={() => router.push('/dashboard/components-list')} icon={<IconList size={18} />}>
+                Composants
+              </Menu.Item> : null}
+              <Menu.Divider />
+              <Menu.Item color="red" onClick={() => logOut()} icon={<IconTrash size={18} />}>Déconnexion</Menu.Item>
+            </Menu.Dropdown>
+          </Menu>
           }
 
           {/* <Group className={classes.hiddenMobile}>

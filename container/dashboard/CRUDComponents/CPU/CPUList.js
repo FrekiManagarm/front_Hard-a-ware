@@ -16,7 +16,7 @@ const CPUList = () => {
   const [notification, setNotification] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    setMounted(true)
   }, [])
   
   const { data } = useFetchSwr('/api/CPUs', mounted)
