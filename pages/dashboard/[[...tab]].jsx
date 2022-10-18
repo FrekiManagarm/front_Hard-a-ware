@@ -72,6 +72,8 @@ const DashBoard = ({ isLoggedIn, user }) => {
   const { logOut } = useContext(AuthContext)
   console.log(query, 'query dashboard')
 
+  console.log(user)
+
   const displayComponent = () => {
     
     if (query.tab && query.tab[0] && !query.tab[1]) {
@@ -83,7 +85,7 @@ const DashBoard = ({ isLoggedIn, user }) => {
         case "my-configs":
           return <MyConfigs />
         case "components-list":
-          return <CRUDComponents user={user} />
+          return user.is_Admin ? <CRUDComponents user={user} /> : <Error statusCode={404} title="Not found" />
         default:
           return <Error statusCode={404} title="Page Non Trouvé" />
       }
@@ -140,6 +142,18 @@ const DashBoard = ({ isLoggedIn, user }) => {
 
 DashBoard.getInitialProps = async (ctx) => {
     const { isLoggedIn, user } = await withData(ctx);
+    const { pathname, res, query, asPath } = ctx
+
+    let isProtectedRoute = [
+      `/components-list`
+    ].includes(pathname);
+
+    if (isLoggedIn && user.is_Admin == 0 && isProtectedRoute && res) {
+      res.writeHead(302, {
+        Location: `${process.env.LOCAL_FRONT_SERVER}/dashboard`
+      });
+      res.end();
+    }
 
     return { isLoggedIn, user }
 }
