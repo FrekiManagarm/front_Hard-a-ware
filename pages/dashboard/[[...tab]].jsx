@@ -72,6 +72,8 @@ const DashBoard = ({ isLoggedIn, user }) => {
   const { logOut } = useContext(AuthContext)
   console.log(query, 'query dashboard')
 
+  console.log(user)
+
   const displayComponent = () => {
     
     if (query.tab && query.tab[0] && !query.tab[1]) {
@@ -83,7 +85,7 @@ const DashBoard = ({ isLoggedIn, user }) => {
         case "my-configs":
           return <MyConfigs />
         case "components-list":
-          return <CRUDComponents user={user} />
+          return user.is_Admin ? <CRUDComponents user={user} /> : <Error statusCode={404} title="Not found" />
         default:
           return <Error statusCode={404} title="Page Non Trouvé" />
       }
@@ -116,7 +118,7 @@ const DashBoard = ({ isLoggedIn, user }) => {
       }} width={{ sm: 300 }} p="md">
         <Navbar.Section grow>
             <a href='/'>
-              <Image src="https://i.imgur.com/9kR20Nx.png" height={45} width={45} alt="header-logo" />
+              <Image src="/Hard-A-ware_logo.png" style={{ borderRadius: "1rem" }} height={45} width={45} alt="header-logo" />
             </a>
             <div className={classes.linksWrapper}>
               {links}
@@ -127,7 +129,7 @@ const DashBoard = ({ isLoggedIn, user }) => {
 
             <a className={classes.link} onClick={() => logOut()}>
               <IconLogout className={classes.linkIcon} stroke={1.5} />
-              <span>Logout</span>
+              <span>Déconnexion</span>
             </a>
           </Navbar.Section>
         </Navbar>
@@ -140,6 +142,18 @@ const DashBoard = ({ isLoggedIn, user }) => {
 
 DashBoard.getInitialProps = async (ctx) => {
     const { isLoggedIn, user } = await withData(ctx);
+    const { pathname, res, query, asPath } = ctx
+
+    let isProtectedRoute = [
+      `/components-list`
+    ].includes(pathname);
+
+    if (isLoggedIn && user.is_Admin == 0 && isProtectedRoute && res) {
+      res.writeHead(302, {
+        Location: `${process.env.LOCAL_FRONT_SERVER}/dashboard`
+      });
+      res.end();
+    }
 
     return { isLoggedIn, user }
 }

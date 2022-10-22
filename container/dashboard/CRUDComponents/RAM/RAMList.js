@@ -39,7 +39,7 @@ const RAMList = () => {
           <Image src={item.image} width={100} height={100} />
         </td>
         <td>
-          <Anchor>
+          <Anchor component='a' href={item.link} target="_blank">
             {item.nom}
           </Anchor>
         </td>

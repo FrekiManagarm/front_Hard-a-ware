@@ -44,7 +44,7 @@ const Configurator = ({ pageData, user, isLoggedIn }) => {
       <div style={{
         padding: "4rem 5rem",
       }}>
-        <Title sx={{ textAlign: "center", padding: "2rem" }} >Configurator</Title>
+        <Title sx={{ textAlign: "center", padding: "1rem" }} >Configurator</Title>
         <Stepper
           active={activeStep}
           iconSize={30}

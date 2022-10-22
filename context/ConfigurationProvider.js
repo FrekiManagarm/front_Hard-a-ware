@@ -5,6 +5,7 @@ export const ConfigurationContext = createContext();
 const ConfigurationProvider = ({ children }) => {
     const [activeStep, setActiveStep] = useState(0);
     const initialConfiguration = {
+        use: 0,
         cpu: null,
         gpu: null,
         ssd: null,
@@ -15,7 +16,7 @@ const ConfigurationProvider = ({ children }) => {
         cooling: null,
         psu: null
     }
-    const [component, setComponent] = useState(initialConfiguration);
+    const [config, setConfig] = useState(initialConfiguration);
 
     const pushToDraft = (item, type) => {
         
@@ -30,8 +31,8 @@ const ConfigurationProvider = ({ children }) => {
             value={{
                 activeStep,
                 setActiveStep,
-                component,
-                setComponent,
+                config,
+                setConfig,
                 pushToDraft,
                 saveCurrentStep
             }}
