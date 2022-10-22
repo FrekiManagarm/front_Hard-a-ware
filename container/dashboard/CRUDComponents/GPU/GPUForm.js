@@ -16,6 +16,8 @@ const GPUForm = ({ onClose, setNotification }) => {
     link: ""
   });
 
+  console.log(credentials)
+
   const handleSubmit = async (event) => {
     event.preventDefault()
     const response = await PostAPIData('/api/GPU', credentials).then((response) => {
@@ -34,7 +36,7 @@ const GPUForm = ({ onClose, setNotification }) => {
           required
           onChange={(event) => {
             event.preventDefault()
-            setCredentials({ ...credentials, nom: event.target.value })
+            setCredentials({ ...credentials, nom: event.currentTarget.value })
           }}
         />
         <TextInput 
@@ -45,7 +47,7 @@ const GPUForm = ({ onClose, setNotification }) => {
           required
           onChange={(event) => {
             event.preventDefault()
-            setCredentials({ ...credentials, image: event.target.value })
+            setCredentials({ ...credentials, image: event.currentTarget.value })
           }}
         />
         <TextInput 
@@ -56,7 +58,7 @@ const GPUForm = ({ onClose, setNotification }) => {
           required
           onChange={(event) => {
             event.preventDefault()
-            setCredentials({ ...credentials, frequence: event.target.value })
+            setCredentials({ ...credentials, frequence: event.currentTarget.value })
           }}
         />
         <TextInput 
@@ -67,7 +69,7 @@ const GPUForm = ({ onClose, setNotification }) => {
           sx={{ padding: "1rem" }}
           onChange={(event) => {
             event.preventDefault()
-            setCredentials({ ...credentials, frequence_boost: event.target.value })
+            setCredentials({ ...credentials, frequence_boost: event.currentTarget.value })
           }}
         />
         <TextInput 
@@ -78,7 +80,7 @@ const GPUForm = ({ onClose, setNotification }) => {
           sx={{ padding: "1rem" }}
           onChange={(event) => {
             event.preventDefault()
-            setCredentials({ ...credentials, nb_coeur: event.target.value })
+            setCredentials({ ...credentials, nb_coeur: event.currentTarget.valueAsNumber })
           }}
         />
         <TextInput 
@@ -89,7 +91,7 @@ const GPUForm = ({ onClose, setNotification }) => {
           type="number"
           onChange={(event) => {
             event.preventDefault()
-            setCredentials({ ...credentials, nb_ventilateur: event.target.value })
+            setCredentials({ ...credentials, nb_ventilateur: event.currentTarget.valueAsNumber })
           }}
         />
         <TextInput 
@@ -100,7 +102,7 @@ const GPUForm = ({ onClose, setNotification }) => {
           required
           onChange={(event) => {
             event.preventDefault()
-            setCredentials({ ...credentials, nb_video_output: event.target.value })
+            setCredentials({ ...credentials, nb_video_output: event.currentTarget.valueAsNumber })
           }}
         />
         <TextInput 
@@ -111,7 +113,7 @@ const GPUForm = ({ onClose, setNotification }) => {
           required
           onChange={(event) => {
             event.preventDefault()
-            setCredentials({ ...credentials, link: event.target.value })
+            setCredentials({ ...credentials, link: event.currentTarget.value })
           }}
         />
         <Textarea 
@@ -121,7 +123,7 @@ const GPUForm = ({ onClose, setNotification }) => {
           required
           onChange={(event) => {
             event.preventDefault()
-            setCredentials({ ...credentials, description: event.target.value })
+            setCredentials({ ...credentials, description: event.currentTarget.value })
           }}
         />
         <Button sx={{ margin: "1rem" }} color="green" type="submit">Ajouter</Button>

@@ -88,6 +88,9 @@ const Configurator = ({ pageData, user, isLoggedIn }) => {
           onClose={() => setOpenedModal(!openedModal)}
           centered
           closeOnClickOutside={false}
+          closeOnEscape={false}
+          lockScroll={true}
+          
           size={1000}
           radius={12}
         >

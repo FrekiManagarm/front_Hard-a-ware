@@ -98,7 +98,7 @@ const RAMForm = ({ item, onClose, setNotification }) => {
         value={credentials.quantité}
         onChange={(event) => {
           event.preventDefault();
-          setCredentials({ ...credentials, quantité: event.target.value });
+          setCredentials({ ...credentials, quantité: event.currentTarget.valueAsNumber });
         }}
       />
       <Textarea

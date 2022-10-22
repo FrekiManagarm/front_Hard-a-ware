@@ -22,6 +22,8 @@ const CPUForm = ({ onClose, setNotification }) => {
         link: ""
     });
 
+    console.log(credentials)
+
     const handleSubmit = async (event) => {
         event.preventDefault()
         const response = await PostAPIData('/api/CPU', credentials).then((response) => {
@@ -134,7 +136,7 @@ const CPUForm = ({ onClose, setNotification }) => {
                     sx={{ padding: "1rem" }}
                     onChange={(event) => {
                         event.preventDefault()
-                        setCredentials({ ...credentials, overclocking: event.target.value })
+                        setCredentials({ ...credentials, overclocking: event.currentTarget.checked })
                     }}
                 />
             </div>

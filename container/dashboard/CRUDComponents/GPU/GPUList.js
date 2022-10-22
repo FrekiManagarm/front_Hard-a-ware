@@ -84,7 +84,7 @@ const GPUList = () => {
       >
         <Title sx={{ padding: "1rem" }} >Ajouter un composant</Title>
         <Divider />
-        <GPUForm onClose={() => setOpen(!open)} />
+        <GPUForm onClose={() => setOpen(!open)} setNotification={setNotification} />
       </Drawer>
       <Drawer
         opened={openModify}

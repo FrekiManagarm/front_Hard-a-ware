@@ -166,7 +166,7 @@ const CPUModifyForm = ({ item, onClose, setNotification }) => {
             event.preventDefault();
             setCredentials({
               ...credentials,
-              overclocking: event.target.value,
+              overclocking: event.currentTarget.checked,
             });
           }}
         />
