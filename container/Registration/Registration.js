@@ -81,7 +81,7 @@ const Registration = () => {
                 </Anchor>
               </Group>
               <Button onClick={() => signUp(credentials, '/', locale)} fullWidth radius={10} mt="xl">
-                Se connecter
+                Créer mon compte
               </Button>
             </form>
           </Paper>

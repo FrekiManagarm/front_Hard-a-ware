@@ -118,7 +118,7 @@ const DashBoard = ({ isLoggedIn, user }) => {
       }} width={{ sm: 300 }} p="md">
         <Navbar.Section grow>
             <a href='/'>
-              <Image src="https://i.imgur.com/9kR20Nx.png" height={45} width={45} alt="header-logo" />
+              <Image src="/Hard-A-ware_logo.png" style={{ borderRadius: "1rem" }} height={45} width={45} alt="header-logo" />
             </a>
             <div className={classes.linksWrapper}>
               {links}
@@ -129,7 +129,7 @@ const DashBoard = ({ isLoggedIn, user }) => {
 
             <a className={classes.link} onClick={() => logOut()}>
               <IconLogout className={classes.linkIcon} stroke={1.5} />
-              <span>Logout</span>
+              <span>Déconnexion</span>
             </a>
           </Navbar.Section>
         </Navbar>
