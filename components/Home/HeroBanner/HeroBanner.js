@@ -21,7 +21,7 @@ const HeroBanner = () => {
         <Container className={classes.container}>
             <Title className={classes.title}>Bienvenue sur Hard-a-ware</Title>
             <Text className={classes.description} size="xl" mt="xl">
-               Une référence en la matière de Hardware et PC profitez également de notre Configurateur sur-mesure et Made in France
+               Attention ce que vous voyez est une version bêta publique, elle est donc toujours en cours de développement.
             </Text>
 
             <Button onClick={() => router.push('/configurator')} variant="gradient" size="xl" radius="xl" className={classes.control}>
