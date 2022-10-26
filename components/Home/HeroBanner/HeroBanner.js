@@ -21,7 +21,7 @@ const HeroBanner = () => {
         <Container className={classes.container}>
             <Title className={classes.title}>Bienvenue sur Hard-a-ware</Title>
             <Text className={classes.description} size="xl" mt="xl">
-               Attention ce que vous voyez est une version bêta publique, elle est donc toujours en cours de développement.
+               Attention ce que vous voyez est une version bêta publique, le site est donc toujours en cours de développement.
             </Text>
 
             <Button onClick={() => router.push('/configurator')} variant="gradient" size="xl" radius="xl" className={classes.control}>
