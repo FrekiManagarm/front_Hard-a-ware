@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import Image from 'next/image';
 import { useFetchSwr } from '../../../../hooks/useFetchSwr'
 import DeleteAPIData from "../../../../helpers/delete_api_data";
-import { Button, Divider, Drawer, ScrollArea, Table, Title } from '@mantine/core';
+import { Anchor, Button, Divider, Drawer, ScrollArea, Table, Title } from '@mantine/core';
 import CoolingForm from './CoolingForm';
 import CoolingModifyForm from './CoolingModifyForm';
 
@@ -18,7 +18,7 @@ const CoolingList = () => {
     setMounted(true)
   }, []);
 
-  const { data } = useFetchSwr('/api/Coolings', mounted)
+  const { data, mutate } = useFetchSwr('/api/Coolings', mounted)
 
   const rows = data?.map((item, index) => (
     <tr>
@@ -29,7 +29,9 @@ const CoolingList = () => {
         <Image src={item.image} width={100} height={100} />
       </td>
       <td>
-        {item.nom}
+        <Anchor component='a' href={item.link} target="_blank">
+          {item.nom}
+        </Anchor>
       </td>
       <td>
         {item.format}
@@ -42,7 +44,12 @@ const CoolingList = () => {
           setOpenModify(!openModify)
           setIndex(index)
         }} color="orange" sx={{ margin: "1rem" }} >Modifier</Button>
-        <Button onClick={async () => await DeleteAPIData(`/api/Cooling/${item.id}`)} color="red">Supprimer</Button>
+        <Button onClick={async (event) => {
+          event.preventDefault();
+          await DeleteAPIData(`/api/Cooling/${item.id}`).then((response) => {
+            mutate()
+          })
+        }} color="red">Supprimer</Button>
       </td>
     </tr>
   ))
@@ -50,7 +57,7 @@ const CoolingList = () => {
   return (
     <>
       <ScrollArea>
-        <Table sx={{ minWidth: 1200 }} verticalSpacing="xs">
+        <Table sx={{ minWidth: 1200, marginTop: "2rem" }} verticalSpacing="xs">
           <thead>
             <th>ID</th>
             <th>Image</th>
@@ -74,7 +81,7 @@ const CoolingList = () => {
       >
         <Title sx={{ padding: "1rem" }} >Ajouter un composant</Title>
         <Divider />
-        <CoolingForm onClose={() => setOpen(!open)} setNotification={setNotification} />
+        <CoolingForm onClose={() => setOpen(!open)} mutate={mutate} />
       </Drawer>
       <Drawer
         opened={openModify}
@@ -85,7 +92,7 @@ const CoolingList = () => {
       >
         <Title sx={{ padding: "1rem" }} >Modifier un composant</Title>
         <Divider />
-        <CoolingModifyForm item={data ? data[index] : null} onClose={() => setOpenModify(!openModify)} setNotification={setNotification} />
+        <CoolingModifyForm item={data ? data[index] : null} onClose={() => setOpenModify(!openModify)} mutate={mutate} />
       </Drawer>
       {notification ? (
         <Notification 

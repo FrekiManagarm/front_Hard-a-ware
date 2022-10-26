@@ -2,6 +2,8 @@ import { Anchor, Button, Divider, Drawer, ScrollArea, Table, Title } from '@mant
 import Image from 'next/image';
 import { useState, useEffect } from 'react'
 import { useFetchSwr } from '../../../../hooks/useFetchSwr'
+import PSUForm from './PSUForm';
+import PSUModifyForm from './PSUModifyForm';
 
 
 
@@ -87,6 +89,7 @@ const PSUList = () => {
       >
         <Title sx={{ padding: "1rem" }} >Ajouter un composant</Title>
         <Divider />
+        <PSUForm />
       </Drawer>
       <Drawer
         opened={openModify}
@@ -97,6 +100,7 @@ const PSUList = () => {
       >
         <Title sx={{ padding: "1rem" }}>Modifier un composant</Title>
         <Divider />
+        <PSUModifyForm />
       </Drawer>
     </>
   )
