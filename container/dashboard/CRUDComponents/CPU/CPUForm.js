@@ -2,7 +2,7 @@ import { useState } from "react";
 import { TextInput, Textarea, Button, Checkbox } from "@mantine/core";
 import PostAPIData from "../../../../helpers/post_api_data";
 
-const CPUForm = ({ onClose, setNotification }) => {
+const CPUForm = ({ onClose, mutate }) => {
 
     const [credentials, setCredentials] = useState({
         nom: "",
@@ -27,7 +27,7 @@ const CPUForm = ({ onClose, setNotification }) => {
     const handleSubmit = async (event) => {
         event.preventDefault()
         const response = await PostAPIData('/api/CPU', credentials).then((response) => {
-            setNotification(true)
+            mutate()
             onClose()
           })
           console.log(response, 'api response')

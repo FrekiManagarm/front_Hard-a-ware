@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { TextInput, Textarea, Button } from "@mantine/core";
 
-const GPUModifyForm = ({ item, onClose, setNotification }) => {
+const GPUModifyForm = ({ item, onClose, mutate }) => {
   const [credentials, setCredentials] = useState({
     nom: item ? item.nom : "",
     image: item ? item.image : "",
@@ -19,7 +19,7 @@ const GPUModifyForm = ({ item, onClose, setNotification }) => {
     const response = await PostAPIData("/api/GPU", credentials).then(
       (response) => {
         onClose();
-        setNotification("success");
+        mutate();
       },
     );
     console.log(response, 'response api')

@@ -19,7 +19,7 @@ const CPUList = () => {
     setMounted(true)
   }, [])
   
-  const { data } = useFetchSwr('/api/CPUs', mounted)
+  const { data, mutate } = useFetchSwr('/api/CPUs', mounted)
   console.log(data, 'data CPU')
 
   const onClose = () => {
@@ -66,6 +66,7 @@ const CPUList = () => {
             onClick={async (event) => {
               event.preventDefault();
               await DeleteAPIData(`/api/CPU/${item.id}`)
+              mutate()
             }}
           >Supprimer</Button>
         </td>
@@ -103,7 +104,7 @@ const CPUList = () => {
       >
         <Title sx={{ padding: "1rem" }}>Ajouter un composant</Title>
         <Divider />
-        <CPUForm onClose={onClose} setNotification={setNotification} />
+        <CPUForm onClose={onClose} mutate={mutate} />
       </Drawer>
       <Drawer
         opened={openModify}
@@ -114,7 +115,7 @@ const CPUList = () => {
       >
         <Title sx={{ padding: "1rem" }}>Modifier un composant</Title>
         <Divider />
-        <CPUModifyForm onClose={onCloseModify} item={data ? data[index] : null} setNotification={setNotification} />
+        <CPUModifyForm onClose={onCloseModify} item={data ? data[index] : null} mutate={mutate} />
       </Drawer>
       {notification == "success" ? (
         <Notification

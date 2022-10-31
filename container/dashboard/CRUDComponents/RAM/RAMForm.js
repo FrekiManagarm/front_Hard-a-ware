@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { TextInput, Textarea, Button } from "@mantine/core";
 import PostAPIData from "../../../../helpers/post_api_data";
 
-const RAMForm = ({ item, onClose, setNotification }) => {
+const RAMForm = ({ onClose, mutate }) => {
   const [credentials, setCredentials] = useState({
     capacité: "",
     description: "",
@@ -17,7 +17,7 @@ const RAMForm = ({ item, onClose, setNotification }) => {
   const handleSubmit = async (event) => {
     event.preventDefault()
       const response = await PostAPIData('/api/RAM', credentials).then((response) => {
-        setNotification(true)
+        mutate()
         onClose()
       })
       console.log(response, 'api response')

@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import Image from 'next/image'
 import { Anchor, Button, Table, ScrollArea, Drawer, Title, Divider } from '@mantine/core'
 import { useFetchSwr } from '../../../../hooks/useFetchSwr'
+import DeleteAPIData from '../../../../helpers/delete_api_data'
 
 const MBList = () => {
 
@@ -12,8 +13,7 @@ const MBList = () => {
     setMounted(true)
   }, []);
 
-  const { data } = useFetchSwr('/api/MotherBoards', mounted);
-  console.log(data, 'mb data');
+  const { data, mutate } = useFetchSwr('/api/MotherBoards', mounted);
 
   const rows = data?.map((item) => (
     <tr>
@@ -36,7 +36,13 @@ const MBList = () => {
       </td>
       <td>
         <Button color="orange" sx={{ margin: "1rem" }} >Modifier</Button>
-        <Button color="red">Supprimer</Button>
+        <Button color="red"
+          onClick={async (event) => {
+            event.preventDefault();
+            await DeleteAPIData(`/api/MotherBoards/${item.id}`)
+            mutate()
+          }}
+        >Supprimer</Button>
       </td>
     </tr>
   ))
@@ -56,6 +62,11 @@ const MBList = () => {
           <tbody>
             {rows}
           </tbody>
+          <Button color="green" 
+            onClick={() => {
+              setOpen(!open)
+            }}
+          >Ajouter</Button>
         </Table>
       </ScrollArea>
       <Drawer
@@ -75,7 +86,8 @@ const MBList = () => {
         overlayOpacity={0.3}
         size={500}
       >
-        <Title sx={{ padding: "1rem" }}></Title>
+        <Title sx={{ padding: "1rem" }}>Modifier un composant</Title>
+        <Divider />
       </Drawer>
     </>
   )

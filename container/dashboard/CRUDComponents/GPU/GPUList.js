@@ -14,7 +14,6 @@ const GPUList = () => {
   const [open, setOpen] = useState(false);
   const [openModify, setOpenModify] = useState(false);
   const [index, setIndex] = useState(null);
-  const [notification, setNotification] = useState(false);
   useEffect(() => {
     setMounted(true)
   }, [])
@@ -97,12 +96,6 @@ const GPUList = () => {
         <Divider />
         <GPUModifyForm item={data ? data[index] : null} onClose={() => setOpenModify(!openModify)} mutate={mutate} />
       </Drawer>
-      {notification == "success" ? (
-        <Notification 
-          title="Composant ajouté avec succès"
-          icon={<IconCheck color='green' size={18} />}
-        />
-      ) : null}
     </>
   )
 }

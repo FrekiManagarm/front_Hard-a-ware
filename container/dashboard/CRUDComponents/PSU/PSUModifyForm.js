@@ -15,7 +15,8 @@ const PSUModifyForm = ({ item, onClose, mutate }) => {
     description: item ? item.description : ""
   });
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault()
     const response = await PatchAPIData(`/api/PSU/${item.id}`, credentials).then((response) => {
       onClose()
       mutate()

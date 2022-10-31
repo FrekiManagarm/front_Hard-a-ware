@@ -14,13 +14,12 @@ const CaseList = () => {
   const [open, setOpen] = useState(false);
   const [openModify, setOpenModify] = useState(false);
   const [index, setIndex] = useState(null);
-  const [notification, setNotification] = useState(false);
 
   useEffect(() => {
     setMounted(true)
   }, []);
 
-  const { data } = useFetchSwr('/api/Boitiers', mounted);
+  const { data, mutate } = useFetchSwr('/api/Boitiers', mounted);
 
   const rows = data?.map((item, index) => (
     <tr>
@@ -50,7 +49,11 @@ const CaseList = () => {
           }}
         >Modifier</Button>
         <Button color="red"
-          onClick={async () => await DeleteAPIData(`/api/Boitier/${item.id}`)}
+          onClick={async (event) => {
+            event.preventDefault();
+            await DeleteAPIData(`/api/Boitier/${item.id}`)
+            mutate()
+          }}
         >Supprimer</Button>
       </td>
     </tr>
@@ -83,7 +86,7 @@ const CaseList = () => {
       >
         <Title sx={{ padding: "1rem" }}>Ajouter un composant</Title>
         <Divider />
-        <CaseForm onClose={() => setOpen(!open)} setNotification={setNotification} />
+        <CaseForm onClose={() => setOpen(!open)} mutate={mutate} />
       </Drawer>
       <Drawer
         opened={openModify}
@@ -94,14 +97,8 @@ const CaseList = () => {
       >
         <Title sx={{ padding: "1rem" }}>Modifier un composant</Title>
         <Divider />
-        <CaseModifyForm item={data ? data[index] : null} onClose={() => setOpenModify(!openModify)} setNotification={setNotification} />
+        <CaseModifyForm item={data ? data[index] : null} onClose={() => setOpenModify(!openModify)} mutate={mutate} />
       </Drawer>
-      {notification == "success" ? (
-        <Notification
-          title="Component ajouté avec succès"
-          icon={<IconCheck color='green' size={18} />}
-        />
-      ) : null}
     </>
   )
 }

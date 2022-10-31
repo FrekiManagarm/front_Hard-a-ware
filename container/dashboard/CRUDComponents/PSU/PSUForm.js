@@ -16,7 +16,8 @@ const PSUForm = ({ onClose, mutate }) => {
     description: ""
   });
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault()
     const response = await PostAPIData('/api/PSU', credentials).then((response) => {
       onClose()
       mutate()

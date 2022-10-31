@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PostAPIData from '../../../../helpers/post_api_data';
 import { TextInput, Textarea, Button } from '@mantine/core';
 
-const GPUForm = ({ onClose, setNotification }) => {
+const GPUForm = ({ onClose, mutate }) => {
 
   const [credentials, setCredentials] = useState({
     nom: "",
@@ -22,7 +22,7 @@ const GPUForm = ({ onClose, setNotification }) => {
     event.preventDefault()
     const response = await PostAPIData('/api/GPU', credentials).then((response) => {
       onClose()
-      setNotification("success")
+      mutate()
     })
   }
 

@@ -90,16 +90,10 @@ const CoolingList = () => {
         position="right"
         overlayOpacity={0.3}
       >
-        <Title sx={{ padding: "1rem" }} >Modifier un composant</Title>
+        <Title sx={{ padding: "1rem" }}>Modifier un composant</Title>
         <Divider />
         <CoolingModifyForm item={data ? data[index] : null} onClose={() => setOpenModify(!openModify)} mutate={mutate} />
       </Drawer>
-      {notification ? (
-        <Notification 
-          title="Composant ajouté avec succès"
-          icon={<IconCheck color='green' size={18} />}
-      />
-      ) : null}
     </>
   )
 }

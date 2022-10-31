@@ -14,8 +14,8 @@ const ProductCard = ({ image, title, description, country, link }) => {
   return (
     <>
       <Card withBorder radius="lg" p="md" className={classes.card}>
-        <Card.Section>
-          <Image src={image} alt={title} objectFit="scale-down" width={500} height={300} />
+        <Card.Section sx={{ display: "flex", justifyContent: "center"}} >
+          <Image src={image} alt={title} style={{ objectFit: "scale-down" }} width={500} height={350} />
         </Card.Section>
 
         <Card.Section className={classes.section} mt="md">
@@ -51,13 +51,13 @@ const ProductCard = ({ image, title, description, country, link }) => {
         size="70%"
       >
         <div className={classes.modalWrapper}>
-          <Image src={image} width={500} objectFit="scale-down" height={300} fit="scale-down" />
+          <Image src={image} width={500} height={500} style={{ objectFit: 'scale-down' }} />
           <Divider size="xl" />
           <div style={{ padding: "2rem" }}>
             <Text>Nom :</Text>
             <Title>{title}</Title>
             <Text>
-
+              
             </Text>
           </div>
         </div>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { TextInput, Textarea, Button } from "@mantine/core";
 import PatchAPIData from "../../../../helpers/patch_api_data";
 
-const RAMModifyForm = ({ item, onClose, setNotification }) => {
+const RAMModifyForm = ({ item, onClose, mutate }) => {
     console.log(item)
   const [credentials, setCredentials] = useState({
     capacité: item ? item.capacité : "",
@@ -18,7 +18,7 @@ const RAMModifyForm = ({ item, onClose, setNotification }) => {
   const handleSubmit = async () => {
     const response = await PatchAPIData(`/api/RAM/${item?.id}`).then(
       (response) => {
-        setNotification(true);
+        mutate();
         onClose();
       },
     );
