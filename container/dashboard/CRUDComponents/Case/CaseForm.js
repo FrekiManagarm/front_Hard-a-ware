@@ -122,7 +122,6 @@ const CaseForm = ({ onClose, mutate }) => {
             name='ventilateur'
             type="checkbox"
             label="Ventilateur (Bool)"
-            required
             onChange={(event) => {
                 event.preventDefault()
                 setCredentials({ ...credentials, ventilateur: event.currentTarget.checked })

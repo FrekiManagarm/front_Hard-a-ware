@@ -3,19 +3,22 @@ import Image from 'next/image'
 import { Anchor, Button, Table, ScrollArea, Drawer, Title, Divider } from '@mantine/core'
 import { useFetchSwr } from '../../../../hooks/useFetchSwr'
 import DeleteAPIData from '../../../../helpers/delete_api_data'
+import MBForm from './MBForm'
+import MBModifyForm from './MBModifyForm'
 
 const MBList = () => {
 
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
   const [openModify, setOpenModify] = useState(false);
+  const [index, setIndex] = useState(null);
   useEffect(() => {
     setMounted(true)
   }, []);
 
   const { data, mutate } = useFetchSwr('/api/MotherBoards', mounted);
 
-  const rows = data?.map((item) => (
+  const rows = data?.map((item, index) => (
     <tr>
       <td>
         {item.id}
@@ -35,7 +38,12 @@ const MBList = () => {
         {item.constructeur}
       </td>
       <td>
-        <Button color="orange" sx={{ margin: "1rem" }} >Modifier</Button>
+        <Button color="orange" sx={{ margin: "1rem" }}
+          onClick={() => {
+            setOpenModify(!openModify)
+            setIndex(index)
+          }}
+        >Modifier</Button>
         <Button color="red"
           onClick={async (event) => {
             event.preventDefault();
@@ -78,6 +86,7 @@ const MBList = () => {
       >
         <Title sx={{ padding: "1rem" }}>Ajouter un composant</Title>
         <Divider />
+        <MBForm onClose={() => setOpen(!open)} mutate={mutate} />
       </Drawer>
       <Drawer
         opened={openModify}
@@ -88,6 +97,7 @@ const MBList = () => {
       >
         <Title sx={{ padding: "1rem" }}>Modifier un composant</Title>
         <Divider />
+        <MBModifyForm item={data ? data[index] : null} onClose={() => setOpenModify(!openModify)} mutate={mutate} />
       </Drawer>
     </>
   )

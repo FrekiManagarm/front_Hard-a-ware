@@ -51,7 +51,7 @@ const ProductCard = ({ image, title, description, country, link }) => {
         size="70%"
       >
         <div className={classes.modalWrapper}>
-          <Image src={image} width={500} height={500} style={{ objectFit: 'scale-down' }} />
+          <Image src={image} width={400} height={400} style={{ objectFit: 'scale-down' }} />
           <Divider size="xl" />
           <div style={{ padding: "2rem" }}>
             <Text>Nom :</Text>
