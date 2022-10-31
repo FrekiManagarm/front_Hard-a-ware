@@ -2,7 +2,7 @@ import { useState } from "react";
 import { TextInput, Textarea, Button, Checkbox } from "@mantine/core";
 import PatchAPIData from "../../../../helpers/patch_api_data";
 
-const CPUModifyForm = ({ item, onClose, setNotification }) => {
+const CPUModifyForm = ({ item, onClose, mutate }) => {
   const [credentials, setCredentials] = useState({
     nom: item ? item.nom : "",
     image: item ? item.image : "",
@@ -26,7 +26,7 @@ const CPUModifyForm = ({ item, onClose, setNotification }) => {
     const response = await PatchAPIData(`/api/RAM/${item?.id}`).then(
       (response) => {
         setNotification(true);
-        onClose();
+        mutate();
       },
     );
     console.log(response, "api response");
@@ -166,7 +166,7 @@ const CPUModifyForm = ({ item, onClose, setNotification }) => {
             event.preventDefault();
             setCredentials({
               ...credentials,
-              overclocking: event.target.value,
+              overclocking: event.currentTarget.checked,
             });
           }}
         />

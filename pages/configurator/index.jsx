@@ -44,7 +44,7 @@ const Configurator = ({ pageData, user, isLoggedIn }) => {
       <div style={{
         padding: "4rem 5rem",
       }}>
-        <Title sx={{ textAlign: "center", padding: "2rem" }} >Configurator</Title>
+        <Title sx={{ textAlign: "center", padding: "1rem" }} >Configurator</Title>
         <Stepper
           active={activeStep}
           iconSize={30}
@@ -88,6 +88,9 @@ const Configurator = ({ pageData, user, isLoggedIn }) => {
           onClose={() => setOpenedModal(!openedModal)}
           centered
           closeOnClickOutside={false}
+          closeOnEscape={false}
+          lockScroll={true}
+          
           size={1000}
           radius={12}
         >

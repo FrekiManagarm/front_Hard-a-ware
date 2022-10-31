@@ -177,7 +177,7 @@ const Header = ({ user, isLoggedIn }) => {
               </Button>
             </Menu.Target>
             <Menu.Dropdown sx={{ padding: "1rem" }}>
-              <Menu.Label>Mon Profil</Menu.Label>
+              <Menu.Label>{user ? user?.firstname + ' ' + user?.lastname : null}</Menu.Label>
               <Menu.Item onClick={() => router.push('/dashboard/personnal-informations')} icon={<IconSettings size={18} />}>Mes infos</Menu.Item>
               <Menu.Item onClick={() => router.push('/dashboard/my-configs')} icon={<IconAffiliate size={18} />}>Mes Configs</Menu.Item>
               <Menu.Item onClick={() => router.push('/dashboard/preferences')} icon={<IconSettings size={18} />}>Préférences</Menu.Item>

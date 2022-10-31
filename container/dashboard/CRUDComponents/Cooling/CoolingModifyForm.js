@@ -2,7 +2,7 @@ import { useState } from "react";
 import { TextInput, Textarea, Button, ScrollArea } from "@mantine/core";
 import PatchAPIData from "../../../../helpers/patch_api_data";
 
-const CoolingModifyForm = ({ item, onClose, setNotification }) => {
+const CoolingModifyForm = ({ item, onClose, mutate }) => {
   const [credentials, setCredentials] = useState({
     nom: item ? item.nom : "",
     image: item ? item.image : "",
@@ -22,7 +22,7 @@ const CoolingModifyForm = ({ item, onClose, setNotification }) => {
       `/api/Cooling/${item.id}`,
       credentials,
     ).then((response) => {
-      setNotification("success");
+      mutate();
       onClose();
     });
 
@@ -36,61 +36,61 @@ const CoolingModifyForm = ({ item, onClose, setNotification }) => {
           <TextInput
             type="text"
             name="nom"
-            label="Nom"
+            label="Nom (String)"
             sx={{ padding: "1rem" }}
             value={credentials.nom}
             required
             onChange={(event) => {
               event.preventDefault();
-              setCredentials({ ...credentials, nom: event.target.value });
+              setCredentials({ ...credentials, nom: event.currentTarget.value });
             }}
           />
           <TextInput
             type="url"
             name="image"
-            label="Image"
+            label="Image (URL)"
             required
             sx={{ padding: "1rem" }}
             value={credentials.image}
             onChange={(event) => {
               event.preventDefault();
-              setCredentials({ ...credentials, image: event.target.value });
+              setCredentials({ ...credentials, image: event.currentTarget.value });
             }}
           />
           <TextInput
             type="text"
             name="link"
-            label="Link"
+            label="Amazon Link (URL)"
             required
             sx={{ padding: "1rem" }}
             value={credentials.link}
             onChange={(event) => {
               event.preventDefault();
-              setCredentials({ ...credentials, link: event.target.value });
+              setCredentials({ ...credentials, link: event.currentTarget.value });
             }}
           />
           <TextInput
             name="bruit"
             type="text"
-            label="Bruit"
+            label="Bruit (String)"
             required
             sx={{ padding: "1rem" }}
             value={credentials.bruit}
             onChange={(event) => {
               event.preventDefault();
-              setCredentials({ ...credentials, bruit: event.target.value });
+              setCredentials({ ...credentials, bruit: event.currentTarget.value });
             }}
           />
           <TextInput
             name="format"
             type="text"
-            label="Format"
+            label="Format (String)"
             required
             sx={{ padding: "1rem" }}
             value={credentials.format}
             onChange={(event) => {
               event.preventDefault();
-              setCredentials({ ...credentials, format: event.target.value });
+              setCredentials({ ...credentials, format: event.currentTarget.value });
             }}
           />
         </div>
@@ -98,55 +98,55 @@ const CoolingModifyForm = ({ item, onClose, setNotification }) => {
           <TextInput
             name="marque"
             type="text"
-            label="Marque"
+            label="Marque (String)"
             required
             sx={{ padding: "1rem" }}
             value={credentials.marque}
             onChange={(event) => {
               event.preventDefault();
-              setCredentials({ ...credentials, marque: event.target.value });
+              setCredentials({ ...credentials, marque: event.currentTarget.value });
             }}
           />
           <TextInput
             name="matériaux"
             type="text"
-            label="Matériaux"
+            label="Matériaux (String)"
             required
             sx={{ padding: "1rem" }}
             value={credentials.matériaux}
             onChange={(event) => {
               event.preventDefault();
-              setCredentials({ ...credentials, matériaux: event.target.value });
+              setCredentials({ ...credentials, matériaux: event.currentTarget.value });
             }}
           />
           <TextInput
             name="socket"
             type="text"
-            label="Socket"
+            label="Socket (String)"
             required
             sx={{ padding: "1rem" }}
             value={credentials.socket}
             onChange={(event) => {
               event.preventDefault();
-              setCredentials({ ...credentials, socket: event.target.value });
+              setCredentials({ ...credentials, socket: event.currentTarget.value });
             }}
           />
           <TextInput
             name="type"
             type="text"
-            label="Type"
+            label="Type (String)"
             value={credentials.type}
             required
             sx={{ padding: "1rem" }}
             onChange={(event) => {
               event.preventDefault();
-              setCredentials({ ...credentials, type: event.target.value });
+              setCredentials({ ...credentials, type: event.currentTarget.value });
             }}
           />
           <Textarea
             name="description"
             type="text"
-            label="Description"
+            label="Description (String)"
             required
             sx={{ padding: "1rem" }}
             value={credentials.description}
@@ -154,7 +154,7 @@ const CoolingModifyForm = ({ item, onClose, setNotification }) => {
               event.preventDefault();
               setCredentials({
                 ...credentials,
-                description: event.target.value,
+                description: event.currentTarget.value,
               });
             }}
           />

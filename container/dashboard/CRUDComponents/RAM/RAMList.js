@@ -27,7 +27,7 @@ const RAMList = () => {
     setOpenModify(!openModify)
   }
 
-  const { data } = useFetchSwr('/api/RAMs', mounted)
+  const { data, mutate } = useFetchSwr('/api/RAMs', mounted)
 
   const rows = data?.map((item, index) => (
     <>
@@ -39,7 +39,7 @@ const RAMList = () => {
           <Image src={item.image} width={100} height={100} />
         </td>
         <td>
-          <Anchor>
+          <Anchor component='a' href={item.link} target="_blank">
             {item.nom}
           </Anchor>
         </td>
@@ -60,6 +60,7 @@ const RAMList = () => {
           <Button onClick={async (event) => {
             event.preventDefault();
             await DeleteAPIData(`/api/RAM/${item.id}`)
+            mutate()
           }} color="red">Supprimer</Button>
         </td>
       </tr>
@@ -99,7 +100,7 @@ const RAMList = () => {
       >
         <Title sx={{ padding: "1rem" }}>Ajouter un composant</Title>
         <Divider/>
-        <RAMForm onClose={onClose} setNotification={setNotification} />
+        <RAMForm onClose={onClose} mutate={mutate} />
       </Drawer>
       <Drawer
         opened={openModify}
@@ -110,7 +111,7 @@ const RAMList = () => {
       >
         <Title sx={{ padding: "1rem" }}>Modifier un composant</Title>
         <Divider/>
-        <RAMModifyForm onClose={onCloseModify} item={ data ? data[index] : null} setNotification={setNotification} />
+        <RAMModifyForm onClose={onCloseModify} item={ data ? data[index] : null} mutate={mutate} />
       </Drawer>
       {notification == "success" ? (
         <Notification 
