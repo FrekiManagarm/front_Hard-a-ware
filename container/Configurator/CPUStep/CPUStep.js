@@ -13,7 +13,7 @@ const CPUStep = ({ activeStep, setActiveStep, data }) => {
         <h3>Etape Processeur</h3>
         <SimpleGrid cols={4}>
           {data && data?.data.map((cpu) => (
-            <ProductCard title={cpu.nom} image={cpu.image} link={cpu.link} country="processeur" />
+            <ProductCard title={cpu.nom} image={cpu.image} link={cpu.link} description={cpu.description} country="processeur" />
           ))}
         </SimpleGrid>
         <div className={classes.buttonsWrapper}>
