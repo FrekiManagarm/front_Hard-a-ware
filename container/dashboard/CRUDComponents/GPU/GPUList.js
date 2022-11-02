@@ -14,12 +14,11 @@ const GPUList = () => {
   const [open, setOpen] = useState(false);
   const [openModify, setOpenModify] = useState(false);
   const [index, setIndex] = useState(null);
-  const [notification, setNotification] = useState(false);
   useEffect(() => {
     setMounted(true)
   }, [])
 
-  const { data } = useFetchSwr('/api/GPUs', mounted);
+  const { data, mutate } = useFetchSwr('/api/GPUs', mounted);
   // console.log(data, 'data GPU')
 
   const rows = data?.map((item, index) => (
@@ -84,7 +83,7 @@ const GPUList = () => {
       >
         <Title sx={{ padding: "1rem" }} >Ajouter un composant</Title>
         <Divider />
-        <GPUForm onClose={() => setOpen(!open)} />
+        <GPUForm onClose={() => setOpen(!open)} mutate={mutate} />
       </Drawer>
       <Drawer
         opened={openModify}
@@ -95,14 +94,8 @@ const GPUList = () => {
       >
         <Title sx={{ padding: "1rem" }} >Modifier un composant</Title>
         <Divider />
-        <GPUModifyForm item={data ? data[index] : null} onClose={() => setOpenModify(!openModify)} setNotification={setNotification} />
+        <GPUModifyForm item={data ? data[index] : null} onClose={() => setOpenModify(!openModify)} mutate={mutate} />
       </Drawer>
-      {notification == "success" ? (
-        <Notification 
-          title="Composant ajouté avec succès"
-          icon={<IconCheck color='green' size={18} />}
-        />
-      ) : null}
     </>
   )
 }

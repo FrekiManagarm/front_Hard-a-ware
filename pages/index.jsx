@@ -1,4 +1,6 @@
 import { Carousel } from "@mantine/carousel";
+import { Notification } from "@mantine/core";
+import { IconAlertCircle } from "@tabler/icons";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
 import CategoryListing from "../components/Home/CategoryListing/CategoryListing";
@@ -10,7 +12,6 @@ export default function Home() {
   return (
     <div>
       <HeroBanner />
-      
       {/* <CategoryListing/> */}
     </div>
   );
