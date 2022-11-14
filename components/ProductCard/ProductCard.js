@@ -48,7 +48,12 @@ const ProductCard = ({ image, title, description, link, type, item }) => {
         return (
           <div className={classes.interWrapper}>
             <div className={classes.infosWrapper}>
-
+              <p><span>Nombre de coeurs :</span> {item.nb_coeur}</p>
+              <p><span>Fréquence :</span> {item.frequence}</p>
+              <p><span>Fréquence Boost :</span> {item.frequence_boost}</p>
+              <p><span>Nombre de ventilateur :</span> {item.nb_ventilateur ?? "N/A"}</p>
+              <p><span>Nombre de sorties vidéo :</span> {item.nb_video_output}</p>
+              <p><span>Description :</span> {item.description}</p>
             </div>
             <div className={classes.infosButtonsWrapper}>
               <Button>Voir plus</Button>
@@ -60,7 +65,12 @@ const ProductCard = ({ image, title, description, link, type, item }) => {
         return (
           <div className={classes.interWrapper}>
             <div className={classes.infosWrapper}>
-
+              <p><span>Socket :</span> {item.socket}</p>
+              <p><span>Constructeur :</span> {item.constructeur}</p>
+              <p><span>Format :</span> {item.format}</p>
+              <p><span>Fréquence Mémoire :</span> {item.fréquence_mémoire}</p>
+              <p><span>Processeur compatible :</span> {item.proco_compatible}</p>
+              <p><span>Description :</span> {item.description}</p>
             </div>
             <div className={classes.infosButtonsWrapper}>
               <Button>Voir plus</Button>
@@ -72,7 +82,14 @@ const ProductCard = ({ image, title, description, link, type, item }) => {
         return (
           <div className={classes.interWrapper}>
             <div className={classes.infosWrapper}>
-
+              <p><span>Tour par minutes (RPM) :</span> {item.RPM}</p>
+              <p><span>Capacité :</span> {item.capacité} Go</p>
+              <p><span>Format :</span> {item.format}</p>
+              <p><span>Interface :</span> {item.interface}</p>
+              <p><span>Marque :</span> {item.marque}</p>
+              <p><span>Mémoire Cache :</span> {item.mémoire_cache} Mo</p>
+              <p><span>Transfert :</span> {item.transfert}</p>
+              <p><span>Description :</span> {item.description}</p>
             </div>
             <div className={classes.infosButtonsWrapper}>
               <Button>Voir plus</Button>
@@ -84,7 +101,14 @@ const ProductCard = ({ image, title, description, link, type, item }) => {
         return (
           <div className={classes.interWrapper}>
             <div className={classes.infosWrapper}>
-
+              <p><span>Capacité :</span> {item.capacité} Go</p>
+              <p><span>Connectique :</span> {item.connectique}</p>
+              <p><span>Ecriture :</span> {item.ecriture}</p>
+              <p><span>Format :</span> {item.format}</p>
+              <p><span>Interface :</span> {item.interface}</p>
+              <p><span>Lecture :</span> {item.lecture}</p>
+              <p><span>Marque :</span> {item.marque}</p>
+              <p><span>Description :</span> {item.description}</p>
             </div>
             <div className={classes.infosButtonsWrapper}>
               <Button>Voir plus</Button>
@@ -140,7 +164,13 @@ const ProductCard = ({ image, title, description, link, type, item }) => {
         return (
           <div className={classes.interWrapper}>
             <div className={classes.infosWrapper}>
-
+              <p><span>Bruit :</span> {item.bruit}</p>
+              <p><span>Format :</span> {item.format}</p>
+              <p><span>Marque :</span> {item.marque}</p>
+              <p><span>Matériaux :</span> {item.matériaux}</p>
+              <p><span>Socket :</span> {item.socket}</p>
+              <p><span>Type :</span> {item.type}</p>
+              <p><span>Description :</span> {item.description}</p>
             </div>
             <div className={classes.infosButtonsWrapper}>
               <Button>Voir plus</Button>
@@ -152,7 +182,12 @@ const ProductCard = ({ image, title, description, link, type, item }) => {
         return (
           <div className={classes.interWrapper}>
             <div className={classes.infosWrapper}>
-
+              <p><span>Certif :</span> {item.certif}</p>
+              <p><span>Format :</span> {item.format}</p>
+              <p><span>Marque :</span> {item.marque}</p>
+              <p><span>Modulaire :</span> {item.modulaire}</p>
+              <p><span>Puissance :</span> {item.puissance} W</p>
+              <p><span>Description :</span> {item.description}</p>
             </div>
             <div className={classes.infosButtonsWrapper}>
               <Button>Voir plus</Button>
