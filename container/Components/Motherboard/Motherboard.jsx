@@ -20,7 +20,7 @@ const Motherboard = () => {
       <Banner title="Carte Mère" description="Bienvenue dans la partie Carte Mère" bgImage="https://i.imgur.com/fsdypZw.jpg" />
       <SimpleGrid cols={4} className={classes.cardSection}>
         {data && data?.map((item) => (
-          <ProductCard title={item.nom} image={item.image} country="carte mère" description={item.description} link={item.link} />
+          <ProductCard title={item.nom} image={item.image} description={item.description} link={item.link} type="carte mere" item={item} />
         ))}
       </SimpleGrid>
     </div>

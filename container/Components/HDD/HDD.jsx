@@ -20,7 +20,7 @@ const HDD = () => {
       <Banner title="Disque Dur" bgImage="https://i.imgur.com/f8BxASB.jpg" description="Bienvenue dans la partie Disque Dur" />
       <SimpleGrid cols={4} className={classes.cardSection}>
         {data && data?.map((item) => (
-          <ProductCard title={item.nom} country="disque dur" image={item.image} link={item.link} description={item.description} />
+          <ProductCard title={item.nom} image={item.image} link={item.link} description={item.description} type="disque dur" item={item} />
         ))}
       </SimpleGrid>
     </div>

@@ -31,6 +31,37 @@ const useProductCardStyles = createStyles((theme) => ({
     alignItems: "center",
     justifyContent: "space-around"
   },
+
+  interWrapper: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center"
+  },
+
+  infosWrapper: {
+    width: "50%",
+    backgroundColor: "orange",
+    color: "white",
+    padding: "1rem",
+    borderRadius: "1rem",
+    
+    "span": {
+      fontWeight: "bold"
+    }
+  },
+
+  infosButtonsWrapper: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    
+
+    "button": {
+      height: "25%",
+      borderRadius: "1rem",
+      margin: "1rem"
+    }
+  }
 }));
 
 export default useProductCardStyles;
