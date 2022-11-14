@@ -4,6 +4,7 @@ export const ConfigurationContext = createContext();
 
 const ConfigurationProvider = ({ children }) => {
     const [activeStep, setActiveStep] = useState(0);
+    console.log(activeStep, 'activeStep');
     const initialConfiguration = {
         use: 0,
         cpu: null,
@@ -19,11 +20,13 @@ const ConfigurationProvider = ({ children }) => {
     const [config, setConfig] = useState(initialConfiguration);
 
     const pushToDraft = (item, type) => {
-        
+        // TO DO 
+        // in this function we need to push some data for each step of the configurator and the current step
     }
 
     const saveCurrentStep = () => {
-
+        // TO DO
+        // In this function we need to save the current step for the last config of the user
     }
 
     return (
