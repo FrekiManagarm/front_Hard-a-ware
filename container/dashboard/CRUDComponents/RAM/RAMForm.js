@@ -20,7 +20,7 @@ const RAMForm = ({ onClose, mutate }) => {
         mutate()
         onClose()
       })
-      console.log(response, 'api response')
+      // console.log(response, 'api response')
   }
 
   return (

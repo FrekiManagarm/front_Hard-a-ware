@@ -70,9 +70,9 @@ const DashBoard = ({ isLoggedIn, user }) => {
   const router = useRouter();
   const { query } = router;
   const { logOut } = useContext(AuthContext)
-  console.log(query, 'query dashboard')
+  // console.log(query, 'query dashboard')
 
-  console.log(user)
+  // console.log(user)
 
   const displayComponent = () => {
     

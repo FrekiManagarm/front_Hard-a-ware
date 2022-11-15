@@ -13,15 +13,15 @@ const Case = () => {
   }, []);
 
   const { data } = useFetchSwr('/api/Boitiers', mounted);
-  console.log(data, 'data, boitier')
+  // console.log(data, 'data, boitier')
   const { classes } = useCaseStyles();
 
   return (
     <div className={classes.wrapper}>
       <Banner bgImage="https://i.imgur.com/DZPyoxi.jpg" title="Boitiers" description="Bienvenue dans la partie Boitiers" />
-      <SimpleGrid cols={4} className={classes.cardSection}>
+      <SimpleGrid cols={4} className={classes.cardSection} spacing={32}>
         {data && data?.map((item) => (
-          <ProductCard title={item.nom} description={item.description} image={item.image} link={item.link} country="Boitier" type="boitier" item={item} />
+          <ProductCard title={item.nom} description={item.description} cat="boitier" image={item.image} link={item.link} country="Boitier" type="boitier" item={item} />
         ))}
       </SimpleGrid>
     </div>

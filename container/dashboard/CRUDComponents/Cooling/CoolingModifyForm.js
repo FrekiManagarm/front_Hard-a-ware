@@ -26,7 +26,7 @@ const CoolingModifyForm = ({ item, onClose, mutate }) => {
       onClose();
     });
 
-    console.log(response, "response api");
+    // console.log(response, "response api");
   };
 
   return (

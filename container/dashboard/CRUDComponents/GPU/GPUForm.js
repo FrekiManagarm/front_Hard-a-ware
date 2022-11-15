@@ -16,7 +16,7 @@ const GPUForm = ({ onClose, mutate }) => {
     link: ""
   });
 
-  console.log(credentials)
+  // console.log(credentials)
 
   const handleSubmit = async (event) => {
     event.preventDefault()

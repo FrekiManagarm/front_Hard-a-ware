@@ -22,7 +22,7 @@ const CPUForm = ({ onClose, mutate }) => {
         link: ""
     });
 
-    console.log(credentials)
+    // console.log(credentials)
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -30,7 +30,7 @@ const CPUForm = ({ onClose, mutate }) => {
             mutate()
             onClose()
           })
-          console.log(response, 'api response')
+        //   console.log(response, 'api response')
     }
 
     return (

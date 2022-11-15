@@ -13,7 +13,7 @@ const HomeConfigurator = ({ activeStep, setActiveStep }) => {
 
   const { config, setConfig } = useContext(ConfigurationContext)
 
-  console.log(config, 'config du provider')
+  // console.log(config, 'config du provider')
 
   // useEffect(() => {
     

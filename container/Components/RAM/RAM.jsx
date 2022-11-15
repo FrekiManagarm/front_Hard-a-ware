@@ -20,9 +20,9 @@ const RAM = () => {
   return (
     <div className={classes.wrapper}>
       <Banner title="Mémoire vive" description="Bienvenue dans la partie Mémoire vive" bgImage="https://i.imgur.com/P05hTez.jpg" />
-      <SimpleGrid cols={4} className={classes.cardSection}>
+      <SimpleGrid cols={4} spacing={32} className={classes.cardSection}>
         {data && data?.map((item) => (
-          <ProductCard title={item.nom} image={item.image} link={item.link} description={item.description} country="mémoire vive" type="ram" item={item} />
+          <ProductCard title={item.nom} cat="memoire vive" image={item.image} link={item.link} description={item.description} country="mémoire vive" type="ram" item={item} />
         ))}
       </SimpleGrid>
     </div>

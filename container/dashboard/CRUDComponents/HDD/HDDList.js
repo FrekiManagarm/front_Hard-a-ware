@@ -19,7 +19,7 @@ const HDDList = () => {
   }, []);
 
   const { data, mutate } = useFetchSwr('/api/HDDs', mounted);
-  console.log(data, 'data HDD');
+  // console.log(data, 'data HDD');
 
   const rows = data?.map((item, index) => (
     <tr>
