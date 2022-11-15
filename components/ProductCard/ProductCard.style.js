@@ -4,6 +4,13 @@ const useProductCardStyles = createStyles((theme) => ({
   card: {
     backgroundColor:
       theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
+      transition: "all 0.2s ease-in-out",
+
+      "&:hover": {
+        transform: "scale(1.1)",
+        cursor: "pointer",
+      },
+      boxShadow: "4px 4px 14px 3px rgba(0,0,0,0.4)"
   },
 
   section: {
@@ -13,6 +20,7 @@ const useProductCardStyles = createStyles((theme) => ({
     paddingLeft: theme.spacing.md,
     paddingRight: theme.spacing.md,
     paddingBottom: theme.spacing.md,
+    
   },
 
   like: {
@@ -57,6 +65,12 @@ const useProductCardStyles = createStyles((theme) => ({
     
 
     "button": {
+      height: "25%",
+      borderRadius: "1rem",
+      margin: "1rem"
+    },
+
+    "a": {
       height: "25%",
       borderRadius: "1rem",
       margin: "1rem"

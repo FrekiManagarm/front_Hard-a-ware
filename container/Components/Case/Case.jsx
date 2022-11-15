@@ -19,9 +19,9 @@ const Case = () => {
   return (
     <div className={classes.wrapper}>
       <Banner bgImage="https://i.imgur.com/DZPyoxi.jpg" title="Boitiers" description="Bienvenue dans la partie Boitiers" />
-      <SimpleGrid cols={4} className={classes.cardSection}>
+      <SimpleGrid cols={4} className={classes.cardSection} spacing="xl">
         {data && data?.map((item) => (
-          <ProductCard title={item.nom} description={item.description} image={item.image} link={item.link} country="Boitier" type="boitier" item={item} />
+          <ProductCard title={item.nom} description={item.description} cat="boitier" image={item.image} link={item.link} country="Boitier" type="boitier" item={item} />
         ))}
       </SimpleGrid>
     </div>

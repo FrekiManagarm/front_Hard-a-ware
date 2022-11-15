@@ -11,14 +11,14 @@ const GPUStep = ({ activeStep, setActiveStep, data }) => {
   return (
     <div className={classes.wrapper}>
         <h3>Etape Carte Graphique</h3>
-        <SimpleGrid cols={4}>
+        <SimpleGrid cols={4} spacing="xl">
           {data && data?.data.map((gpu) => (
-            <ProductCard title={gpu.nom} country="Carte Graphique" image={gpu.image} link={gpu.link} />
+            <ProductCard title={gpu.nom} description={gpu.description} cat="carte graphique" type="carte_graphique" item={gpu} image={gpu.image} link={gpu.link} />
           ))}
         </SimpleGrid>
         <div className={classes.buttonsWrapper}>
-          <Button className={classes.button} onClick={() => setActiveStep(activeStep - 1)}>Etape précédente</Button>
-          <Button className={classes.button} onClick={() => setActiveStep(activeStep + 1)}>Etape suivante</Button>
+          <Button color="red" className={classes.button} onClick={() => setActiveStep(activeStep - 1)}>Etape précédente</Button>
+          <Button color="green" className={classes.button} onClick={() => setActiveStep(activeStep + 1)}>Etape suivante</Button>
         </div>
     </div>
   )

@@ -12,14 +12,14 @@ const RAMStep = ({ activeStep, setActiveStep, data }) => {
   return (
     <div className={classes.wrapper}>
         <h3>Etape Mémoire Vive</h3>
-        <SimpleGrid cols={4}>
+        <SimpleGrid cols={4} spacing="xl">
           {data && data?.data.map((ram) => (
-            <ProductCard title={ram.nom} country="mémoire vive" image={ram.image} link={ram.link} />
+            <ProductCard title={ram.nom} type="ram" image={ram.image} link={ram.link} cat="memoire vive" description={ram.description} item={ram} />
           ))}
         </SimpleGrid>
         <div className={classes.buttonsWrapper}>
-          <Button className={classes.button} onClick={() => setActiveStep(activeStep - 1)}>Etape précédente</Button>
-          <Button className={classes.button} onClick={() => router.push('/configurator/resume')}>Aller au résumé</Button>
+          <Button color="red" className={classes.button} onClick={() => setActiveStep(activeStep - 1)}>Etape précédente</Button>
+          <Button color="green" className={classes.button} onClick={() => router.push('/configurator/resume')}>Terminer et aller au résumé</Button>
         </div>
     </div>
   )

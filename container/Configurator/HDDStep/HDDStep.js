@@ -10,14 +10,14 @@ const HDDStep = ({ activeStep, setActiveStep, data }) => {
   return (
     <div className={classes.wrapper}>
       <h3>Etape du Disque Dur</h3>
-      <SimpleGrid cols={4}>
+      <SimpleGrid cols={4} spacing="xl">
         {data && data?.data.map((hdd) => (
-          <ProductCard title={hdd.nom} country='disque dur' image={hdd.image} link={hdd.link} />
+          <ProductCard title={hdd.nom} type='disque_dur' cat="disque dur" description={hdd.description} item={hdd} image={hdd.image} link={hdd.link} />
         ))}
       </SimpleGrid>
       <div className={classes.buttonsWrapper}>
-        <Button className={classes.button} onClick={() => setActiveStep(activeStep - 1)}>Etape précédente</Button>
-        <Button className={classes.button} onClick={() => setActiveStep(activeStep + 1)}>Etape suivante</Button>
+        <Button color="red" className={classes.button} onClick={() => setActiveStep(activeStep - 1)}>Etape précédente</Button>
+        <Button color="green" className={classes.button} onClick={() => setActiveStep(activeStep + 1)}>Etape suivante</Button>
       </div>
     </div>
   )

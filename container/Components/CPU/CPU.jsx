@@ -26,9 +26,9 @@ const CPU = () => {
       />
       <div className={classes.wrapper}>
         <Banner title="Processeur" bgImage="https://i.imgur.com/5JaBK3E.jpg" description="Bienvenue dans la partie processeur." />
-        <SimpleGrid cols={4} className={classes.cardSection}>
+        <SimpleGrid cols={4} className={classes.cardSection} spacing="xl">
         {data && data.map((item) => (
-          <ProductCard title={item.nom} image={item.image} link={item.link} description={item.description} type="processeur" item={item} />
+          <ProductCard title={item.nom} image={item.image} cat="processeur" link={item.link} description={item.description} type="processeur" item={item} />
         ))}
         </SimpleGrid>
       </div>

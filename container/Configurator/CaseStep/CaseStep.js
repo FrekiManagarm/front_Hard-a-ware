@@ -9,14 +9,14 @@ const CaseStep = ({ activeStep, setActiveStep, data }) => {
   return (
     <div className={classes.wrapper}>
       <h3>Etape du Boitier</h3>
-      <SimpleGrid cols={4}>
+      <SimpleGrid cols={4} spacing="xl">
         {data && data?.data.map((boitier) => (
-          <ProductCard title={boitier.nom} country="Boitier" image={boitier.image} link={boitier.link} />
+          <ProductCard title={boitier.nom} description={boitier.description} cat="boitier" type="boitier" item={boitier} image={boitier.image} link={boitier.link} />
         ))}
       </SimpleGrid>
       <div className={classes.buttonsWrapper}>
-        <Button className={classes.button} onClick={() => setActiveStep(activeStep - 1)} >Etape précédente</Button>
-        <Button className={classes.button} onClick={() => setActiveStep(activeStep + 1)}>Etape suivante</Button>
+        <Button color="red" className={classes.button} onClick={() => setActiveStep(activeStep - 1)} >Etape précédente</Button>
+        <Button color="green" className={classes.button} onClick={() => setActiveStep(activeStep + 1)}>Etape suivante</Button>
       </div>
     </div>
   )

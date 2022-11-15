@@ -18,9 +18,9 @@ const HDD = () => {
   return (
     <div className={classes.wrapper}>
       <Banner title="Disque Dur" bgImage="https://i.imgur.com/f8BxASB.jpg" description="Bienvenue dans la partie Disque Dur" />
-      <SimpleGrid cols={4} className={classes.cardSection}>
+      <SimpleGrid cols={4} spacing="xl" className={classes.cardSection}>
         {data && data?.map((item) => (
-          <ProductCard title={item.nom} image={item.image} link={item.link} description={item.description} type="disque dur" item={item} />
+          <ProductCard title={item.nom} image={item.image} cat="disque dur" link={item.link} description={item.description} type="disque_dur" item={item} />
         ))}
       </SimpleGrid>
     </div>

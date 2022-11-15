@@ -7,15 +7,15 @@ const ConfigurationProvider = ({ children }) => {
     console.log(activeStep, 'activeStep');
     const initialConfiguration = {
         use: 0,
-        cpu: null,
-        gpu: null,
+        processeur: null,
+        carte_graphique: null,
         ssd: null,
-        hdd: null,
-        mb: null,
-        case: null,
+        disque_dur: null,
+        carte_mere: null,
+        boitier: null,
         ram: null,
         cooling: null,
-        psu: null
+        alim: null
     }
     const [config, setConfig] = useState(initialConfiguration);
 
