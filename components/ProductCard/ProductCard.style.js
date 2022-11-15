@@ -35,7 +35,7 @@ const useProductCardStyles = createStyles((theme) => ({
 
   modalWrapper: {
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around"
   },
@@ -47,7 +47,7 @@ const useProductCardStyles = createStyles((theme) => ({
   },
 
   infosWrapper: {
-    width: "50%",
+    width: "100%",
     backgroundColor: "orange",
     color: "white",
     padding: "1rem",
@@ -60,18 +60,16 @@ const useProductCardStyles = createStyles((theme) => ({
 
   infosButtonsWrapper: {
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "row",
     justifyContent: "center",
     
 
     "button": {
-      height: "25%",
       borderRadius: "1rem",
       margin: "1rem"
     },
 
     "a": {
-      height: "25%",
       borderRadius: "1rem",
       margin: "1rem"
     }

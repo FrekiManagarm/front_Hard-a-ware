@@ -210,13 +210,13 @@ const ProductCard = ({ image, title, description, link, type, item, cat }) => {
       >
         <div className={classes.modalWrapper}>
           <Image src={image} width={400} height={400} style={{ objectFit: 'scale-down' }} />
-          <Divider size="xl" />
           <div>
-            <Text sx={{ textAlign: "center" }}>Nom :</Text>
-            <Title sx={{ textAlign: "center", paddingBottom: "1rem" }}>{title}</Title>
+            <Text sx={{ textAlign: "start" }}>Nom :</Text>
+            <Title sx={{ textAlign: "start", paddingBottom: "1rem" }}>{title}</Title>
             <div
               style={{
                 display: "flex",
+                flexDirection: "column",
                 justifyContent: "center"
               }}
             >
