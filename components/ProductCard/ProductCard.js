@@ -142,14 +142,14 @@ const ProductCard = ({ image, title, description, link, type, item, cat }) => {
     }
   }
 
-  const buttonBis = displayButton(type, config);
-  console.log(buttonBis, 'displayButton')
+  // const buttonBis = displayButton(type, config);
+  // console.log(buttonBis, 'displayButton')
 
   return (
     <>
       <Card withBorder radius="lg" p="md" className={classes.card}>
         <Card.Section sx={{ display: "flex", justifyContent: "center"}} onClick={() => setOpen(!open)} >
-          <Image src={image} alt={title} style={{ objectFit: "scale-down" }} width={500} height={350} />
+          <Image src={image} alt={title} style={{ objectFit: "scale-down" }} width={300} height={350} />
         </Card.Section>
 
         <Card.Section className={classes.section} mt="md" onClick={() => setOpen(!open)}>

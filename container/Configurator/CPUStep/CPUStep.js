@@ -7,15 +7,15 @@ import useCPUStepStyles from './CPUStep.style';
 const CPUStep = ({ activeStep, setActiveStep, data }) => {
 
   const { classes, theme } = useCPUStepStyles();
-  console.log(data, 'data cpu');
+  // console.log(data, 'data cpu');
   const { config, setConfig } = useContext(ConfigurationContext);
 
-  console.log(config, 'config');
+  // console.log(config, 'config');
 
   return (
     <div className={classes.wrapper}>
         <h3>Etape Processeur</h3>
-        <SimpleGrid cols={4} spacing="xl">
+        <SimpleGrid cols={4} spacing={32}>
           {data && data?.data.map((cpu) => {
             return (
             <ProductCard 

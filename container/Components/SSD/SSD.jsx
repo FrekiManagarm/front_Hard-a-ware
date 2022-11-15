@@ -19,7 +19,7 @@ const SSD = () => {
   return (
     <div className={classes.wrapper}>
       <Banner bgImage="https://i.imgur.com/VajKN46.jpg" description="Bienvenue dans la partie SSD" title="SSD" />
-      <SimpleGrid cols={4} spacing="xl" className={classes.cardSection}>
+      <SimpleGrid cols={4} spacing={32} className={classes.cardSection}>
         {data && data?.map((item) => (
           <ProductCard title={item.nom} cat="ssd" image={item.image} link={item.link} country="SSD" description={item.description} type="ssd" item={item} />
         ))}

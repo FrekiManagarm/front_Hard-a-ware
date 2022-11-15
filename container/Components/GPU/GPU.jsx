@@ -14,12 +14,12 @@ const GPU = () => {
 
   const { classes } = useGPUStyles();
   const { data } = useFetchSwr('/api/GPUs', mounted)
-  console.log(data, 'data GPU')
+  // console.log(data, 'data GPU')
 
   return (
     <div className={classes.wrapper}>
       <Banner title="Carte Graphique" bgImage="https://i.imgur.com/9bNON4B.jpg" description="Bienvenue dans la partie Carte Graphique" />
-      <SimpleGrid cols={4} spacing='xl' className={classes.cardSection}>
+      <SimpleGrid cols={4} spacing={32} className={classes.cardSection}>
         {data && data?.map((item) => (
           <ProductCard image={item.image} title={item.nom} link={item.link} cat="carte graphique" description={item.description} type="carte_graphique" item={item} />
         ))}

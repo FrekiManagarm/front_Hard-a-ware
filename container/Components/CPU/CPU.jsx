@@ -16,7 +16,7 @@ const CPU = () => {
 
   const { data } = useFetchSwr('/api/CPUs', mounted);
 
-  console.log(data)
+  // console.log(data)
 
   return (
     <>
@@ -26,7 +26,7 @@ const CPU = () => {
       />
       <div className={classes.wrapper}>
         <Banner title="Processeur" bgImage="https://i.imgur.com/5JaBK3E.jpg" description="Bienvenue dans la partie processeur." />
-        <SimpleGrid cols={4} className={classes.cardSection} spacing="xl">
+        <SimpleGrid cols={4} className={classes.cardSection} spacing={32}>
         {data && data.map((item) => (
           <ProductCard title={item.nom} image={item.image} cat="processeur" link={item.link} description={item.description} type="processeur" item={item} />
         ))}

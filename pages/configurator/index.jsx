@@ -20,7 +20,7 @@ const Configurator = ({ pageData, user, isLoggedIn }) => {
   const { query } = router;
   const [activeStep, setActiveStep] = useState(null);
   const [openedModal, setOpenedModal] = useState(false);
-  console.log(pageData, 'pageData')
+  // console.log(pageData, 'pageData')
 
   useEffect(() => {
     setOpenedModal(true)

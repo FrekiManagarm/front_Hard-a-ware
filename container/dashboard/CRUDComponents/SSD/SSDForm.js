@@ -25,7 +25,7 @@ const SSDForm = ({ onClose, mutate }) => {
       mutate()
     });
 
-    console.log(response, 'response api');
+    // console.log(response, 'response api');
   }
 
   return (

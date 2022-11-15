@@ -10,7 +10,7 @@ const useProductCardStyles = createStyles((theme) => ({
         transform: "scale(1.1)",
         cursor: "pointer",
       },
-      boxShadow: "4px 4px 14px 3px rgba(0,0,0,0.4)"
+      boxShadow: "4px 4px 14px 3px rgba(0,0,0,0.3)"
   },
 
   section: {

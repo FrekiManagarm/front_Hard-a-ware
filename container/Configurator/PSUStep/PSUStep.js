@@ -10,7 +10,7 @@ const PSUStep = ({ activeStep, setActiveStep, data }) => {
   return (
     <div className={classes.wrapper}>
         <h3>Etape Alimentation</h3>
-        <SimpleGrid cols={4} spacing="xl">
+        <SimpleGrid cols={4} spacing={32}>
           {data && data?.data.map((psu) => (
             <ProductCard title={psu.nom} image={psu.image} link={psu.link} cat="alimentation" description={psu.description} item={psu} type="alim" />
           ))}

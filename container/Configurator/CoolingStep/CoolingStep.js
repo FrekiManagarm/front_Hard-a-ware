@@ -10,7 +10,7 @@ const CoolingStep = ({ activeStep, setActiveStep, data }) => {
   return (
     <div className={classes.wrapper}>
         <h3>Etape Refroidissement</h3>
-        <SimpleGrid cols={4} spacing='xl'>
+        <SimpleGrid cols={4} spacing={32}>
           {data && data?.data.map((cooling) => (
             <ProductCard title={cooling.nom} description={cooling.description} cat="refroidissement" image={cooling.image} type="cooling" item={cooling} link={cooling.link} />
           ))}

@@ -20,7 +20,7 @@ const CPUList = () => {
   }, [])
   
   const { data, mutate } = useFetchSwr('/api/CPUs', mounted)
-  console.log(data, 'data CPU')
+  // console.log(data, 'data CPU')
 
   const onClose = () => {
     setOpen(!open)

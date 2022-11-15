@@ -10,7 +10,7 @@ const MotherboardStep = ({ activeStep, setActiveStep, data }) => {
   return (
     <div className={classes.wrapper}>
         <h3>Etape de la Carte Mère</h3>
-        <SimpleGrid cols={4} spacing="xl">
+        <SimpleGrid cols={4} spacing={32}>
           {data && data?.data.map((mb) => (
             <ProductCard title={mb.nom} link={mb.link} type="carte_mere" cat="carte mere" description={mb.description} item={mb} image={mb.image} />
           ))}

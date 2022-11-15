@@ -3,7 +3,7 @@ import { TextInput, Textarea, Button } from "@mantine/core";
 import PatchAPIData from "../../../../helpers/patch_api_data";
 
 const RAMModifyForm = ({ item, onClose, mutate }) => {
-    console.log(item)
+    // console.log(item)
   const [credentials, setCredentials] = useState({
     capacité: item ? item.capacité : "",
     description: item ? item.description : "",
@@ -22,7 +22,7 @@ const RAMModifyForm = ({ item, onClose, mutate }) => {
         onClose();
       },
     );
-    console.log(response, "api response");
+    // console.log(response, "api response");
   };
 
   return (

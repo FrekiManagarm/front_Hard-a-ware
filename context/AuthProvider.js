@@ -36,7 +36,7 @@ const AuthProvider = props => {
   const [token, setToken] = useState(null);
   const [apiErrorMessage, setApiErrorMessage] = useState([]);
 
-  ////console.log(loggedIn, 'loggedIn');
+  //console.log(loggedIn, 'loggedIn');
 
   const getAuthUser = async () => {
     const { user } = await withData();
@@ -68,7 +68,7 @@ const AuthProvider = props => {
           if(!response.ok) {
             response.json()
             .then(json => {
-              console.log(json.message, 'return api signin')
+              // console.log(json.message, 'return api signin')
               setApiErrorMessage(json.message);
             })
           }
@@ -171,7 +171,7 @@ const AuthProvider = props => {
     })
       .then(response => {
         if(response.status == 200) {
-          console.log('logged out');
+          // console.log('logged out');
           clearItem(TOKEN_COOKIE);
           clearItem(USER_COOKIE);
           setLoggedIn(false);

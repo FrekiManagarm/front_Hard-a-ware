@@ -9,7 +9,7 @@ const CaseStep = ({ activeStep, setActiveStep, data }) => {
   return (
     <div className={classes.wrapper}>
       <h3>Etape du Boitier</h3>
-      <SimpleGrid cols={4} spacing="xl">
+      <SimpleGrid cols={4} spacing={32}>
         {data && data?.data.map((boitier) => (
           <ProductCard title={boitier.nom} description={boitier.description} cat="boitier" type="boitier" item={boitier} image={boitier.image} link={boitier.link} />
         ))}

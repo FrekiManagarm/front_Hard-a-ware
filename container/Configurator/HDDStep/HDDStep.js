@@ -10,7 +10,7 @@ const HDDStep = ({ activeStep, setActiveStep, data }) => {
   return (
     <div className={classes.wrapper}>
       <h3>Etape du Disque Dur</h3>
-      <SimpleGrid cols={4} spacing="xl">
+      <SimpleGrid cols={4} spacing={32}>
         {data && data?.data.map((hdd) => (
           <ProductCard title={hdd.nom} type='disque_dur' cat="disque dur" description={hdd.description} item={hdd} image={hdd.image} link={hdd.link} />
         ))}

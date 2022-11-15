@@ -29,7 +29,7 @@ const CPUModifyForm = ({ item, onClose, mutate }) => {
         mutate();
       },
     );
-    console.log(response, "api response");
+    // console.log(response, "api response");
   };
 
   return (

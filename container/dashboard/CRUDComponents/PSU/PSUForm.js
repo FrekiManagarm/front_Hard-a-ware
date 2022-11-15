@@ -22,7 +22,7 @@ const PSUForm = ({ onClose, mutate }) => {
       onClose()
       mutate()
     });
-    console.log(response, 'response api')
+    // console.log(response, 'response api')
   }
 
   return (

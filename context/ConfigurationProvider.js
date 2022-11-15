@@ -4,7 +4,7 @@ export const ConfigurationContext = createContext();
 
 const ConfigurationProvider = ({ children }) => {
     const [activeStep, setActiveStep] = useState(0);
-    console.log(activeStep, 'activeStep');
+    // console.log(activeStep, 'activeStep');
     const initialConfiguration = {
         use: 0,
         processeur: null,

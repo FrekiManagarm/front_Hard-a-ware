@@ -10,7 +10,7 @@ const SSDStep = ({ activeStep, setActiveStep, data }) => {
   return (
     <div className={classes.wrapper}>
         <h3>Etape SSD</h3>
-        <SimpleGrid cols={4} spacing="xl">
+        <SimpleGrid cols={4} spacing={32}>
           {data && data?.data.map((ssd) => (
             <ProductCard title={ssd.nom} type="ssd" item={ssd} cat="ssd" description={ssd.description} image={ssd.image} link={ssd.link} />
           ))}

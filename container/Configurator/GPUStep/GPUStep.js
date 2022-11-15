@@ -6,12 +6,12 @@ import useGPUStepStyles from './GPUStep.style'
 const GPUStep = ({ activeStep, setActiveStep, data }) => {
 
   const { classes } = useGPUStepStyles();
-  console.log(data, 'data gpu')
+  // console.log(data, 'data gpu')
 
   return (
     <div className={classes.wrapper}>
         <h3>Etape Carte Graphique</h3>
-        <SimpleGrid cols={4} spacing="xl">
+        <SimpleGrid cols={4} spacing={32}>
           {data && data?.data.map((gpu) => (
             <ProductCard title={gpu.nom} description={gpu.description} cat="carte graphique" type="carte_graphique" item={gpu} image={gpu.image} link={gpu.link} />
           ))}

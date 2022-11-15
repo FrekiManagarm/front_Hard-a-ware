@@ -12,7 +12,7 @@ const RAMStep = ({ activeStep, setActiveStep, data }) => {
   return (
     <div className={classes.wrapper}>
         <h3>Etape Mémoire Vive</h3>
-        <SimpleGrid cols={4} spacing="xl">
+        <SimpleGrid cols={4} spacing={32}>
           {data && data?.data.map((ram) => (
             <ProductCard title={ram.nom} type="ram" image={ram.image} link={ram.link} cat="memoire vive" description={ram.description} item={ram} />
           ))}
