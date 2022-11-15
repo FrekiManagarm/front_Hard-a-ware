@@ -21,7 +21,7 @@ const GPU = () => {
       <Banner title="Carte Graphique" bgImage="https://i.imgur.com/9bNON4B.jpg" description="Bienvenue dans la partie Carte Graphique" />
       <SimpleGrid cols={4} spacing='xl' className={classes.cardSection}>
         {data && data?.map((item) => (
-          <ProductCard image={item.image} country="Carte Graphique" title={item.nom} link={item.link} description={item.description} />
+          <ProductCard image={item.image} title={item.nom} link={item.link} description={item.description} type="carte graphique" item={item} />
         ))}
       </SimpleGrid>
     </div>

@@ -19,7 +19,7 @@ const Cooling = () => {
       <Banner bgImage="https://i.imgur.com/wchTTvi.jpg" title="Refroidissement" description="Bienvenue dans la partie Refroidissement" />
       <SimpleGrid cols={4} className={classes.cardSection}>
         {data && data?.map((item) => (
-          <ProductCard image={item.image} title={item.nom} link={item.link} country="Refroidissement" description={item.description} />
+          <ProductCard image={item.image} title={item.nom} link={item.link} country="Refroidissement" description={item.description} type="cooling" item={item} />
         ))}
       </SimpleGrid>
     </div>

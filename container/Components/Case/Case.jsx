@@ -21,7 +21,7 @@ const Case = () => {
       <Banner bgImage="https://i.imgur.com/DZPyoxi.jpg" title="Boitiers" description="Bienvenue dans la partie Boitiers" />
       <SimpleGrid cols={4} className={classes.cardSection}>
         {data && data?.map((item) => (
-          <ProductCard title={item.nom} image={item.image} link={item.link} country="Boitier" />
+          <ProductCard title={item.nom} description={item.description} image={item.image} link={item.link} country="Boitier" type="boitier" item={item} />
         ))}
       </SimpleGrid>
     </div>

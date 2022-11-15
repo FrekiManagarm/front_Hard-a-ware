@@ -21,7 +21,7 @@ const SSD = () => {
       <Banner bgImage="https://i.imgur.com/VajKN46.jpg" description="Bienvenue dans la partie SSD" title="SSD" />
       <SimpleGrid cols={4} className={classes.cardSection}>
         {data && data?.map((item) => (
-          <ProductCard title={item.nom} image={item.image} link={item.link} country="SSD" description={item.description} />
+          <ProductCard title={item.nom} image={item.image} link={item.link} country="SSD" description={item.description} type="ssd" item={item} />
         ))}
       </SimpleGrid>
     </div>
