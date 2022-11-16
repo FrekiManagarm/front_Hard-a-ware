@@ -52,6 +52,7 @@ const useProductCardStyles = createStyles((theme) => ({
     color: "white",
     padding: "1rem",
     borderRadius: "1rem",
+    boxShadow: "4px 4px 14px 3px rgba(0,0,0,0.3)",
     
     "span": {
       fontWeight: "bold"
@@ -66,12 +67,22 @@ const useProductCardStyles = createStyles((theme) => ({
 
     "button": {
       borderRadius: "1rem",
-      margin: "1rem"
+      margin: "1rem",
+      transition: "all 0.2s ease-in-out",
+
+      "&:hover": {
+        boxShadow: "4px 4px 14px 3px rgba(0,0,0,0.3)"
+      }
     },
 
     "a": {
       borderRadius: "1rem",
-      margin: "1rem"
+      margin: "1rem",
+      transition: "all 0.2s ease-in-out",
+
+      "&:hover": {
+        boxShadow: "4px 4px 14px 3px rgba(0,0,0,0.3)"
+      }
     }
   }
 }));

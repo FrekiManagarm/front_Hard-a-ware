@@ -42,17 +42,20 @@ const CaseList = () => {
       </td>
       <td>
         <Button color="orange"
-        sx={{ margin: "1rem" }}
+          sx={{ margin: "1rem" }}
+          radius="md"
           onClick={() => {
             setOpenModify(!openModify)
             setIndex(index)
           }}
         >Modifier</Button>
         <Button color="red"
+          radius="md"
           onClick={async (event) => {
             event.preventDefault();
-            await DeleteAPIData(`/api/Boitier/${item.id}`)
-            mutate()
+            await DeleteAPIData(`/api/Boitier/${item.id}`).then(() => {
+              mutate()
+            })
           }}
         >Supprimer</Button>
       </td>

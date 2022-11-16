@@ -12,7 +12,7 @@ import { displayButton } from './common'
 const ProductCard = ({ image, title, description, link, type, item, cat }) => {
 
   const { classes, theme } = useProductCardStyles();
-  const [open, setOpen] = useState(false);
+  const [ open, setOpen ] = useState(false);
   const router = useRouter();
   const { config, setConfig } = useContext(ConfigurationContext)
 
@@ -147,7 +147,7 @@ const ProductCard = ({ image, title, description, link, type, item, cat }) => {
 
   return (
     <>
-      <Card withBorder radius="lg" p="md" className={classes.card}>
+      <Card withBorder radius="lg" p="xs" className={classes.card}>
         <Card.Section sx={{ display: "flex", justifyContent: "center"}} onClick={() => setOpen(!open)} >
           <Image src={image} alt={title} style={{ objectFit: "scale-down" }} width={300} height={350} />
         </Card.Section>

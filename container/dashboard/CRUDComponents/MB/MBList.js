@@ -38,17 +38,19 @@ const MBList = () => {
         {item.constructeur}
       </td>
       <td>
-        <Button color="orange" sx={{ margin: "1rem" }}
+        <Button radius="md" color="orange" sx={{ margin: "1rem" }}
           onClick={() => {
             setOpenModify(!openModify)
             setIndex(index)
           }}
         >Modifier</Button>
         <Button color="red"
+          radius="md"
           onClick={async (event) => {
             event.preventDefault();
-            await DeleteAPIData(`/api/MotherBoards/${item.id}`)
-            mutate()
+            await DeleteAPIData(`/api/MotherBoards/${item.id}`).then(() => {
+              mutate()
+            })
           }}
         >Supprimer</Button>
       </td>

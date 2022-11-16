@@ -42,16 +42,18 @@ const HDDList = () => {
       </td>
       <td>
         <Button color="orange" sx={{ margin: "1rem" }}
+          radius="md"
           onClick={() => {
             setIndex(index)
             setOpenModify(!openModify)
           }}
         >Modifier</Button>
-        <Button color="red" onClick={async (event) => {
+        <Button radius="md" color="red" onClick={async (event) => {
           event.preventDefault();
           await DeleteAPIData(`/api/HDD/${item.id}`).then((response) => {
-          mutate()
-        })}} >Supprimer</Button>
+            mutate()
+          })
+        }} >Supprimer</Button>
       </td>
     </tr>
   ))

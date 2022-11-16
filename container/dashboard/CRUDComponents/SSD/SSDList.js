@@ -40,17 +40,18 @@ const SSDList = () => {
           {item.lecture}
         </td>
         <td>
-          <Button color="orange"
+          <Button radius="md" color="orange"
             onClick={(event) => {
               event.preventDefault();
               setOpenModify(!openModify)
               setIndex(index)
             }}
           >Modifier</Button>
-          <Button color="red" onClick={async (event) => {
+          <Button radius="md" color="red" onClick={async (event) => {
             event.preventDefault()
-            await DeleteAPIData(`/api/SSD/${item.id}`)
-            mutate()
+            await DeleteAPIData(`/api/SSD/${item.id}`).then(() => {
+              mutate()
+            })
           }}>Supprimer</Button>
         </td>
       </tr>
