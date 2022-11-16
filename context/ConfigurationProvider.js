@@ -1,11 +1,16 @@
+import { useRouter } from "next/router";
 import { createContext, useState } from "react";
+import PostAPIData from '../helpers/post_api_data';
+import PatchAPIData from '../helpers/patch_api_data';
 
 export const ConfigurationContext = createContext();
 
 const ConfigurationProvider = ({ children }) => {
     const [activeStep, setActiveStep] = useState(0);
-    // console.log(activeStep, 'activeStep');
+    const router = useRouter();
+    
     const initialConfiguration = {
+        configId: null,
         use: 0,
         processeur: null,
         carte_graphique: null,
@@ -19,14 +24,42 @@ const ConfigurationProvider = ({ children }) => {
     }
     const [config, setConfig] = useState(initialConfiguration);
 
-    const pushToDraft = (item, type) => {
-        // TO DO 
-        // in this function we need to push some data for each step of the configurator and the current step
+    const createDraftConfig = async () => {
+        const data = {
+            status: 'draft',
+            activeStep: activeStep
+        }
+
+        const response = await PostAPIData(`/api/Config`, data).then(() => {
+            setActiveStep(activeStep + 1)
+        })
+
+        return response
     }
 
-    const saveCurrentStep = () => {
-        // TO DO
-        // In this function we need to save the current step for the last config of the user
+    const updateDraft = async (type, item) => {
+        const data = {
+            [type] : item 
+        }
+
+        const responseAPI = await PatchAPIData(`/api/Config`, data).then(() => {
+            
+        })
+
+        return responseAPI
+    }
+
+    const pushToResume = async (configId) => {
+        // TO DO 
+        const data = {
+            status: "done"
+        }
+
+        const confirmConfigRequest = await PostAPIData(`/api/Config/${configId}`, data).then((response) => {
+            router.push('/configurator/resume', {query: { configId: configId }})
+        })
+
+        return confirmConfigRequest
     }
 
     return (
@@ -36,8 +69,9 @@ const ConfigurationProvider = ({ children }) => {
                 setActiveStep,
                 config,
                 setConfig,
-                pushToDraft,
-                saveCurrentStep
+                createDraftConfig,
+                pushToResume,
+                updateDraft
             }}
         >
             { children }

@@ -25,7 +25,7 @@ function MyApp({
       withGlobalStyles
       withNormalizeCSS
       theme={{
-        colorScheme: 'dark'
+        colorScheme: 'light'
       }}
     >
       <AuthProvider>
