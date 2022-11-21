@@ -53,14 +53,15 @@ const RAMList = () => {
           {item.quantité}
         </td>
         <td>
-          <Button color="orange" sx={{ margin: "1rem" }} onClick={() => {
+          <Button color="orange" radius="md" sx={{ margin: "1rem" }} onClick={() => {
             setIndex(index)
             setOpenModify(true)
           }} >Modifier</Button>
-          <Button onClick={async (event) => {
+          <Button radius="md" onClick={async (event) => {
             event.preventDefault();
-            await DeleteAPIData(`/api/RAM/${item.id}`)
-            mutate()
+            await DeleteAPIData(`/api/RAM/${item.id}`).then(() => {
+              mutate()
+            })
           }} color="red">Supprimer</Button>
         </td>
       </tr>

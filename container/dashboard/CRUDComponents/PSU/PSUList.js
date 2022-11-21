@@ -1,6 +1,7 @@
 import { Anchor, Button, Divider, Drawer, ScrollArea, Table, Title } from '@mantine/core';
 import Image from 'next/image';
 import { useState, useEffect } from 'react'
+import DeleteAPIData from '../../../../helpers/delete_api_data';
 import { useFetchSwr } from '../../../../hooks/useFetchSwr'
 import PSUForm from './PSUForm';
 import PSUModifyForm from './PSUModifyForm';
@@ -44,6 +45,7 @@ const PSUList = () => {
         <td>
           <Button
             color="orange"
+            radius="md"
             sx={{ margin: "1rem" }}
             onClick={() => {
               setOpenModify(!openModify)
@@ -51,7 +53,14 @@ const PSUList = () => {
             }}
           >Modifier</Button>
           <Button
+            radius="md"
             color="red"
+            onClick={async (event) => {
+              event.preventDefault();
+              await DeleteAPIData(`/api/PSU/${item.id}`).then(() => {
+                mutate()
+              })
+            }}
           >Supprimer</Button>
         </td>
       </tr>

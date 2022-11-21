@@ -18,7 +18,11 @@ const PSU = () => {
   return (
     <div className={classes.wrapper}>
       <Banner bgImage="https://i.imgur.com/EJP9x7A.jpg" description="Bienvenue dans la partie Alimentation" title="Alimentation" />
-      <SimpleGrid cols={4} spacing={32} className={classes.cardSection}>
+      <SimpleGrid cols={4} spacing={32} className={classes.cardSection} breakpoints={[
+        { maxWidth: 900, cols: 3 },
+        { maxWidth: 755, cols: 2 },
+        { maxWidth: 600, cols: 1 },
+      ]}>
         {data && data?.map((item) => (
           <ProductCard title={item.nom} description={item.description} cat="alimentation" image={item.image} link={item.link} type="alim" item={item} />
         ))}

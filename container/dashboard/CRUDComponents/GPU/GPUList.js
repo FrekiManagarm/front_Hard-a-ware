@@ -41,14 +41,16 @@ const GPUList = () => {
         {item.link}
       </td>
       <td>
-        <Button color="orange" sx={{ margin: "1rem" }} onClick={(event) => {
+        <Button radius="md" color="orange" sx={{ margin: "1rem" }} onClick={(event) => {
           event.preventDefault();
           setIndex(index)
           setOpenModify(!openModify)
         }} >Modifier</Button>
-        <Button color="red" onClick={async (event) => {
+        <Button radius="md" color="red" onClick={async (event) => {
           event.preventDefault()
-          await DeleteAPIData(`/api/GPU/${item.id}`)
+          await DeleteAPIData(`/api/GPU/${item.id}`).then(() => {
+            mutate()
+          })
         }}>Supprimer</Button>
       </td>
     </tr>

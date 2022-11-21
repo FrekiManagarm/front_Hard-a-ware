@@ -40,11 +40,11 @@ const CoolingList = () => {
         {item.socket}
       </td>
       <td>
-        <Button onClick={() => {
+        <Button radius="md" onClick={() => {
           setOpenModify(!openModify)
           setIndex(index)
         }} color="orange" sx={{ margin: "1rem" }} >Modifier</Button>
-        <Button onClick={async (event) => {
+        <Button radius="md" onClick={async (event) => {
           event.preventDefault();
           await DeleteAPIData(`/api/Cooling/${item.id}`).then((response) => {
             mutate()

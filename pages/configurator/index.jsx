@@ -14,13 +14,14 @@ import SSDStep from '../../container/Configurator/SSDStep/SSDStep';
 import GetAPIData from '../../helpers/get_api_data';
 import { withData } from '../../helpers/restriction';
 import { NextSeo } from 'next-seo';
+import { ConfigurationContext } from '../../context/ConfigurationProvider';
 
 const Configurator = ({ pageData, user, isLoggedIn }) => {
   const router = useRouter();
   const { query } = router;
-  const [activeStep, setActiveStep] = useState(null);
   const [openedModal, setOpenedModal] = useState(false);
   // console.log(pageData, 'pageData')
+  const { activeStep, setActiveStep } = useContext(ConfigurationContext);
 
   useEffect(() => {
     setOpenedModal(true)

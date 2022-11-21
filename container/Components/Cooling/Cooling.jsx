@@ -17,7 +17,11 @@ const Cooling = () => {
   return (
     <div className={classes.wrapper}>
       <Banner bgImage="https://i.imgur.com/wchTTvi.jpg" title="Refroidissement" description="Bienvenue dans la partie Refroidissement" />
-      <SimpleGrid cols={4} className={classes.cardSection} spacing={32}>
+      <SimpleGrid cols={4} className={classes.cardSection} spacing={32} breakpoints={[
+        { maxWidth: 900, cols: 3 },
+        { maxWidth: 755, cols: 2 },
+        { maxWidth: 600, cols: 1 },
+      ]}>
         {data && data?.map((item) => (
           <ProductCard image={item.image} title={item.nom} cat="refroidissement" link={item.link} country="Refroidissement" description={item.description} type="cooling" item={item} />
         ))}

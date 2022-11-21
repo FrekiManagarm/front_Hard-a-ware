@@ -56,17 +56,19 @@ const CPUList = () => {
           </Anchor>
         </td>
         <td>
-          <Button color="orange" sx={{ margin: "1rem" }}
+          <Button color="orange" radius="md" sx={{ margin: "1rem" }}
             onClick={() => {
               setIndex(index)
               setOpenModify(true)
             }}
           >Modifier</Button>
           <Button color="red"
+            radius="md"
             onClick={async (event) => {
               event.preventDefault();
-              await DeleteAPIData(`/api/CPU/${item.id}`)
-              mutate()
+              await DeleteAPIData(`/api/CPU/${item.id}`).then(() => {
+                mutate()
+              })
             }}
           >Supprimer</Button>
         </td>
