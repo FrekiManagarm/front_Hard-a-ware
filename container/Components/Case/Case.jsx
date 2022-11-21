@@ -19,7 +19,11 @@ const Case = () => {
   return (
     <div className={classes.wrapper}>
       <Banner bgImage="https://i.imgur.com/DZPyoxi.jpg" title="Boitiers" description="Bienvenue dans la partie Boitiers" />
-      <SimpleGrid cols={4} className={classes.cardSection} spacing={32}>
+      <SimpleGrid cols={4} className={classes.cardSection} spacing={32} breakpoints={[
+        { maxWidth: 900, cols: 3 },
+        { maxWidth: 755, cols: 2 },
+        { maxWidth: 600, cols: 1 },
+      ]}>
         {data && data?.map((item) => (
           <ProductCard title={item.nom} description={item.description} cat="boitier" image={item.image} link={item.link} country="Boitier" type="boitier" item={item} />
         ))}

@@ -20,7 +20,11 @@ const RAM = () => {
   return (
     <div className={classes.wrapper}>
       <Banner title="Mémoire vive" description="Bienvenue dans la partie Mémoire vive" bgImage="https://i.imgur.com/P05hTez.jpg" />
-      <SimpleGrid cols={4} spacing={32} className={classes.cardSection}>
+      <SimpleGrid cols={4} spacing={32} className={classes.cardSection} breakpoints={[
+        { maxWidth: 900, cols: 3 },
+        { maxWidth: 755, cols: 2 },
+        { maxWidth: 600, cols: 1 },
+      ]}>
         {data && data?.map((item) => (
           <ProductCard title={item.nom} cat="memoire vive" image={item.image} link={item.link} description={item.description} country="mémoire vive" type="ram" item={item} />
         ))}

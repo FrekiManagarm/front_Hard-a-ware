@@ -11,30 +11,25 @@ const HomeConfigurator = ({ activeStep, setActiveStep }) => {
   const [toggleButton1, setToggleButton1] = useState(false);
   const [toggleButton2, setToggleButton2] = useState(false);
 
-  const { config, setConfig } = useContext(ConfigurationContext)
-
-  // console.log(config, 'config du provider')
-
-  // useEffect(() => {
-    
-  // }, [valueButton1, valueButton2]);
+  const { config, setConfig, createDraftConfig } = useContext(ConfigurationContext)
 
   return (
     <div className={classes.wrapper}>
         <h3>Etape Utilisation</h3>
+        <h4>Quelle utilisation allez vous faire de votre PC ?</h4>
         <div className={classes.wrapperButtonUse}>
           <Button className={classes.buttonUse1} variant={toggleButton1 ? 'outline' : "filled"} color="violet" onClick={() => {
             setConfig({ ...config, use: 1 });
-            setToggleButton1(!toggleButton1)
-            setToggleButton2(false)
+            setToggleButton1(!toggleButton1);
+            setToggleButton2(false);
           }}>Jeu / Gaming</Button>
           <Button color="teal" variant={toggleButton2 ? "outline" : 'filled'} className={classes.buttonUse2} onClick={() => {
             setConfig({ ...config, use: 2 });
-            setToggleButton2(!toggleButton2)
-            setToggleButton1(false)
+            setToggleButton2(!toggleButton2);
+            setToggleButton1(false);
           }}>Multi-tâches</Button>
         </div>
-        <Button color="green" sx={{ borderRadius: "2rem 0", margin: "2rem 0", width: "80%" }} onClick={() => setActiveStep(activeStep + 1)} >Etape Suivante</Button>
+        <Button color="green" sx={{ borderRadius: "2rem 0", margin: "2rem 0", width: "80%" }} onClick={() => createDraftConfig()} >Etape Suivante</Button>
     </div>
   )
 }

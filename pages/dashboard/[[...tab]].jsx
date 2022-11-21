@@ -12,6 +12,7 @@ import HomeDashboard from '../../container/dashboard/HomeDashboard'
 import { withData } from '../../helpers/restriction'
 import CRUDComponents from '../../container/dashboard/CRUDComponents/CRUDComponents'
 import { AuthContext } from '../../context/AuthProvider'
+import GetAPIData from '../../helpers/get_api_data'
 
 const mockDataAdmin = [
   {
@@ -70,9 +71,6 @@ const DashBoard = ({ isLoggedIn, user }) => {
   const router = useRouter();
   const { query } = router;
   const { logOut } = useContext(AuthContext)
-  // console.log(query, 'query dashboard')
-
-  // console.log(user)
 
   const displayComponent = () => {
     
@@ -141,8 +139,19 @@ const DashBoard = ({ isLoggedIn, user }) => {
 }
 
 DashBoard.getInitialProps = async (ctx) => {
-    const { isLoggedIn, user } = await withData(ctx);
-    const { pathname, res, query, asPath } = ctx
+    const { isLoggedIn, user, token } = await withData(ctx);
+    const { pathname, res, query, asPath} = ctx
+
+    const apiUrl = [
+      {
+        endpoint: `${process.env.SERVER_API}/api/my-configs`,
+        name: "myConfigs"
+      }
+    ];
+
+    const responseApi = await GetAPIData(apiUrl, "fr", token);
+
+    const pageData = responseApi;
 
     let isProtectedRoute = [
       `/components-list`
@@ -155,7 +164,7 @@ DashBoard.getInitialProps = async (ctx) => {
       res.end();
     }
 
-    return { isLoggedIn, user }
+    return { isLoggedIn, user, pageData }
 }
 
-export default DashBoard
+export default DashBoard;
