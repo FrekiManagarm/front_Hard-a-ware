@@ -5,7 +5,15 @@ const useGPUStyles = createStyles((theme) => ({
         display: "flex",
         flexDirection: "column",
         padding: "5rem",
-        alignItems: "center"
+        alignItems: "center",
+
+        [theme.fn.smallerThan('md')]: {
+            padding: "5rem 2rem"
+         },
+   
+         [theme.fn.smallerThan('sm')]: {
+            padding: "4rem 2rem"
+         }
     },
 
     cardSection: {

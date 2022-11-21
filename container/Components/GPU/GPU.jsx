@@ -20,7 +20,7 @@ const GPU = () => {
     <div className={classes.wrapper}>
       <Banner title="Carte Graphique" bgImage="https://i.imgur.com/9bNON4B.jpg" description="Bienvenue dans la partie Carte Graphique" />
       <SimpleGrid cols={4} spacing={32} className={classes.cardSection} breakpoints={[
-        { maxWidth: 900, cols: 3 },
+        { maxWidth: 900, cols: 2 },
         { maxWidth: 755, cols: 2 },
         { maxWidth: 600, cols: 1 },
       ]}>

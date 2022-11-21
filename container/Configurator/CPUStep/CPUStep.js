@@ -1,5 +1,5 @@
 import { Button, SimpleGrid, Transition } from '@mantine/core';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import ProductCard from '../../../components/ProductCard/ProductCard';
 import { ConfigurationContext } from '../../../context/ConfigurationProvider';
 import useCPUStepStyles from './CPUStep.style';
@@ -17,7 +17,7 @@ const CPUStep = ({ activeStep, setActiveStep, data }) => {
         </Transition>
         <Transition> */}
           <SimpleGrid cols={4} spacing={32} breakpoints={[
-            { maxWidth: 900, cols: 3 },
+            { maxWidth: 900, cols: 2 },
             { maxWidth: 755, cols: 2 },
             { maxWidth: 600, cols: 1 },
           ]}>
@@ -28,7 +28,7 @@ const CPUStep = ({ activeStep, setActiveStep, data }) => {
                   image={cpu.image} 
                   link={cpu.link} 
                   description={cpu.description} 
-                  type="processeur"
+                  type="cpu_id"
                   item={cpu}
                   cat="processeur"
                 />
@@ -39,7 +39,7 @@ const CPUStep = ({ activeStep, setActiveStep, data }) => {
               setActiveStep(activeStep - 1)
             }}>Etape précédente</Button>
             <Button color="green" className={classes.button} onClick={() => {
-              pushToDraft()
+              pushToDraft('cpu_id')
             }}>Etape suivante</Button>
           </div>
         {/* </Transition> */}

@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { Divider, Modal, Stepper, Title, Text, Button } from '@mantine/core';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import CaseStep from '../../container/Configurator/CaseStep/CaseStep';
 import CoolingStep from '../../container/Configurator/CoolingStep/CoolingStep';
 import CPUStep from "../../container/Configurator/CPUStep/CPUStep";
