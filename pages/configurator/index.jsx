@@ -50,7 +50,7 @@ const Configurator = ({ pageData, user, isLoggedIn }) => {
           active={activeStep}
           iconSize={30}
           color="orange"
-          breakpoint="sm"
+          breakpoint="lg"
           size="xs"
         >
           <Stepper.Step label="Utilisation">

@@ -6,6 +6,7 @@ import { deleteComponent } from '../common/functions'
 import DeleteAPIData from '../../../../helpers/delete_api_data'
 import HDDForm from './HDDForm'
 import HDDModifyForm from './HDDModifyForm'
+import useHDDListStyles from './HDDList.style'
 
 const HDDList = () => {
 
@@ -13,6 +14,7 @@ const HDDList = () => {
   const [open, setOpen] = useState(false);
   const [openModify, setOpenModify] = useState(false);
   const [index, setIndex] = useState(false);
+  const { classes } = useHDDListStyles();
 
   useEffect(() => {
     setMounted(true)
@@ -34,10 +36,10 @@ const HDDList = () => {
           {item.nom}
         </Anchor>
       </td>
-      <td>
+      <td className={classes.hiddenMobile}>
         {item.capacité} Go
       </td>
-      <td>
+      <td className={classes.hiddenMobile}>
         {item.RPM}
       </td>
       <td>
@@ -66,8 +68,8 @@ const HDDList = () => {
             <th>ID</th>
             <th>Image</th>
             <th>Nom</th>
-            <th>Capacité</th>
-            <th>RPM</th>
+            <th className={classes.hiddenMobile}>Capacité</th>
+            <th className={classes.hiddenMobile}>RPM</th>
             <th>Action</th>
           </thead>
           <tbody>

@@ -3,9 +3,17 @@ import { createStyles } from "@mantine/core";
 const useCaseStyles = createStyles((theme) => ({
     wrapper: {
         display: "flex",
-        padding: "5rem",
+        padding: "5rem 4rem",
         flexDirection: "column",
-        alignItems: "center"
+        alignItems: "center",
+
+        [theme.fn.smallerThan('md')]: {
+            padding: "5rem 2rem"
+         },
+   
+         [theme.fn.smallerThan('sm')]: {
+            padding: "4rem 3rem"
+         }
     },
 
     cardSection: {

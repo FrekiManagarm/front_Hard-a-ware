@@ -33,10 +33,20 @@ const useDashboardStyles = createStyles((theme, _params, getRef) => {
       }`,
     },
 
+    navbar: {
+      backgroundColor: "orange",
+      borderRadius: "0 1.5rem 1.5rem 0",
+      
+      [theme.fn.largerThan('sm')]: {
+        display: "none"
+      }
+    },
+
     link: {
       ...theme.fn.focusStyles(),
       display: "flex",
       alignItems: "center",
+      marginTop: "1rem",
       textDecoration: "none",
       fontSize: theme.fontSizes.sm,
       color:
@@ -67,6 +77,10 @@ const useDashboardStyles = createStyles((theme, _params, getRef) => {
           ? theme.colors.dark[2]
           : theme.white,
       marginRight: theme.spacing.sm,
+
+      [theme.fn.smallerThan('sm')]: {
+        marginRight: 0
+      }
     },
 
     linkActive: {

@@ -12,7 +12,7 @@ const useCPUStyles = createStyles((theme) => ({
       },
 
       [theme.fn.smallerThan('sm')]: {
-         padding: "4rem 2rem"
+         padding: "4rem 3rem"
       }
    },
 

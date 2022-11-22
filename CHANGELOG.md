@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## v0.5
+
+- Réglage du responsive sur les Grids de composants
+- Correction du bug d'envoi de composant sur une config dans le back
+- Il est maintenant possible de créer une configuration de A à Z
+
+### Dans la prochaine version
+
+- Il sera possible de modifier/supprimer une configuration depuis le dashboard
+- Il sera possible de créer une configuration depuis n'importe quel composant
+
 ## v0.4
 
 - Avancement sur les étapes du configurateur

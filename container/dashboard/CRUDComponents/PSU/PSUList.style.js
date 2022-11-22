@@ -1,9 +1,11 @@
 import { createStyles } from "@mantine/core";
 
 const usePSUStyles = createStyles((theme) => ({
-    wrapper: {
-        
-    }
+    hiddenMobile: {
+        [theme.fn.smallerThan('sm')]: {
+            display: "none"
+        }
+    },
 }))
 
 export default usePSUStyles

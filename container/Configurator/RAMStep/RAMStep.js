@@ -20,9 +20,12 @@ const RAMStep = ({ activeStep, setActiveStep, data }) => {
         </Transition>
         <Transition> */}
           <SimpleGrid cols={4} spacing={32} breakpoints={[
-            { maxWidth: 900, cols: 2 },
-            { maxWidth: 755, cols: 2 },
-            { maxWidth: 600, cols: 1 },
+            { maxWidth: "xs", cols: 1 },
+            { minWidth: 'sm', cols: 2 },
+            { maxWidth: 'md', cols: 2 },
+            { minWidth: 'md', cols: 3 },
+            { maxWidth: "lg", cols: 3 },
+            { maxWidth: 1200, cols: 3 },
           ]}>
             {data && data?.data.map((ram) => (
               <ProductCard title={ram.nom} type="ram_id" image={ram.image} link={ram.link} cat="memoire vive" description={ram.description} item={ram} />

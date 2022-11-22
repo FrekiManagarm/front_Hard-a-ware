@@ -18,9 +18,12 @@ const Cooling = () => {
     <div className={classes.wrapper}>
       <Banner bgImage="https://i.imgur.com/wchTTvi.jpg" title="Refroidissement" description="Bienvenue dans la partie Refroidissement" />
       <SimpleGrid cols={4} className={classes.cardSection} spacing={32} breakpoints={[
-        { maxWidth: 900, cols: 3 },
-        { maxWidth: 755, cols: 2 },
-        { maxWidth: 600, cols: 1 },
+        { maxWidth: "xs", cols: 1 },
+        { minWidth: 'sm', cols: 2 },
+        { maxWidth: 'md', cols: 2 },
+        { minWidth: 'md', cols: 3 },
+        { maxWidth: "lg", cols: 3 },
+        { maxWidth: 1200, cols: 3 },
       ]}>
         {data && data?.map((item) => (
           <ProductCard image={item.image} title={item.nom} cat="refroidissement" link={item.link} country="Refroidissement" description={item.description} type="cooling" item={item} />

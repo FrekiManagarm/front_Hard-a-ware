@@ -20,9 +20,12 @@ const SSD = () => {
     <div className={classes.wrapper}>
       <Banner bgImage="https://i.imgur.com/VajKN46.jpg" description="Bienvenue dans la partie SSD" title="SSD" />
       <SimpleGrid cols={4} spacing={32} className={classes.cardSection} breakpoints={[
-        { maxWidth: 900, cols: 3 },
-        { maxWidth: 755, cols: 2 },
-        { maxWidth: 600, cols: 1 },
+        { maxWidth: "xs", cols: 1 },
+        { minWidth: 'sm', cols: 2 },
+        { maxWidth: 'md', cols: 2 },
+        { minWidth: 'md', cols: 3 },
+        { maxWidth: "lg", cols: 3 },
+        { maxWidth: 1200, cols: 3 },
       ]}>
         {data && data?.map((item) => (
           <ProductCard title={item.nom} cat="ssd" image={item.image} link={item.link} country="SSD" description={item.description} type="ssd" item={item} />

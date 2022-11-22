@@ -19,9 +19,12 @@ const HDD = () => {
     <div className={classes.wrapper}>
       <Banner title="Disque Dur" bgImage="https://i.imgur.com/f8BxASB.jpg" description="Bienvenue dans la partie Disque Dur" />
       <SimpleGrid cols={4} spacing={32} className={classes.cardSection} breakpoints={[
-        { maxWidth: 900, cols: 3 },
-        { maxWidth: 755, cols: 2 },
-        { maxWidth: 600, cols: 1 },
+        { maxWidth: "xs", cols: 1 },
+        { minWidth: 'sm', cols: 2 },
+        { maxWidth: 'md', cols: 2 },
+        { minWidth: 'md', cols: 3 },
+        { maxWidth: "lg", cols: 3 },
+        { maxWidth: 1200, cols: 3 },
       ]}>
         {data && data?.map((item) => (
           <ProductCard title={item.nom} image={item.image} cat="disque dur" link={item.link} description={item.description} type="disque_dur" item={item} />

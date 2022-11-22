@@ -7,9 +7,11 @@ import { deleteComponent } from '../common/functions';
 import DeleteAPIData from '../../../../helpers/delete_api_data';
 import GPUForm from './GPUForm';
 import GPUModifyForm from './GPUModifyForm';
+import useGPUListStyles from './GPUList.style';
 
 const GPUList = () => {
 
+  const { classes } = useGPUListStyles();
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
   const [openModify, setOpenModify] = useState(false);
@@ -34,10 +36,10 @@ const GPUList = () => {
           {item.nom}
         </Anchor>
       </td>
-      <td>
+      <td className={classes.hiddenMobile}>
         {item.nb_coeur}
       </td>
-      <td>
+      <td className={classes.hiddenMobile}>
         {item.link}
       </td>
       <td>
@@ -65,8 +67,8 @@ const GPUList = () => {
               <th>ID</th>
               <th>Image</th>
               <th>Nom</th>
-              <th>NB Coeurs</th>
-              <th>Amazon Link</th>
+              <th className={classes.hiddenMobile}>NB Coeurs</th>
+              <th className={classes.hiddenMobile}>Amazon Link</th>
               <th>Action</th>
             </tr>
           </thead>

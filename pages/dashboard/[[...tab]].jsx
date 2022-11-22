@@ -108,11 +108,24 @@ const DashBoard = ({ isLoggedIn, user }) => {
     </a>
   ))
 
+  const linksMobile = mockData.map((item) => (
+    <a
+      className={cx(classes.link, { [classes.linkActive]: item.link === router.asPath })}
+      href={item.link}
+      key={item.label}
+      onClick={() => {
+        router.push(item.link)
+      }}
+    >
+      <item.icon className={classes.linkIcon} stroke={1.5} />
+    </a>
+  ))
+
   return (
     <div className={classes.wrapper}>
-      <Navbar height="100vh" style={{
+      <Navbar height="100vh" hidden hiddenBreakpoint="sm" style={{
         backgroundColor: "orange",
-        borderRadius: "1.5rem",
+        borderRadius: "0 1.5rem 1.5rem 0",
       }} width={{ sm: 300 }} p="md">
         <Navbar.Section grow>
             <a href='/'>
@@ -128,6 +141,28 @@ const DashBoard = ({ isLoggedIn, user }) => {
             <a className={classes.link} onClick={() => logOut()}>
               <IconLogout className={classes.linkIcon} stroke={1.5} />
               <span>Déconnexion</span>
+            </a>
+          </Navbar.Section>
+        </Navbar>
+        <Navbar
+          className={classes.navbar}
+          height="100vh"
+          width={{ base: 80 }}
+          p="md"
+        >
+          <Navbar.Section grow>
+            <a href='/'>
+              <Image src="/Hard-A-ware_logo.png" style={{ borderRadius: "1rem" }} height={45} width={45} alt="header-logo" />
+            </a>
+            <div className={classes.linksWrapper}>
+              {linksMobile}
+            </div>
+          </Navbar.Section>
+
+          <Navbar.Section className={classes.footer}>
+
+            <a className={classes.link} onClick={() => logOut()}>
+              <IconLogout className={classes.linkIcon} stroke={1.5} />
             </a>
           </Navbar.Section>
         </Navbar>

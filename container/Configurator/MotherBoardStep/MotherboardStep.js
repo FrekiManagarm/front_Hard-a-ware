@@ -14,9 +14,12 @@ const MotherboardStep = ({ activeStep, setActiveStep, data }) => {
     <div className={classes.wrapper}>
         <h3>Etape de la Carte Mère</h3>
         <SimpleGrid cols={4} spacing={32} breakpoints={[
-          { maxWidth: 900, cols: 2 },
-          { maxWidth: 755, cols: 2 },
-          { maxWidth: 600, cols: 1 },
+          { maxWidth: "xs", cols: 1 },
+          { minWidth: 'sm', cols: 2 },
+          { maxWidth: 'md', cols: 2 },
+          { minWidth: 'md', cols: 3 },
+          { maxWidth: "lg", cols: 3 },
+          { maxWidth: 1200, cols: 3 },
         ]}>
           {data && data?.data.map((mb) => (
             <ProductCard title={mb.nom} link={mb.link} type="motherboard_id" cat="carte mere" description={mb.description} item={mb} image={mb.image} />

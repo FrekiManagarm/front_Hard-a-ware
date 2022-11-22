@@ -6,6 +6,7 @@ import { useFetchSwr } from '../../../../hooks/useFetchSwr'
 import RAMForm from './RAMForm';
 import { IconCheck } from '@tabler/icons';
 import RAMModifyForm from './RAMModifyForm';
+import useRAMListStyles from './RAMList.style';
 
 const RAMList = () => {
 
@@ -14,6 +15,7 @@ const RAMList = () => {
   const [openModify, setOpenModify] = useState(false);
   const [index, setIndex] = useState(null);
   const [notification, setNotification] = useState("");
+  const { classes } = useRAMListStyles();
   
   useEffect(() => {
    setMounted(true)
@@ -43,13 +45,13 @@ const RAMList = () => {
             {item.nom}
           </Anchor>
         </td>
-        <td>
+        <td className={classes.hiddenMobile}>
           {item.capacité}
         </td>
-        <td>
+        <td className={classes.hiddenMobile}>
           {item.interface}
         </td>
-        <td>
+        <td className={classes.hiddenMobile}>
           {item.quantité}
         </td>
         <td>
@@ -78,9 +80,9 @@ const RAMList = () => {
               <th>ID</th>
               <th>Image</th>
               <th>Nom</th>
-              <th>Capacité</th>
-              <th>interface</th>
-              <th>Quantité</th>
+              <th className={classes.hiddenMobile}>Capacité</th>
+              <th className={classes.hiddenMobile}>interface</th>
+              <th className={classes.hiddenMobile}>Quantité</th>
               <th>Action</th>
             </tr>
           </thead>

@@ -4,7 +4,7 @@ const useGPUStyles = createStyles((theme) => ({
     wrapper: {
         display: "flex",
         flexDirection: "column",
-        padding: "5rem",
+        padding: "5rem 4rem",
         alignItems: "center",
 
         [theme.fn.smallerThan('md')]: {
@@ -12,7 +12,7 @@ const useGPUStyles = createStyles((theme) => ({
          },
    
          [theme.fn.smallerThan('sm')]: {
-            padding: "4rem 2rem"
+            padding: "4rem 3rem"
          }
     },
 

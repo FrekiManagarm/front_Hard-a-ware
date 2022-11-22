@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import DeleteAPIData from '../../../../helpers/delete_api_data';
 import { useFetchSwr } from '../../../../hooks/useFetchSwr'
 import PSUForm from './PSUForm';
+import usePSUStyles from './PSUList.style';
 import PSUModifyForm from './PSUModifyForm';
 
 
@@ -14,7 +15,8 @@ const PSUList = () => {
   const [open, setOpen] = useState(false);
   const [openModify, setOpenModify] = useState(false);
   const [index, setIndex] = useState(null);
-  const [notification, setNotification] = useState("");
+  const { classes } = usePSUStyles();
+ 
 
   useEffect(() => {
     setMounted(true)
@@ -36,10 +38,10 @@ const PSUList = () => {
             {item.nom}
           </Anchor>
         </td>
-        <td>
+        <td className={classes.hiddenMobile}>
           {item.puissance}
         </td>
-        <td>
+        <td className={classes.hiddenMobile}>
           {item.certif}
         </td>
         <td>
@@ -76,8 +78,8 @@ const PSUList = () => {
               <th>ID</th>
               <th>Image</th>
               <th>Nom</th>
-              <th>Puissance</th>
-              <th>Certification</th>
+              <th className={classes.hiddenMobile}>Puissance</th>
+              <th className={classes.hiddenMobile}>Certification</th>
               <th>Actions</th>
             </tr>
           </thead>
