@@ -7,7 +7,7 @@ import useCoolingStepStyles from './CoolingStep.style'
 const CoolingStep = ({ activeStep, setActiveStep, data }) => {
 
   const { classes } = useCoolingStepStyles();
-  const { pushToDraft } = useContext(ConfigurationContext);
+  const { config, pushToDraft } = useContext(ConfigurationContext);
 
   return (
     <div className={classes.wrapper}>
@@ -24,6 +24,7 @@ const CoolingStep = ({ activeStep, setActiveStep, data }) => {
             { minWidth: 'md', cols: 3 },
             { maxWidth: "lg", cols: 3 },
             { maxWidth: 1200, cols: 3 },
+            { minWidth: 1200, cols: 4 }
           ]}>
             {data && data?.data.map((cooling) => (
               <ProductCard title={cooling.nom} description={cooling.description} cat="refroidissement" image={cooling.image} type="cooling_id" item={cooling} link={cooling.link} />
@@ -31,7 +32,7 @@ const CoolingStep = ({ activeStep, setActiveStep, data }) => {
           </SimpleGrid>
           <div className={classes.buttonsWrapper}>
             <Button color="red" className={classes.button} onClick={() => setActiveStep(activeStep - 1)}>Etape précedente</Button>
-            <Button color="green" className={classes.button} onClick={() => pushToDraft("cooling_id")}>Etape Suivante</Button>
+            {config.cooling_id !== null ? <Button color="green" className={classes.button} onClick={() => pushToDraft("cooling_id")}>Etape Suivante</Button> : <Button color="grape" className={classes.button} onClick={() => setActiveStep(activeStep + 1)}>Passer cette étape</Button>}
           </div>
         {/* </Transition> */}
     </div>

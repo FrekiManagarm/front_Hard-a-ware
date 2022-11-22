@@ -55,7 +55,7 @@ const ConfigurationProvider = ({ children }) => {
 
     const draftToConfig = async () => {
 
-        const confirmConfigRequest = await PostAPIData(`/api/config/${configId}`, config).then((response) => {
+        const confirmConfigRequest = await PatchAPIData(`/api/config/${configId}`, config).then((response) => {
             router.push('/configurator/resume', {query: { configId: configId }})
         })
 

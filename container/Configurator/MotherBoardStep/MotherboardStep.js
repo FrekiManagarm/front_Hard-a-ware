@@ -8,7 +8,7 @@ import useMotherBoardStepStyles from "./MotherboardStep.style"
 const MotherboardStep = ({ activeStep, setActiveStep, data }) => {
 
   const { classes } = useMotherBoardStepStyles();
-  const { pushToDraft } = useContext(ConfigurationContext);
+  const { config, pushToDraft } = useContext(ConfigurationContext);
 
   return (
     <div className={classes.wrapper}>
@@ -20,6 +20,7 @@ const MotherboardStep = ({ activeStep, setActiveStep, data }) => {
           { minWidth: 'md', cols: 3 },
           { maxWidth: "lg", cols: 3 },
           { maxWidth: 1200, cols: 3 },
+          { minWidth: 1200, cols: 4 }
         ]}>
           {data && data?.data.map((mb) => (
             <ProductCard title={mb.nom} link={mb.link} type="motherboard_id" cat="carte mere" description={mb.description} item={mb} image={mb.image} />
@@ -27,7 +28,7 @@ const MotherboardStep = ({ activeStep, setActiveStep, data }) => {
         </SimpleGrid>
         <div className={classes.buttonsWrapper}>
           <Button color="red" className={classes.button} onClick={() => setActiveStep(activeStep - 1)}>Etape précedente</Button>
-          <Button color="green" className={classes.button} onClick={() => pushToDraft("motherboard_id")}>Etape suivante</Button>
+          {config.motherboard_id !== null ? <Button color="green" className={classes.button} onClick={() => pushToDraft("motherboard_id")}>Etape suivante</Button> : <Button color="grape" className={classes.button} onClick={() => setActiveStep(activeStep + 1)}>Passer cette étape</Button>}
         </div>
     </div>
   )
