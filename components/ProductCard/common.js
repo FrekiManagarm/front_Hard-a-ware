@@ -1,22 +1,22 @@
 export const displayButton = (type, config) => {
     switch(type) {
-        case "processeur":
+        case "cpu_id":
             return config.cpu_id;
-        case "carte_graphique":
+        case "gpu_id":
             return config.gpu_id;
-        case "boitier":
+        case "case_id":
             return config.case_id;
-        case "cooling":
+        case "cooling_id":
             return config.cooling_id;
-        case "disque_dur":
+        case "hdd_id":
             return config.hdd_id;
-        case "carte_mere":
+        case "motherboard_id":
             return config.motherboard_id;
-        case "alim":
+        case "psu_id":
             return config.psu_id;
-        case "ram":
+        case "ram_id":
             return config.ram_id;
-        case "ssd":
+        case "ssd_id":
             return config.ssd_id;
     }
 }

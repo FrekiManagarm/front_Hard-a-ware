@@ -142,8 +142,8 @@ const ProductCard = ({ image, title, description, link, type, item, cat }) => {
     }
   }
 
-  // const buttonBis = displayButton(type, config);
-  // console.log(buttonBis, 'displayButton')
+  const buttonBis = displayButton(type, config);
+  console.log(buttonBis, 'displayButton')
 
   return (
     <>
@@ -205,11 +205,12 @@ const ProductCard = ({ image, title, description, link, type, item, cat }) => {
         onClose={() => setOpen(!open)}
         centered
         lockScroll
+        className={classes.modal}
         radius={30}
-        size="70%"
+        size="100%"
       >
         <div className={classes.modalWrapper}>
-          <Image src={image} width={400} height={400} style={{ objectFit: 'scale-down' }} />
+          <Image src={image} className={classes.image} width={400} height={400} style={{ objectFit: 'scale-down' }} />
           <div>
             <Text sx={{ textAlign: "start" }}>Nom :</Text>
             <Title sx={{ textAlign: "start", paddingBottom: "1rem" }}>{title}</Title>

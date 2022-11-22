@@ -33,11 +33,22 @@ const useProductCardStyles = createStyles((theme) => ({
     fontWeight: 700,
   },
 
+  modal: {
+    [theme.fn.smallerThan('sm')]: {
+      width: "100vw",
+      height: "100vh"
+    }
+  },
+
   modalWrapper: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-around"
+    justifyContent: "space-around",
+
+    [theme.fn.smallerThan('sm')]: {
+      flexDirection: "column"
+    }
   },
 
   interWrapper: {
@@ -56,6 +67,13 @@ const useProductCardStyles = createStyles((theme) => ({
     
     "span": {
       fontWeight: "bold"
+    }
+  },
+
+  image: {
+    [theme.fn.smallerThan('sm')]: {
+      width: 300,
+      height: 300
     }
   },
 

@@ -2,16 +2,17 @@ import { useRouter } from "next/router";
 import { createContext, use, useState } from "react";
 import PostAPIData from '../helpers/post_api_data';
 import PatchAPIData from '../helpers/patch_api_data';
+import componentType from "./common";
 
 export const ConfigurationContext = createContext();
 
 const ConfigurationProvider = ({ children }) => {
-    const [activeStep, setActiveStep] = useState(0);
+    const [activeStep, setActiveStep] = useState(null);
     const router = useRouter();
     
     const initialConfiguration = {
         use: 0,
-        status: "draft",
+        draft: true,
         cpu_id: null,
         gpu_id: null,
         ssd_id: null,
@@ -25,30 +26,28 @@ const ConfigurationProvider = ({ children }) => {
     const [config, setConfig] = useState(initialConfiguration);
     const [configId, setConfigId] = useState(null);
 
+    // console.log(config)
+
     const createDraftConfig = async () => {
         const data = {
-            status: 'draft',
-            activeStep: activeStep,
+            draft: config.draft,
+            current_step: activeStep,
             use: config.use
         }
 
-        const response = await PostAPIData(`/api/Config`, data).then((response) => {
+        const response = await PostAPIData(`/api/config`, data).then((response) => {
+            setConfigId(response.id)
             setActiveStep(activeStep + 1);
-            console.log(response, 'config created');
         })
 
         return response
     }
 
-    const pushToDraft = async () => {
+    const pushToDraft = async (type) => {
 
-        const data = {
-            ...config,
-            activeStep: activeStep
-        }
-
-        const responseAPI = await PatchAPIData(`/api/Config/${configId}`, data).then((response) => {
+        const responseAPI = await PatchAPIData(`/api/config/${configId}`, componentType(type, config, activeStep)).then((response) => {
             console.log(response, 'response update draft')
+            setActiveStep(activeStep + 1)
         })
 
         return responseAPI

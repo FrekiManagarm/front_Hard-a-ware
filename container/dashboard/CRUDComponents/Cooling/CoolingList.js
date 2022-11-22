@@ -5,6 +5,7 @@ import DeleteAPIData from "../../../../helpers/delete_api_data";
 import { Anchor, Button, Divider, Drawer, ScrollArea, Table, Title } from '@mantine/core';
 import CoolingForm from './CoolingForm';
 import CoolingModifyForm from './CoolingModifyForm';
+import useCoolingListStyles from './CoolingList.style';
 
 const CoolingList = () => {
 
@@ -13,6 +14,7 @@ const CoolingList = () => {
   const [index, setIndex] = useState(null);
   const [openModify, setOpenModify] = useState(false);
   const [notification, setNotification] = useState(false);
+  const { classes } = useCoolingListStyles();
 
   useEffect(() => {
     setMounted(true)
@@ -33,10 +35,10 @@ const CoolingList = () => {
           {item.nom}
         </Anchor>
       </td>
-      <td>
+      <td className={classes.hiddenMobile}>
         {item.format}
       </td>
-      <td>
+      <td className={classes.hiddenMobile}>
         {item.socket}
       </td>
       <td>
@@ -62,8 +64,8 @@ const CoolingList = () => {
             <th>ID</th>
             <th>Image</th>
             <th>Nom</th>
-            <th>Format</th>
-            <th>Socket</th>
+            <th className={classes.hiddenMobile}>Format</th>
+            <th className={classes.hiddenMobile}>Socket</th>
             <th>Actions</th>
           </thead>
           <tbody>

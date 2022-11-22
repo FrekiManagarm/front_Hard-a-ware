@@ -34,10 +34,10 @@ const CaseList = () => {
           {item.nom}
         </Anchor>
       </td>
-      <td>
+      <td className={classes.hiddenMobile}>
         {item.couleur}
       </td>
-      <td>
+      <td className={classes.hiddenMobile}>
         {item.format}
       </td>
       <td>
@@ -70,8 +70,8 @@ const CaseList = () => {
             <th>ID</th>
             <th>Image</th>
             <th>Nom</th>
-            <th>Couleur</th>
-            <th>Format</th>
+            <th className={classes.hiddenMobile}>Couleur</th>
+            <th className={classes.hiddenMobile}>Format</th>
             <th>Actions</th>
           </thead>
           <tbody>

@@ -5,6 +5,7 @@ import { useFetchSwr } from '../../../../hooks/useFetchSwr'
 import DeleteAPIData from '../../../../helpers/delete_api_data'
 import MBForm from './MBForm'
 import MBModifyForm from './MBModifyForm'
+import useMBListStyles from './MBList.style'
 
 const MBList = () => {
 
@@ -12,6 +13,8 @@ const MBList = () => {
   const [open, setOpen] = useState(false);
   const [openModify, setOpenModify] = useState(false);
   const [index, setIndex] = useState(null);
+  const { classes } = useMBListStyles();
+
   useEffect(() => {
     setMounted(true)
   }, []);
@@ -31,10 +34,10 @@ const MBList = () => {
           {item.nom}
         </Anchor>
       </td>
-      <td>
+      <td className={classes.hiddenMobile}>
         {item.socket}
       </td>
-      <td>
+      <td className={classes.hiddenMobile}>
         {item.constructeur}
       </td>
       <td>
@@ -65,8 +68,8 @@ const MBList = () => {
             <th>ID</th>
             <th>Image</th>
             <th>Nom</th>
-            <th>Socket</th>
-            <th>Constructeur</th>
+            <th className={classes.hiddenMobile}>Socket</th>
+            <th className={classes.hiddenMobile}>Constructeur</th>
             <th>Action</th>
           </thead>
           <tbody>

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import DeleteAPIData from '../../../../helpers/delete_api_data';
 import { useFetchSwr } from '../../../../hooks/useFetchSwr'
 import SSDForm from './SSDForm';
+import useSSDListStyles from './SSDList.style';
 import SSDModifyForm from './SSDModifyForm';
 
 const SSDList = () => {
@@ -12,6 +13,7 @@ const SSDList = () => {
   const [open, setOpen] = useState(false);
   const [openModify, setOpenModify] = useState(false);
   const [index, setIndex] = useState(null);
+  const { classes } = useSSDListStyles();
 
   useEffect(() => {
     setMounted(true)
@@ -33,10 +35,10 @@ const SSDList = () => {
             {item.nom}
           </Anchor>
         </td>
-        <td>
+        <td className={classes.hiddenMobile}>
           {item.interface}
         </td>
-        <td>
+        <td className={classes.hiddenMobile}>
           {item.lecture}
         </td>
         <td>
@@ -66,8 +68,8 @@ const SSDList = () => {
             <th>ID</th>
             <th>Image</th>
             <th>Nom</th>
-            <th>Interface</th>
-            <th>Lecture</th>
+            <th className={classes.hiddenMobile}>Interface</th>
+            <th className={classes.hiddenMobile}>Lecture</th>
             <th>Actions</th>
           </thead>
           <tbody>

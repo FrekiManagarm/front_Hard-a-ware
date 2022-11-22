@@ -25,7 +25,7 @@ const HeroBanner = () => {
             <Button onClick={() => router.push('/configurator')} variant="gradient" size="xl" radius="xl" className={classes.control}>
                 Démarrer une configuration
             </Button>
-            <Notification disallowClose sx={{ width: "50vw", textAlign: "center", marginTop: "4rem", fontWeight: "bold" }} radius="lg" title="Attention BETA" icon={<IconAlertCircle size={18} />} color="red" >
+            <Notification className={classes.notification} disallowClose radius="lg" title="Attention BETA" icon={<IconAlertCircle size={18} />} color="red" >
                 Ce que vous voyez est une version BETA Publique ou d'essai du site, <br/>
                 il est donc toujours en cours de construction
             </Notification>

@@ -6,6 +6,7 @@ import DeleteAPIData from '../../../../helpers/delete_api_data';
 import CPUModifyForm from './CPUModifyForm';
 import CPUForm from './CPUForm';
 import { IconCheck } from '@tabler/icons';
+import useCPUListStyles from './CPUList.style';
 
 const CPUList = () => {
 
@@ -14,6 +15,7 @@ const CPUList = () => {
   const [openModify, setOpenModify] = useState(false);
   const [index, setIndex] = useState(null);
   const [notification, setNotification] = useState(false);
+  const { classes } = useCPUListStyles();
 
   useEffect(() => {
     setMounted(true)
@@ -44,10 +46,10 @@ const CPUList = () => {
             {item.nom}
           </Anchor>
         </td>
-        <td>
+        <td className={classes.hiddenMobile}>
           {item.nb_coeur}
         </td>
-        <td>
+        <td className={classes.hiddenMobile}>
           {item.nb_threads}
         </td>
         <td>
@@ -85,9 +87,9 @@ const CPUList = () => {
               <th>ID</th>
               <th>Image</th>
               <th>Nom</th>
-              <th>NB Coeurs</th>
-              <th>NB Threads</th>
-              <th>Amazon Link</th>
+              <th className={classes.hiddenMobile}>NB Coeurs</th>
+              <th className={classes.hiddenMobile}>NB Threads</th>
+              <th className={classes.hiddenMobile}>Amazon Link</th>
               <th>Action</th>
             </tr>
           </thead>

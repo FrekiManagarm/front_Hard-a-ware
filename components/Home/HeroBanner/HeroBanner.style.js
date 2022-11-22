@@ -11,8 +11,20 @@ const useHeroBannerStyles = createStyles((theme) => ({
     backgroundPosition: "center",
 
     [theme.fn.smallerThan("sm")]: {
-      height: "80vh"
+      height: "100vh"
     },
+  },
+
+  notification: {
+    width: "50vw", 
+    textAlign: "center", 
+    marginTop: "3rem", 
+    marginBottom: "2rem",
+    fontWeight: "bold",
+
+    [theme.fn.smallerThan("sm")]: {
+      width: "80vw"
+    }
   },
 
   container: {
@@ -21,14 +33,9 @@ const useHeroBannerStyles = createStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "flex-end",
     alignItems: "flex-start",
-    paddingBottom: theme.spacing.xl * 6,
+    // paddingBottom: theme.spacing.xl * 6,
     zIndex: 1,
     position: "relative",
-
-    [theme.fn.smallerThan("sm")]: {
-      height: 500,
-      paddingBottom: theme.spacing.xs * 3,
-    },
   },
 
   title: {
