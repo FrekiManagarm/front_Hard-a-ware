@@ -7,6 +7,7 @@ const useDashboardStyles = createStyles((theme, _params, getRef) => {
     wrapper: {
       display: "flex",
       flexDirection: "row",
+      background: "orange"
     },
 
     header: {
@@ -38,11 +39,12 @@ const useDashboardStyles = createStyles((theme, _params, getRef) => {
       display: "flex",
       alignItems: "center",
       textDecoration: "none",
+      margin: "1rem 0",
       fontSize: theme.fontSizes.sm,
       color:
         theme.colorScheme === "dark"
           ? theme.colors.dark[1]
-          : theme.white,
+          : theme.colors.dark,
       padding: `${theme.spacing.xs}px ${theme.spacing.sm}px`,
       borderRadius: theme.radius.lg,
       fontWeight: 500,
@@ -65,7 +67,7 @@ const useDashboardStyles = createStyles((theme, _params, getRef) => {
       color:
         theme.colorScheme === "dark"
           ? theme.colors.dark[2]
-          : theme.white,
+          : theme.colors.dark,
       marginRight: theme.spacing.sm,
     },
 

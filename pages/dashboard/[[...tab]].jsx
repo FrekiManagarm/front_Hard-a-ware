@@ -70,9 +70,6 @@ const DashBoard = ({ isLoggedIn, user }) => {
   const router = useRouter();
   const { query } = router;
   const { logOut } = useContext(AuthContext)
-  // console.log(query, 'query dashboard')
-
-  // console.log(user)
 
   const displayComponent = () => {
     
@@ -113,8 +110,10 @@ const DashBoard = ({ isLoggedIn, user }) => {
   return (
     <div className={classes.wrapper}>
       <Navbar height="100vh" style={{
-        backgroundColor: "orange",
+        background: "rgba(217, 217, 217, 0.8)",
+        boxShadow: "10px 10px 4px rgba(0, 0, 0, 0.15)",
         borderRadius: "1.5rem",
+        border: "none"
       }} width={{ sm: 300 }} p="md">
         <Navbar.Section grow>
             <a href='/'>
