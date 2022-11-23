@@ -1,61 +1,61 @@
 import { useRouter } from "next/router";
-import { createContext, useState } from "react";
+import { createContext, use, useState } from "react";
 import PostAPIData from '../helpers/post_api_data';
 import PatchAPIData from '../helpers/patch_api_data';
+import componentType from "./common";
 
 export const ConfigurationContext = createContext();
 
 const ConfigurationProvider = ({ children }) => {
-    const [activeStep, setActiveStep] = useState(0);
+    const [activeStep, setActiveStep] = useState(null);
     const router = useRouter();
     
     const initialConfiguration = {
-        configId: null,
         use: 0,
-        processeur: null,
-        carte_graphique: null,
-        ssd: null,
-        disque_dur: null,
-        carte_mere: null,
-        boitier: null,
-        ram: null,
-        cooling: null,
-        alim: null
+        draft: true,
+        cpu_id: null,
+        gpu_id: null,
+        ssd_id: null,
+        hdd_id: null,
+        motherboard_id: null,
+        case_id: null,
+        ram_id: null,
+        cooling_id: null,
+        psu_id: null
     }
     const [config, setConfig] = useState(initialConfiguration);
+    const [configId, setConfigId] = useState(null);
+
+    // console.log(config)
 
     const createDraftConfig = async () => {
         const data = {
-            status: 'draft',
-            activeStep: activeStep
+            draft: config.draft,
+            current_step: activeStep,
+            use: config.use
         }
 
-        const response = await PostAPIData(`/api/Config`, data).then(() => {
-            setActiveStep(activeStep + 1)
+        const response = await PostAPIData(`/api/config`, data).then((response) => {
+            setConfigId(response.id)
+            setActiveStep(activeStep + 1);
         })
 
         return response
     }
 
-    const updateDraft = async (type, item) => {
-        const data = {
-            [type] : item 
-        }
+    const pushToDraft = async (type) => {
 
-        const responseAPI = await PatchAPIData(`/api/Config`, data).then(() => {
-            
+        const responseAPI = await PatchAPIData(`/api/config/${configId}`, componentType(type, config, activeStep)).then((response) => {
+            console.log(response, 'response update draft')
+            setActiveStep(activeStep + 1)
         })
 
         return responseAPI
     }
 
-    const pushToResume = async (configId) => {
-        // TO DO 
-        const data = {
-            status: "done"
-        }
+    const draftToConfig = async () => {
 
-        const confirmConfigRequest = await PostAPIData(`/api/Config/${configId}`, data).then((response) => {
+        const confirmConfigRequest = await PatchAPIData(`/api/config/${configId}`, config).then((response) => {
             router.push('/configurator/resume', {query: { configId: configId }})
         })
 
@@ -70,8 +70,8 @@ const ConfigurationProvider = ({ children }) => {
                 config,
                 setConfig,
                 createDraftConfig,
-                pushToResume,
-                updateDraft
+                draftToConfig,
+                pushToDraft
             }}
         >
             { children }

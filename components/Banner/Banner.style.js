@@ -11,6 +11,14 @@ const useBannerStyles = createStyles((theme) => ({
     backgroundPosition: "center",
     borderRadius: "2rem",
 
+    [theme.fn.smallerThan('sm')]: {
+      paddingTop: 100
+    },
+
+    [theme.fn.smallerThan('xs')]: {
+      paddingTop: 200
+    },
+
     "@media (max-width: 520px)": {
       paddingTop: 80,
       paddingBottom: 50,

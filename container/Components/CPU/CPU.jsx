@@ -26,7 +26,14 @@ const CPU = () => {
       />
       <div className={classes.wrapper}>
         <Banner title="Processeur" bgImage="https://i.imgur.com/5JaBK3E.jpg" description="Bienvenue dans la partie processeur." />
-        <SimpleGrid cols={4} className={classes.cardSection} spacing={32}>
+        <SimpleGrid cols={4} className={classes.cardSection} spacing={32} breakpoints={[
+          { maxWidth: "xs", cols: 1 },
+          { minWidth: 'sm', cols: 2 },
+          { maxWidth: 'md', cols: 2 },
+          { minWidth: 'md', cols: 3 },
+          { maxWidth: "lg", cols: 3 },
+          { maxWidth: 1200, cols: 3 },
+        ]}>
         {data && data.map((item) => (
           <ProductCard title={item.nom} image={item.image} cat="processeur" link={item.link} description={item.description} type="processeur" item={item} />
         ))}

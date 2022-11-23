@@ -101,7 +101,10 @@ const Header = ({ user, isLoggedIn }) => {
   const blurNavbar = scroll.y > 10 ? 'blur(10px)' : null
 
   const links = mockData.map((item) => (
-    <UnstyledButton className={classes.subLink} key={item.title} onClick={() => router.push(item.link)} >
+    <UnstyledButton className={classes.subLink} key={item.title} onClick={() => {
+        router.push(item.link)
+        closeDrawer()
+      }} >
       <Group noWrap align="flex-start">
         <ThemeIcon size={34} variant="default" radius="md" >
           <item.icon size={22} color={theme.fn.primaryColor()} />
@@ -117,7 +120,7 @@ const Header = ({ user, isLoggedIn }) => {
 
   return (
     <Box>
-      <HeaderComponent height={65} sx={{ backgroundColor: bgNavbar, border: "none", position: "fixed", backdropFilter: blurNavbar, borderRadius: "1rem", transition: "background-color 300ms ease-in-out" }} px="sm" mx="sm" my={marginNavbar}>
+      <HeaderComponent height={65} sx={{ backgroundColor: bgNavbar, border: "none", position: "fixed", backdropFilter: blurNavbar, borderRadius: "1rem", transition: "background-color 300ms ease-in-out" }} px="sm" mx="xs" my={marginNavbar}>
         <Group position='apart' sx={{ height: "100%" }}>
           <Image src="/Hard-A-ware_logo.png" onClick={() => router.push('/')} style={{ cursor: 'pointer', borderRadius: "1rem" }} height={45} width={45} alt="header-logo" />
 
@@ -209,7 +212,7 @@ const Header = ({ user, isLoggedIn }) => {
         onClose={closeDrawer}
         size="100%"
         padding="md"
-        title="Navigation"
+        title="Menu"
         className={classes.hiddenDesktop}
         zIndex={1000000}
       >
@@ -221,7 +224,7 @@ const Header = ({ user, isLoggedIn }) => {
           </a>
           <UnstyledButton className={classes.link} onClick={toggleLinks}>
             <Center inline>
-              <Box component="a" href='/components' mr={5}>
+              <Box component="a" sx={{ textDecoration: "none", color: theme.black }} href='/components' mr={5}>
                 Composants
               </Box>
               <IconChevronDown size={16} color={theme.fn.primaryColor()} />
@@ -231,11 +234,14 @@ const Header = ({ user, isLoggedIn }) => {
           <a href="/configurator" className={classes.link}>
             Configurateur
           </a>
+          {user && isLoggedIn ? <a href='/dashboard' className={classes.link}>
+            Mon Tableau de bord
+          </a> : null}
 
           <Divider my="sm" color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'} />
 
           <Group position="center" grow pb="xl" px="md">
-            <Button onClick={() => router.push('/login')} radius="xl" >Connexion</Button>
+            { !user ? <Button onClick={() => router.push('/login')} radius="xl" >Connexion</Button> : <Button color="red" radius="xl">Déconnexion</Button>}
           </Group>
         </ScrollArea>
       </Drawer>

@@ -15,6 +15,10 @@ const useCPUStepStyles = createStyles((theme) => ({
 
     buttonsWrapper : {
         marginTop: "1rem",
+
+        [theme.fn.smallerThan('sm')]: {
+            display: "flex"
+        }
     }
 }))
 

@@ -12,6 +12,7 @@ import HomeDashboard from '../../container/dashboard/HomeDashboard'
 import { withData } from '../../helpers/restriction'
 import CRUDComponents from '../../container/dashboard/CRUDComponents/CRUDComponents'
 import { AuthContext } from '../../context/AuthProvider'
+import GetAPIData from '../../helpers/get_api_data'
 
 const mockDataAdmin = [
   {
@@ -107,6 +108,19 @@ const DashBoard = ({ isLoggedIn, user }) => {
     </a>
   ))
 
+  const linksMobile = mockData.map((item) => (
+    <a
+      className={cx(classes.link, { [classes.linkActive]: item.link === router.asPath })}
+      href={item.link}
+      key={item.label}
+      onClick={() => {
+        router.push(item.link)
+      }}
+    >
+      <item.icon className={classes.linkIcon} stroke={1.5} />
+    </a>
+  ))
+
   return (
     <div className={classes.wrapper}>
       <Navbar height="100vh" style={{
@@ -132,6 +146,28 @@ const DashBoard = ({ isLoggedIn, user }) => {
             </a>
           </Navbar.Section>
         </Navbar>
+        <Navbar
+          className={classes.navbar}
+          height="100vh"
+          width={{ base: 80 }}
+          p="md"
+        >
+          <Navbar.Section grow>
+            <a href='/'>
+              <Image src="/Hard-A-ware_logo.png" style={{ borderRadius: "1rem" }} height={45} width={45} alt="header-logo" />
+            </a>
+            <div className={classes.linksWrapper}>
+              {linksMobile}
+            </div>
+          </Navbar.Section>
+
+          <Navbar.Section className={classes.footer}>
+
+            <a className={classes.link} onClick={() => logOut()}>
+              <IconLogout className={classes.linkIcon} stroke={1.5} />
+            </a>
+          </Navbar.Section>
+        </Navbar>
         <div>
           {displayComponent()}
         </div>
@@ -140,8 +176,19 @@ const DashBoard = ({ isLoggedIn, user }) => {
 }
 
 DashBoard.getInitialProps = async (ctx) => {
-    const { isLoggedIn, user } = await withData(ctx);
-    const { pathname, res, query, asPath } = ctx
+    const { isLoggedIn, user, token } = await withData(ctx);
+    const { pathname, res, query, asPath} = ctx
+
+    const apiUrl = [
+      {
+        endpoint: `${process.env.SERVER_API}/api/my-configs`,
+        name: "myConfigs"
+      }
+    ];
+
+    const responseApi = await GetAPIData(apiUrl, "fr", token);
+
+    const pageData = responseApi;
 
     let isProtectedRoute = [
       `/components-list`
@@ -154,7 +201,7 @@ DashBoard.getInitialProps = async (ctx) => {
       res.end();
     }
 
-    return { isLoggedIn, user }
+    return { isLoggedIn, user, pageData }
 }
 
-export default DashBoard
+export default DashBoard;

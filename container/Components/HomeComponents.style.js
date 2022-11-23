@@ -2,7 +2,8 @@ import { createStyles } from "@mantine/core";
 
 const useHomeComponentsStyles = createStyles((theme) => ({
   wrapper: {
-    padding: "4.5rem",
+    // padding: "4.5rem",
+    paddingTop: "4.5rem",
     display: "flex",
     flexDirection: "column",
     width: "100%",
@@ -36,19 +37,24 @@ const useHomeComponentsStyles = createStyles((theme) => ({
     height: 300,
     width: 450,
 
+    [theme.fn.smallerThan('xl')]: {
+      height: 300,
+      width: "25rem"
+    },
+
     [theme.fn.smallerThan('lg')]: {
-      height: 250,
-      width: 425
+      height: 300,
+      width: "18rem"
     },
 
     [theme.fn.smallerThan('sm')]: {
-        height: 225,
-        width: 400
+        height: 300,
+        width: "17rem"
     },
 
     [theme.fn.smallerThan('xs')]: {
-      height: 225,
-      width: 350
+      height: 300,
+      width: "20rem"
     },
 
     ".seeMore": {
@@ -68,19 +74,24 @@ const useHomeComponentsStyles = createStyles((theme) => ({
       position: "absolute",
       transition: "opacity .5s ease-in-out, background .5s ease-in-out",
 
+      [theme.fn.smallerThan('xl')]: {
+        height: 300,
+        width: "25rem"
+      },
+  
       [theme.fn.smallerThan('lg')]: {
-        height: 250,
-        width: 425
+        height: 300,
+        width: "18rem"
       },
   
       [theme.fn.smallerThan('sm')]: {
-          height: 225,
-          width: 400
+          height: 300,
+          width: "17rem"
       },
-
+  
       [theme.fn.smallerThan('xs')]: {
-        height: 225,
-        width: 350
+        height: 300,
+        width: "20rem"
       },
     },
 

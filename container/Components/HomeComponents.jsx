@@ -74,9 +74,10 @@ const HomeComponents = () => {
         <SimpleGrid spacing={35} cols={3} mt="xl" breakpoints={[ 
             { maxWidth: "xs", cols: 1 },
             { minWidth: 'sm', cols: 2 },
-            { minWidth: 'md', cols: 2 },
-            { minWidth: "lg", cols: 2 },
-            { minWidth: 1200, cols: 3 },
+            { maxWidth: 'md', cols: 2 },
+            { minWidth: 'md', cols: 3 },
+            { maxWidth: "lg", cols: 3 },
+            { maxWidth: 1200, cols: 3 },
          ]}>
             {items}
         </SimpleGrid>
