@@ -35,7 +35,8 @@ const useDashboardStyles = createStyles((theme, _params, getRef) => {
     },
 
     navbar: {
-      backgroundColor: "orange",
+      background: "rgba(217, 217, 217, 0.8)",
+      boxShadow: "10px 10px 4px rgba(0, 0, 0, 0.15)",
       borderRadius: "0 1.5rem 1.5rem 0",
       
       [theme.fn.largerThan('sm')]: {

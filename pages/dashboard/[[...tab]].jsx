@@ -1,4 +1,4 @@
-import { Navbar, Group, Code, Anchor } from '@mantine/core'
+import { Navbar } from '@mantine/core'
 import React, { useContext } from 'react'
 import Error from 'next/error'
 import useDashboardStyles from '../../container/dashboard/Dashboard.style'
@@ -13,6 +13,7 @@ import { withData } from '../../helpers/restriction'
 import CRUDComponents from '../../container/dashboard/CRUDComponents/CRUDComponents'
 import { AuthContext } from '../../context/AuthProvider'
 import GetAPIData from '../../helpers/get_api_data'
+import Link from 'next/link'
 
 const mockDataAdmin = [
   {
@@ -126,9 +127,9 @@ const DashBoard = ({ isLoggedIn, user }) => {
       <Navbar height="100vh" style={{
         background: "rgba(217, 217, 217, 0.8)",
         boxShadow: "10px 10px 4px rgba(0, 0, 0, 0.15)",
-        borderRadius: "1.5rem",
+        borderRadius: "0 1.5rem 1.5rem 0",
         border: "none"
-      }} width={{ sm: 300 }} p="md">
+      }} width={{ sm: 300 }} hidden hiddenBreakpoint="sm" p="md">
         <Navbar.Section grow>
             <a href='/'>
               <Image src="/Hard-A-ware_logo.png" style={{ borderRadius: "1rem" }} height={45} width={45} alt="header-logo" />
@@ -153,9 +154,9 @@ const DashBoard = ({ isLoggedIn, user }) => {
           p="md"
         >
           <Navbar.Section grow>
-            <a href='/'>
+            <Link href='/'>
               <Image src="/Hard-A-ware_logo.png" style={{ borderRadius: "1rem" }} height={45} width={45} alt="header-logo" />
-            </a>
+            </Link>
             <div className={classes.linksWrapper}>
               {linksMobile}
             </div>
