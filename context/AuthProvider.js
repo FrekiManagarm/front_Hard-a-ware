@@ -81,7 +81,6 @@ const AuthProvider = props => {
               setUser(user);
               setToken(token);
               addItem(TOKEN_COOKIE, token);
-              addItem(USER_COOKIE, user);
               setLoggedIn(true);
               setApiErrorMessage(null);
 

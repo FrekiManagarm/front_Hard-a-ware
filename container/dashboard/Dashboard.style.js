@@ -38,6 +38,8 @@ const useDashboardStyles = createStyles((theme, _params, getRef) => {
       background: "rgba(217, 217, 217, 0.8)",
       boxShadow: "10px 10px 4px rgba(0, 0, 0, 0.15)",
       borderRadius: "0 1.5rem 1.5rem 0",
+      border: "none",
+      
       
       [theme.fn.largerThan('sm')]: {
         display: "none"
