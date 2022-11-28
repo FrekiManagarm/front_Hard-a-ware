@@ -8,14 +8,12 @@ const GlobalStats = ({ height, radius }) => {
   return (
     <Paper
         radius={radius}
+        className={classes.wrapper}
         sx={{
             height: height,
-            width: "20vw",
-            background: "rgba(222, 222, 222, 0.7)",
-            boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.15)",
         }}
     >
-        <Title>GlobalStats</Title>
+        <Title>Stats Global</Title>
     </Paper>
   )
 }

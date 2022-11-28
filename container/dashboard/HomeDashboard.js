@@ -8,7 +8,7 @@ import GlobalStats from '../../components/Resumes/GlobalStats/GlobalStats';
 import UsersStats from '../../components/Resumes/UsersStats/UsersStats';
 import useHomeDashboardStyles from './HomeDashboard.style'
 
-const HomeDashboard = () => {
+const HomeDashboard = ({ user }) => {
 
   const { classes, theme } = useHomeDashboardStyles();
 
@@ -16,7 +16,7 @@ const HomeDashboard = () => {
   return (
     <div className={classes.wrapper}>
         <div className={classes.column1}>
-          <GlobalStats radius="lg" height="100%" />
+          { user?.is_Admin ? <GlobalStats radius="lg" height="100%" /> : null}
         </div>
         <div className={classes.column2}>
           <UsersStats radius="lg" height="40vh" />

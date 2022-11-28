@@ -1,10 +1,8 @@
-import { Navbar } from '@mantine/core'
-import React, { useContext } from 'react'
+import { AppShell, Burger, Header, MediaQuery } from '@mantine/core'
+import { useContext, useState } from 'react'
 import Error from 'next/error'
 import useDashboardStyles from '../../container/dashboard/Dashboard.style'
-import Image from 'next/image'
-import { IconLogout, IconSettings, IconNotification, IconAffiliate, IconHome, IconList } from '@tabler/icons'
-import { useRouter, withRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import PersonnalInformations from "../../container/dashboard/account-settings/PersonnalInformations/PersonnalInformations"
 import Preferences from "../../container/dashboard/account-settings/Preferences/Preferences"
 import MyConfigs from '../../container/dashboard/Configs/MyConfigs'
@@ -13,63 +11,13 @@ import { withData } from '../../helpers/restriction'
 import CRUDComponents from '../../container/dashboard/CRUDComponents/CRUDComponents'
 import { AuthContext } from '../../context/AuthProvider'
 import GetAPIData from '../../helpers/get_api_data'
-import Link from 'next/link'
-
-const mockDataAdmin = [
-  {
-    label: "Accueil",
-    link: "/dashboard",
-    icon: IconHome
-  },
-  {
-    label: "Mes informations perso",
-    link: "/dashboard/personnal-informations",
-    icon: IconNotification
-  },
-  {
-    label: "Mes Configurations",
-    link: "/dashboard/my-configs",
-    icon: IconAffiliate
-  },
-  {
-    label: "Mes Préférences",
-    link: "/dashboard/preferences",
-    icon: IconSettings
-  },
-  {
-    label: "Composants",
-    link: "/dashboard/components-list",
-    icon: IconList
-  }
-];
-
-const mockDataNotAdmin = [
-  {
-    label: "Accueil",
-    link: "/dashboard",
-    icon: IconHome
-  },
-  {
-    label: "Mes informations perso",
-    link: "/dashboard/personnal-informations",
-    icon: IconNotification
-  },
-  {
-    label: "Mes Configurations",
-    link: "/dashboard/my-configs",
-    icon: IconAffiliate
-  },
-  {
-    label: "Mes Préférences",
-    link: "/dashboard/preferences",
-    icon: IconSettings
-  },
-]
+import NavbarDashboard from '../../components/Dashboard/Navbar/Navbar'
 
 const DashBoard = ({ isLoggedIn, user }) => {
 
-  const { classes, cx } = useDashboardStyles();
+  const { classes, cx, theme } = useDashboardStyles();
   const router = useRouter();
+  const [opened, setOpened] = useState(false);
   const { query } = router;
   const { logOut } = useContext(AuthContext)
 
@@ -89,45 +37,29 @@ const DashBoard = ({ isLoggedIn, user }) => {
           return <Error statusCode={404} title="Page Non Trouvé" />
       }
     } else {
-      return <HomeDashboard />
+      return <HomeDashboard user={user} />
     }
   }
 
-  const mockData = user?.is_Admin ? mockDataAdmin : mockDataNotAdmin
-
-  const links = mockData.map((item) => (
-    <a
-      className={cx(classes.link, { [classes.linkActive]: item.link === router.asPath })}
-      href={item.link}
-      key={item.label}
-      onClick={() => {
-        router.push(item.link)
-      }}
-    >
-      <item.icon className={classes.linkIcon} stroke={1.5} />
-      <span>{item.label}</span>
-    </a>
-  ))
-
-  const linksMobile = mockData.map((item) => (
-    <a
-      className={cx(classes.link, { [classes.linkActive]: item.link === router.asPath })}
-      href={item.link}
-      key={item.label}
-      onClick={() => {
-        router.push(item.link)
-      }}
-    >
-      <item.icon className={classes.linkIcon} stroke={1.5} />
-    </a>
-  ))
+  // const linksMobile = mockData.map((item) => (
+  //   <a
+  //     className={cx(classes.link, { [classes.linkActive]: item.link === router.asPath })}
+  //     href={item.link}
+  //     key={item.label}
+  //     onClick={() => {
+  //       router.push(item.link)
+  //     }}
+  //   >
+  //     <item.icon className={classes.linkIcon} stroke={1.5} />
+  //   </a>
+  // ))
 
   return (
     <div className={classes.wrapper}>
-      <Navbar height="100vh" style={{
+      {/* <Navbar height="100vh" style={{
         background: "rgba(217, 217, 217, 0.8)",
-        boxShadow: "10px 10px 4px rgba(0, 0, 0, 0.15)",
-        borderRadius: "0 1.5rem 1.5rem 0",
+        boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.35)",
+        borderRadius: "0 0.75rem 0.75rem 0",
         border: "none"
       }} width={{ sm: 300 }} hidden hiddenBreakpoint="sm" p="md">
         <Navbar.Section grow>
@@ -168,10 +100,30 @@ const DashBoard = ({ isLoggedIn, user }) => {
               <IconLogout className={classes.linkIcon} stroke={1.5} />
             </a>
           </Navbar.Section>
-        </Navbar>
-        <div>
+        </Navbar> */}
+        <AppShell
+          navbar={<NavbarDashboard user={user} opened={opened} setOpened={setOpened} />}
+          navbarOffsetBreakpoint="sm"
+          header={
+            <MediaQuery largerThan="sm" styles={{ display: "none" }}>
+              <Header height={{ base: 50, md: 70 }} p="md">
+                <div style={{ display: "flex", alignItems: "center", height: "100%" }}>
+                  <MediaQuery largerThan="sm" styles={{ display: "none" }}>
+                    <Burger 
+                      opened={opened}
+                      onClick={() => setOpened(!opened)}
+                      size="sm"
+                      color={theme.colors.gray[6]}
+                      mr="xl"
+                    />
+                  </MediaQuery>
+                </div>
+              </Header>
+            </MediaQuery>
+          }
+        >
           {displayComponent()}
-        </div>
+        </AppShell>
     </div>
   )
 }
