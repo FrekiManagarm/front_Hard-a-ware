@@ -12,24 +12,26 @@ const useHomeDashboardStyles = createStyles((theme) => ({
         },
 
         [theme.fn.smallerThan('lg')]: {
-            display: "none"
+            
         },
 
         [theme.fn.smallerThan('md')]: {
-            display: "none"
+            
         },
 
         [theme.fn.smallerThan('sm')]: {
-            display: "none"
+            
         },
 
         [theme.fn.smallerThan('xs')]: {
-            display: "none"
+            
         }
     },
 
     column1: {
-
+        [theme.fn.smallerThan('sm')]: {
+            display: "none"
+        }
     },
 
     column2: {

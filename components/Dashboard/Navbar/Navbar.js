@@ -103,31 +103,32 @@ const NavbarDashboard = ({ user, opened, setOpened }) => {
     >
       <Navbar.Section grow>
         <div
-            style={{
-                display: "flex",
-                justifyContent: "space-between"
-            }}
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+          }}
         >
-            <a href="/">
-                <Image
-                    src="/Hard-A-ware_logo.png"
-                    style={{ borderRadius: "1rem" }}
-                    height={45}
-                    width={45}
-                    alt="header-logo"
-                />
-            </a>
-            <MediaQuery largerThan="sm" styles={{ display: "none" }}>
-                <Button
-                    sx={{
-                        background: "orange",
-                        borderRadius: ""
-                    }}
-                    onClick={() => setOpened(!opened)}
-                >
-                    <IconX style={{ cursor: "pointer", color: "black" }} />
-                </Button>
-            </MediaQuery>
+          <a href="/">
+            <Image
+              src="/Hard-A-ware_logo.png"
+              style={{ borderRadius: "1rem" }}
+              height={45}
+              width={45}
+              alt="header-logo"
+            />
+          </a>
+          <MediaQuery largerThan="sm" styles={{ display: "none" }}>
+            <Button
+              sx={{
+                background: "orange",
+              }}
+              radius="xl"
+              p={5}
+              onClick={() => setOpened(!opened)}
+            >
+              <IconX style={{ cursor: "pointer", color: "white" }} />
+            </Button>
+          </MediaQuery>
         </div>
         <div className={classes.linksWrapper}>{links}</div>
       </Navbar.Section>

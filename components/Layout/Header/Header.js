@@ -19,13 +19,10 @@ import {
   Drawer,
   Collapse,
   ScrollArea,
-  Switch,
-  useMantineColorScheme,
-  useMantineTheme,
   Avatar
 } from '@mantine/core';
-import { useDisclosure, useClickOutside, useWindowScroll } from '@mantine/hooks';
-import { IconNotification, IconCode, IconBook, IconChartPie3, IconFingerprint, IconCoin, IconChevronDown, IconTrash, IconSettings, IconAffiliate, IconList } from '@tabler/icons';
+import { useDisclosure, useWindowScroll } from '@mantine/hooks';
+import { IconNotification, IconCode, IconBook, IconChartPie3, IconFingerprint, IconCoin, IconChevronDown, IconSettings, IconAffiliate, IconList, IconLogout } from '@tabler/icons';
 import useHeaderStyles from './Header.style';
 import { AuthContext } from '../../../context/AuthProvider';
 
@@ -88,13 +85,6 @@ const Header = ({ user, isLoggedIn }) => {
   const { logOut } = useContext(AuthContext)
 
   const { classes, theme } = useHeaderStyles();
-  
-  const scaleY = {
-    in: { opacity: 1, transform: 'scaleY(1)' },
-    out: { opacity: 0, transform: 'scaleY(0)' },
-    common: { transformOrigin: 'top' },
-    transitionProperty: 'transform, opacity',
-  }
 
   const bgNavbar = scroll.y > 10 && router.pathname == "/" ? `rgba(255, 146, 43, 0.90)` : scroll.y < 10 && router.pathname == "/" ? "transparent" : `rgba(255, 146, 43, 0.90)`;
   const marginNavbar = router.pathname == "/" ? "0.5rem" : null
@@ -181,14 +171,13 @@ const Header = ({ user, isLoggedIn }) => {
             </Menu.Target>
             <Menu.Dropdown sx={{ padding: "1rem" }}>
               <Menu.Label>{user ? user?.firstname + ' ' + user?.lastname : null}</Menu.Label>
-              <Menu.Item onClick={() => router.push('/dashboard/personnal-informations')} icon={<IconSettings size={18} />}>Mes infos</Menu.Item>
+              <Menu.Item onClick={() => router.push('/dashboard')} icon={<IconSettings size={18} />}>Mon tableau de bord</Menu.Item>
               <Menu.Item onClick={() => router.push('/dashboard/my-configs')} icon={<IconAffiliate size={18} />}>Mes Configs</Menu.Item>
-              <Menu.Item onClick={() => router.push('/dashboard/preferences')} icon={<IconSettings size={18} />}>Préférences</Menu.Item>
               {isLoggedIn && user?.is_Admin ? <Menu.Item onClick={() => router.push('/dashboard/components-list')} icon={<IconList size={18} />}>
                 Composants
               </Menu.Item> : null}
               <Menu.Divider />
-              <Menu.Item color="red" onClick={() => logOut()} icon={<IconTrash size={18} />}>Déconnexion</Menu.Item>
+              <Menu.Item color="red" onClick={() => logOut()} icon={<IconLogout size={18} />}>Déconnexion</Menu.Item>
             </Menu.Dropdown>
           </Menu>
           }

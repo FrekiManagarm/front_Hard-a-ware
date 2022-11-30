@@ -34,7 +34,7 @@ const RAMStep = ({ activeStep, setActiveStep, data }) => {
           <div className={classes.buttonsWrapper}>
             <Button color="red" className={classes.button} onClick={() => setActiveStep(activeStep - 1)}>Etape précédente</Button>
             <Button color="green" className={classes.button} onClick={() => {
-              setConfig({ ...config, status: "done" })
+              setConfig({ ...config, draft: false })
               draftToConfig()
             }}>Terminer et aller au résumé</Button>
           </div>
