@@ -2,12 +2,12 @@ import { createStyles } from "@mantine/core";
 
 const useHomeDashboardStyles = createStyles((theme) => ({
     wrapper: {
-        margin: "3rem 10rem",
         display: "flex",
+        margin: "0 10rem",
         flexDirection: "row",
 
         [theme.fn.smallerThan('lg')]: {
-            margin: "3rem 3rem"
+            margin: "3rem"
         },
 
         [theme.fn.smallerThan('md')]: {

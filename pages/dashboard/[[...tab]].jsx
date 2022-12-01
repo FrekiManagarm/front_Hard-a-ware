@@ -126,10 +126,10 @@ const DashBoard = ({ isLoggedIn, user }) => {
     <div className={classes.wrapper}>
       <Navbar height="100vh" style={{
         background: "rgba(217, 217, 217, 0.8)",
-        boxShadow: "10px 10px 4px rgba(0, 0, 0, 0.15)",
-        borderRadius: "0 1.5rem 1.5rem 0",
+        boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.35)",
+        borderRadius: "0 0.75rem 0.75rem 0",
         border: "none"
-      }} width={{ sm: 300 }} hidden hiddenBreakpoint="sm" p="md">
+      }} width={{ sm: 275 }} hidden hiddenBreakpoint="sm" p="md">
         <Navbar.Section grow>
             <a href='/'>
               <Image src="/Hard-A-ware_logo.png" style={{ borderRadius: "1rem" }} height={45} width={45} alt="header-logo" />

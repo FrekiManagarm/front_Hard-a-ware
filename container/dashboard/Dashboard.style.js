@@ -7,7 +7,9 @@ const useDashboardStyles = createStyles((theme, _params, getRef) => {
     wrapper: {
       display: "flex",
       flexDirection: "row",
-      background: "orange"
+      background: "orange",
+      alignItems: "center",
+      height: "100vh",
     },
 
     header: {
