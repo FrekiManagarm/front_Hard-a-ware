@@ -13,7 +13,7 @@ const AccountSettingsResume = ({ height, radius }) => {
         height: height,
       }}
     >
-        <Title>AccountSettings Resume</Title>
+        <Title></Title>
     </Paper>
   )
 }
