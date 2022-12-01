@@ -11,7 +11,7 @@ const ComponentsResume = ({height, radius}) => {
             height: height,
         }}
     >
-      <Title>Components Resume</Title>
+      <Title>Derniers composants</Title>
     </Paper>
   );
 };

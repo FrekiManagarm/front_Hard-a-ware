@@ -142,8 +142,8 @@ const ProductCard = ({ image, title, description, link, type, item, cat }) => {
     }
   }
 
-  const buttonBis = displayButton(type, config);
-  console.log(buttonBis, 'displayButton')
+  // const buttonBis = displayButton(type, config);
+  // console.log(buttonBis, 'displayButton')
 
   return (
     <>

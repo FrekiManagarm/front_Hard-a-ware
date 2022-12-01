@@ -13,7 +13,7 @@ const GlobalStats = ({ height, radius }) => {
             height: height,
         }}
     >
-        <Title>GlobalStats</Title>
+        <Title>Stats Global</Title>
     </Paper>
   )
 }

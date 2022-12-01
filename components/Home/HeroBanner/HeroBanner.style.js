@@ -72,6 +72,8 @@ const useHeroBannerStyles = createStyles((theme) => ({
       width: "100%",
     },
   },
+
+  
 }));
 
 export default useHeroBannerStyles

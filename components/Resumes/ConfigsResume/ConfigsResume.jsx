@@ -12,10 +12,9 @@ const ConfigsResume = ({height, radius}) => {
         className={classes.wrapper}
         sx={{
             height: height,
-            
         }}
     >
-        <Title>Configs Resume</Title>
+        <Title>Mes configurations</Title>
     </Paper>
   )
 }

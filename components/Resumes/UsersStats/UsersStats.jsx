@@ -11,7 +11,6 @@ const UsersStats = ({ height, radius }) => {
         className={classes.wrapper}
         sx={{
             height: height,
-            
         }}
     >
         <Title>UsersStats</Title>

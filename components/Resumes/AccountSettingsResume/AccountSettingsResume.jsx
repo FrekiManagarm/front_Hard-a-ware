@@ -13,7 +13,7 @@ const AccountSettingsResume = ({ height, radius }) => {
         height: height,
       }}
     >
-        <Title></Title>
+        <Title>Mes infos personnelles</Title>
     </Paper>
   )
 }

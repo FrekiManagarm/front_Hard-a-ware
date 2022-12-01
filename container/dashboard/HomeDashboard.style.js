@@ -2,29 +2,37 @@ import { createStyles } from "@mantine/core";
 
 const useHomeDashboardStyles = createStyles((theme) => ({
     wrapper: {
+        // margin: "5rem 10rem",
+        padding: "5rem 10rem",
         display: "flex",
         margin: "0 10rem",
         flexDirection: "row",
 
+        [theme.fn.smallerThan('xl')]: {
+            padding: "5rem 1rem"
+        },
+
         [theme.fn.smallerThan('lg')]: {
-            margin: "3rem"
+            
         },
 
         [theme.fn.smallerThan('md')]: {
-            margin: "3rem"
+            
         },
 
         [theme.fn.smallerThan('sm')]: {
-            margin: "3rem 9rem"
+            
         },
 
         [theme.fn.smallerThan('xs')]: {
-            margin: "2rem"
+            
         }
     },
 
     column1: {
-
+        [theme.fn.smallerThan('sm')]: {
+            display: "none"
+        }
     },
 
     column2: {
