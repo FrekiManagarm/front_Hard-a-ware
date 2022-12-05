@@ -5,6 +5,7 @@ const useHomeDashboardStyles = createStyles((theme) => ({
         // margin: "5rem 10rem",
         padding: "5rem 10rem",
         display: "flex",
+        margin: "0 10rem",
         flexDirection: "row",
 
         [theme.fn.smallerThan('xl')]: {
