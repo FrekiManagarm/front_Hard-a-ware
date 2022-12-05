@@ -13,12 +13,13 @@ import { AuthContext } from "../../context/AuthProvider";
 import GetAPIData from "../../helpers/get_api_data";
 import NavbarDashboard from "../../components/Dashboard/Navbar/Navbar";
 
-const DashBoard = ({ isLoggedIn, user }) => {
+const DashBoard = ({ isLoggedIn, user, pageData }) => {
   const { classes, cx, theme } = useDashboardStyles();
   const router = useRouter();
   const [opened, setOpened] = useState(false);
   const { query } = router;
   const { logOut } = useContext(AuthContext);
+  console.log(pageData, "pageData")
 
   const displayComponent = () => {
     if (query.tab && query.tab[0] && !query.tab[1]) {
