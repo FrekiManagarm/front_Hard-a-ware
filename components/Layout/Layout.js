@@ -12,6 +12,7 @@ const LayoutWrapper = ({ children, user, isLoggedIn }) => {
     <Layout>
         {
             router.pathname === '/' ||
+            router.pathname === '/components/[[...tab]]' ||
             router.pathname === '/configurator' ||
             router.pathname === '/configurator/resume' ||
             router.pathname === '/login' ||
