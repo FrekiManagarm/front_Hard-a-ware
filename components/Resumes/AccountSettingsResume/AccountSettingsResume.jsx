@@ -1,7 +1,7 @@
 import { Paper, Title } from '@mantine/core'
 import useAccountSettingsResumeStyles from './AccountSettingsResume.style'
 
-const AccountSettingsResume = ({ height, radius }) => {
+const AccountSettingsResume = ({ height, radius, width }) => {
 
   const { classes } = useAccountSettingsResumeStyles();
 
@@ -11,6 +11,7 @@ const AccountSettingsResume = ({ height, radius }) => {
       className={classes.wrapper}
       sx={{
         height: height,
+        width: width
       }}
     >
         <Title>Mes infos personnelles</Title>

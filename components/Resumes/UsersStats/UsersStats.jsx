@@ -1,7 +1,7 @@
 import { Paper, Title } from '@mantine/core'
 import useUsersStats from './UsersStats.style'
 
-const UsersStats = ({ height, radius }) => {
+const UsersStats = ({ height, radius, width }) => {
 
     const {classes} = useUsersStats();
 
@@ -11,6 +11,7 @@ const UsersStats = ({ height, radius }) => {
         className={classes.wrapper}
         sx={{
             height: height,
+            width: width
         }}
     >
         <Title>UsersStats</Title>
