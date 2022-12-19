@@ -45,12 +45,6 @@ const ConfigurationProvider = ({ children }) => {
 
     const pushToDraft = async (type) => {
 
-        const data = {
-            use: config.use,
-            draft: config.draft,
-
-        }
-
         const responseAPI = await PatchAPIData(`/api/config/${configId}`, componentType(type, config, activeStep)).then((response) => {
             console.log(response, 'response update draft')
             setConfigId(response.id)
@@ -62,7 +56,11 @@ const ConfigurationProvider = ({ children }) => {
 
     const draftToConfig = async () => {
 
-        const confirmConfigRequest = await PatchAPIData(`/api/config/${configId}`, config).then((response) => {
+        const data = {
+            draft: 0
+        }
+
+        const confirmConfigRequest = await PatchAPIData(`/api/config/${configId}`, data).then((response) => {
             console.log(response, "response update draft to config")
             router.push(`/configurator/resume?configId=${configId}`)
         })

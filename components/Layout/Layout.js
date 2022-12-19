@@ -13,8 +13,7 @@ const LayoutWrapper = ({ children, user, isLoggedIn }) => {
         {
             router.pathname === '/' ||
             router.pathname === '/configurator' ||
-            router.pathname === '/configurator/[[...tab]]' ||
-            router.pathname === '/components/[[...tab]]' ||
+            router.pathname === '/configurator/resume' ||
             router.pathname === '/login' ||
             router.pathname === '/registration' ? (
                 <>
@@ -22,7 +21,6 @@ const LayoutWrapper = ({ children, user, isLoggedIn }) => {
                     <Content>{children}</Content>
                     {
                         router.pathname === '/' ||
-                        // router.pathname === '/dashboard' ||
                         router.pathname === '/components/[[...tab]]'
                         
                     ? (<Footer />)
