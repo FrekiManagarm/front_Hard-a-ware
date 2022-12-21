@@ -16,36 +16,20 @@ const links = [
     link: "/components"
   },
   {
+    label: "Configurator",
+    link: "/configurator"
+  },
+  {
+    label: "Disclaimer",
+    link: "/disclaimer"
+  },
+  {
     label: "A propos",
     link: "/about"
   },
   {
     label: "Contact",
     link: "/contact"
-  },
-  {
-    label: "Configurator",
-    link: "/configurator"
-  },
-  {
-    label: "",
-    link: ""
-  },
-  {
-    label: "",
-    link: ""
-  },
-  {
-    label: "",
-    link: ""
-  },
-  {
-    label: "",
-    link: ""
-  },
-  {
-    label: "",
-    link: ""
   },
 ];
 
