@@ -16,9 +16,9 @@ const useHeroBannerStyles = createStyles((theme) => ({
   },
 
   notification: {
-    width: "50vw", 
-    textAlign: "center", 
-    marginTop: "3rem", 
+    width: "50vw",
+    textAlign: "center",
+    marginTop: "3rem",
     marginBottom: "2rem",
     fontWeight: "bold",
 

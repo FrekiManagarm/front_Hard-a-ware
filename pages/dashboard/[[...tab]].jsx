@@ -47,6 +47,9 @@ const DashBoard = ({ isLoggedIn, user, pageData }) => {
   return (
     <div className={classes.wrapper}>
       <AppShell
+        sx={{
+          backgroundColor: "orange"
+        }}
         navbar={
           <NavbarDashboard user={user} opened={opened} setOpened={setOpened} />
         }

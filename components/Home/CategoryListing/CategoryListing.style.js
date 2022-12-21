@@ -1,15 +1,9 @@
 import { createStyles } from "@mantine/core";
 
 const useCategoryListingStyles = createStyles((theme) => ({
-    item: {
-        display: "flex",
-
-    },
-
-    wrapper: {
-        display: "flex",
-        flexDirection: "row",
+    image: {
+        
     }
 }))
 
-export default useCategoryListingStyles
+export default useCategoryListingStyles;
