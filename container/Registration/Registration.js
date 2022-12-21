@@ -9,7 +9,7 @@ import {
   Container,
   Group,
   Button
-} from '@mantine/core'
+} from '@mantine/core';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 import useRegistrationStyles from './Registration.style';
@@ -46,29 +46,29 @@ const Registration = () => {
 
           <Paper withBorder shadow="md" p={30} mt={30} radius="md">
             <form>
-              <TextInput name="firstname" label="Prénom" required placeholder='John' onChange={(event) => {
+              <TextInput name="firstname" type="text" label="Prénom" required placeholder='John' onChange={(event) => {
                 event.preventDefault()
                 setCredentials({ ...credentials, firstname: event.target.value })
               }} />
-              <TextInput name="lastname" label="Nom" required placeholder='Doe'
+              <TextInput name="lastname" type="text" label="Nom" required placeholder='Doe'
                 onChange={(event) => {
                   event.preventDefault()
                   setCredentials({ ...credentials, lastname: event.target.value })
                 }} 
               />
-              <TextInput name="email" label="Email" required placeholder='john.doe@appleseed.com' 
+              <TextInput name="email" type="email" label="Email" required placeholder='john.doe@appleseed.com' 
                 onChange={(event) => {
                   event.preventDefault()
                   setCredentials({ ...credentials, email: event.target.value })
                 }}
               />
-              <PasswordInput name="password" label="Mot de passe" required placeholder='johnDoe123' 
+              <PasswordInput name="password" type="password" label="Mot de passe" required placeholder='johnDoe123' 
                 onChange={(event) => {
                   event.preventDefault()
                   setCredentials({ ...credentials, password: event.target.value })
                 }}
               />
-              <PasswordInput name="confirm_password" label="Confirmation du mot de passe" required placeholder='johnDoe123' 
+              <PasswordInput name="confirm_password" type="password" label="Confirmation du mot de passe" required placeholder='johnDoe123' 
                 onChange={(event) => {
                   event.preventDefault()
                   setCredentials({ ...credentials, confirm_password: event.target.value })

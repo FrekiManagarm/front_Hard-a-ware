@@ -7,7 +7,7 @@ import useSSDStepStyles from './SSDStep.style'
 const SSDStep = ({ activeStep, setActiveStep, data }) => {
 
   const { classes } = useSSDStepStyles();
-  const { pushToDraft } = useContext(ConfigurationContext);
+  const { config, pushToDraft } = useContext(ConfigurationContext);
 
   return (
     <div className={classes.wrapper}>
@@ -26,7 +26,7 @@ const SSDStep = ({ activeStep, setActiveStep, data }) => {
         </SimpleGrid>
         <div className={classes.buttonsWrapper}>
           <Button color="red" className={classes.button} onClick={() => setActiveStep(activeStep - 1)}>Etape précédente</Button>
-          <Button color="green" className={classes.button} onClick={() => pushToDraft("ssd_id")}>Etape Suivante</Button>
+          {config.ssd_id !== null ? <Button color="green" className={classes.button} onClick={() => pushToDraft("ssd_id")}>Etape Suivante</Button> : <Button className={classes.button} color="grape" onClick={() => setActiveStep(activeStep + 1)}>Passer à l'étape suivante</Button>}
         </div>
     </div>
   )

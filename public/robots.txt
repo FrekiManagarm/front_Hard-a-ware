@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://hardaware.net
+
+# Sitemaps
+Sitemap: https://hardaware.net/sitemap.xml

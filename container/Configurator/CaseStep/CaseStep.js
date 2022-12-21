@@ -7,7 +7,7 @@ import useCaseStepStyles from "./CaseStep.style"
 const CaseStep = ({ activeStep, setActiveStep, data }) => {
 
   const { classes } = useCaseStepStyles();
-  const { pushToDraft } = useContext(ConfigurationContext);
+  const { config, pushToDraft } = useContext(ConfigurationContext);
 
   return (
     <div className={classes.wrapper}>
@@ -30,7 +30,7 @@ const CaseStep = ({ activeStep, setActiveStep, data }) => {
         </SimpleGrid>
         <div className={classes.buttonsWrapper}>
           <Button color="red" className={classes.button} onClick={() => setActiveStep(activeStep - 1)} >Etape précédente</Button>
-          <Button color="green" className={classes.button} onClick={() => pushToDraft("case_id")}>Etape suivante</Button>
+          { config.case_id !== null ? <Button color="green" className={classes.button} onClick={() => pushToDraft("case_id")}>Etape suivante</Button> : <Button color="grape" className={classes.button} onClick={() => setActiveStep(activeStep + 1)}>Passer cette étape</Button>}
         </div>
       {/* </Transition> */}
     </div>

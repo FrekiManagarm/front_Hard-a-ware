@@ -2,7 +2,11 @@ import { createStyles } from "@mantine/core";
 
 const useHomeDashboardStyles = createStyles((theme) => ({
     wrapper: {
-        margin: "2rem"
+        marginRight: 0
+    },
+
+    grid: {
+        
     }
 }))
 

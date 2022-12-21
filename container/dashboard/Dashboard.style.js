@@ -7,6 +7,9 @@ const useDashboardStyles = createStyles((theme, _params, getRef) => {
     wrapper: {
       display: "flex",
       flexDirection: "row",
+      background: "orange",
+      alignItems: "center",
+      height: "100vh",
     },
 
     header: {
@@ -19,9 +22,7 @@ const useDashboardStyles = createStyles((theme, _params, getRef) => {
       }`,
     },
 
-    linksWrapper: {
-      paddingTop: "5rem"
-    },
+    
 
     footer: {
       paddingTop: theme.spacing.md,
@@ -34,71 +35,17 @@ const useDashboardStyles = createStyles((theme, _params, getRef) => {
     },
 
     navbar: {
-      backgroundColor: "orange",
+      background: "rgba(217, 217, 217, 0.8)",
+      boxShadow: "10px 10px 4px rgba(0, 0, 0, 0.15)",
       borderRadius: "0 1.5rem 1.5rem 0",
+      border: "none",
+      
       
       [theme.fn.largerThan('sm')]: {
         display: "none"
       }
     },
-
-    link: {
-      ...theme.fn.focusStyles(),
-      display: "flex",
-      alignItems: "center",
-      marginTop: "1rem",
-      textDecoration: "none",
-      fontSize: theme.fontSizes.sm,
-      color:
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[1]
-          : theme.white,
-      padding: `${theme.spacing.xs}px ${theme.spacing.sm}px`,
-      borderRadius: theme.radius.lg,
-      fontWeight: 500,
-
-      "&:hover": {
-        backgroundColor:
-          theme.colorScheme === "dark"
-            ? theme.colors.dark[6]
-            : theme.colors.gray[0],
-        color: theme.colorScheme === "dark" ? theme.white : theme.black,
-
-        [`& .${icon}`]: {
-          color: theme.colorScheme === "dark" ? theme.white : theme.black,
-        },
-      },
-    },
-
-    linkIcon: {
-      ref: icon,
-      color:
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[2]
-          : theme.white,
-      marginRight: theme.spacing.sm,
-
-      [theme.fn.smallerThan('sm')]: {
-        marginRight: 0
-      }
-    },
-
-    linkActive: {
-      "&, &:hover": {
-        backgroundColor: theme.fn.variant({
-          variant: "light",
-          color: theme.black,
-        }).background,
-        color: theme.fn.variant({ variant: "light", color: theme.black })
-          .color,
-        [`& .${icon}`]: {
-          color: theme.fn.variant({
-            variant: "light",
-            color: theme.black,
-          }).color,
-        },
-      },
-    },
+    
   };
 });
 

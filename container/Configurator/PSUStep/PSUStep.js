@@ -7,7 +7,7 @@ import usePSUStepStyles from './PSUStep.style'
 const PSUStep = ({ activeStep, setActiveStep, data }) => {
 
   const { classes } = usePSUStepStyles();
-  const { pushToDraft } = useContext(ConfigurationContext);
+  const { config, pushToDraft } = useContext(ConfigurationContext);
 
   return (
     <div className={classes.wrapper}>
@@ -26,7 +26,7 @@ const PSUStep = ({ activeStep, setActiveStep, data }) => {
         </SimpleGrid>
         <div className={classes.buttonsWrapper}>
           <Button color="red" className={classes.button} onClick={() => setActiveStep(activeStep - 1)}>Etape précédente</Button>
-          <Button color="green" className={classes.button} onClick={() => pushToDraft("psu_id")}>Etape Suivante</Button>
+          {config.psu_id !== null ? <Button color="green" className={classes.button} onClick={() => pushToDraft("psu_id")}>Etape Suivante</Button> : <Button color='grape' className={classes.button} onClick={() => setActiveStep(activeStep + 1)}>Passer cette étape</Button>}
         </div>
     </div>
   )

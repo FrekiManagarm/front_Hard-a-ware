@@ -60,6 +60,9 @@ const Login = () => {
             event.preventDefault()
             setCredentials({ ...credentials, password: event.target.value })
           }} />
+          <Group position='apart' mt="md">
+            <Text>{apiErrorMessage ?? ""}</Text>
+          </Group>
           <Group position="apart" mt="md">
             <Checkbox label="Se souvenir de moi" />
             <Anchor component='a' onClick={(event) => event.preventDefault()} href="#" size="sm">

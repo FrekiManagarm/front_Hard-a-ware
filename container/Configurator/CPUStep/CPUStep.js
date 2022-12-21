@@ -7,7 +7,7 @@ import useCPUStepStyles from './CPUStep.style';
 const CPUStep = ({ activeStep, setActiveStep, data }) => {
 
   const { classes, theme } = useCPUStepStyles();
-  const { pushToDraft } = useContext(ConfigurationContext);
+  const { config, pushToDraft } = useContext(ConfigurationContext);
 
   return (
     <div className={classes.wrapper}>
@@ -23,6 +23,7 @@ const CPUStep = ({ activeStep, setActiveStep, data }) => {
             { minWidth: 'md', cols: 3 },
             { maxWidth: "lg", cols: 3 },
             { maxWidth: 1200, cols: 3 },
+            { minWidth: 1200, cols: 4 },
           ]}>
             {data && data?.data.map((cpu) => {
               return (
@@ -41,9 +42,19 @@ const CPUStep = ({ activeStep, setActiveStep, data }) => {
             <Button color="red" className={classes.button} onClick={() => {
               setActiveStep(activeStep - 1)
             }}>Etape précédente</Button>
-            <Button color="green" className={classes.button} onClick={() => {
-              pushToDraft('cpu_id')
-            }}>Etape suivante</Button>
+            {config.cpu_id !== null ? 
+              <Button color="green" className={classes.button} onClick={() => {
+                pushToDraft('cpu_id')
+              }}>
+                Etape suivante
+              </Button> 
+            : 
+              <Button color="grape" className={classes.button} onClick={() => {
+                setActiveStep(activeStep + 1)
+              }} >
+                Passer cette étape
+              </Button>
+            }
           </div>
         {/* </Transition> */}
     </div>

@@ -8,7 +8,7 @@ const MyConfigs = () => {
 
   return (
     <div className={classes.wrapper}>
-        <h2>Mes Configurations</h2>
+        <h2></h2>
     </div>
   )
 }
