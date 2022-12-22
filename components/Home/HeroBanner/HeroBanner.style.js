@@ -5,6 +5,8 @@ const useHeroBannerStyles = createStyles((theme) => ({
     // borderRadius: "1rem",
     position: "relative",
     // margin: "0.5rem",
+    margin: theme.spacing.xs,
+    borderRadius: theme.spacing.xl,
     backgroundImage:
       "url(https://i.imgur.com/9bNON4B.jpg)",
     backgroundSize: "cover",
@@ -28,7 +30,7 @@ const useHeroBannerStyles = createStyles((theme) => ({
   },
 
   container: {
-    height: "100vh",
+    height: "78vh",
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-end",

@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import React, { useRef } from 'react'
-import { Rerousel } from 'rerousel'
 import { Carousel } from '@mantine/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import useCategoryListingStyles from './CategoryListing.style';
