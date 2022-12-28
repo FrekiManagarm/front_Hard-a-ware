@@ -17,6 +17,65 @@ const useHeroBannerStyles = createStyles((theme) => ({
     },
   },
 
+  card: {
+    margin: theme.spacing.xs,
+    position: "relative",
+    height: "78vh",
+    background: "lightgrey",
+    boxShadow: "#d11bff42 0 15px 40px -5px",
+    zIndex: "1",
+    borderRadius: theme.spacing.xl,
+    overflow: "hidden",
+
+    [theme.fn.smallerThan("sm")]: {
+      height: "100vh"
+    },
+  },
+
+  card_content: {
+    background: "linear-gradient(rgba(255, 255, 255, 0.473), rgba(150, 150, 150, 0.25))",
+    zIndex: "1",
+    backdropFilter: "blur(20px)",
+    position: "absolute",
+    left: 0,
+    top: 0,
+    width: "100%",
+    height: "100%",
+    borderRadius: theme.spacing.xl
+  },
+
+  blob: {
+    position: "absolute",
+    zIndex: "-1",
+    borderRadius: "100rem",
+    width: "100rem",
+    height: "100rem"
+  },
+
+  blob1: {
+    left: "-150px",
+    top: "-90px",
+    background: "#ff930f"
+  },
+
+  blob2: {
+    left: "200px",
+    top: "-20px",
+    background: "#bf0fff"
+  },
+
+  blob3: {
+    left: "-4rem",
+    top: "100px",
+    background: "#ff1b6b"
+  },
+
+  blob4: {
+    left: "50rem",
+    top: "210px",
+    background: "#0061ff"
+  },
+
   notification: {
     width: "50vw",
     textAlign: "center",
