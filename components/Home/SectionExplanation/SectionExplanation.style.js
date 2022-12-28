@@ -7,7 +7,7 @@ const useSectionExplanationStyles = createStyles((theme) => ({
         display: "flex",
         justifyContent: "space-around",
         alignItems: "center",
-        margin: "3rem 12rem",
+        margin: "1rem 12rem",
         borderRadius: "1rem",
     },
 
