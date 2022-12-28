@@ -36,7 +36,6 @@ export const getUserByToken = async (token) => {
   if (response) {
       return await response[0].data.user;
   }
-
 }
 
 export async function withData(context) {
