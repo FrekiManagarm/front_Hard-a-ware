@@ -1,5 +1,5 @@
 import CategoryListing from "../components/Home/CategoryListing/CategoryListing";
-import HeroBanner from "../components/Home/HeroBanner/HeroBanner";
+import HeroBanner from "../components/Home/HomeBanner/HomeBanner";
 import SectionExplanation from "../components/Home/SectionExplanation/SectionExplanation";
 import project from '../public/lotties/project-config.json'
 import dashboard from '../public/lotties/animation-about-seo-dashboard.json'
