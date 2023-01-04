@@ -1,4 +1,4 @@
-import { Button, SimpleGrid, Transition } from '@mantine/core';
+import { Button, SimpleGrid } from '@mantine/core';
 import { useContext } from 'react';
 import ProductCard from '../../../components/ProductCard/ProductCard';
 import { ConfigurationContext } from '../../../context/ConfigurationProvider';
