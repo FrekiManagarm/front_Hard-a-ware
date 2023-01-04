@@ -26,7 +26,7 @@ const ConfigurationProvider = ({ children }) => {
     const [config, setConfig] = useState(initialConfiguration);
     const [configId, setConfigId] = useState(null);
 
-    console.log(config, "config state");
+    // console.log(config, "config state");
 
     const createDraftConfig = async () => {
         const data = {
